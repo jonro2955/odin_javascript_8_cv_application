@@ -1,0 +1,67 @@
+#App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border: 1px black solid;
+  gap: 1em;
+}
+#Header {
+  background-color: aqua;
+  border: 1px black solid;
+  width: 100%;
+}
+
+#Main {
+  border: 1px black solid;
+  width: 100%;
+}
+
+#Footer {
+  background-color: coral;
+  border: 1px black solid;
+  width: 100%;
+}
+
+#Resume {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 200px auto;
+  width: 1000px;
+}
+#left-column {
+  border: 1px blueviolet solid;
+}
+#right-column {
+  border: 1px brown solid;
+}
+#Print {
+  width: 100%;
+}
+#printBtn {
+  width: 100%;
+  padding: 10px 0px;
+  background-color: yellow;
+  border-radius: 10px;
+}
+#Photo {
+  height: 250px;
+  width: 250px;
+  display:block;
+  position: static;
+  /* justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center; */
+  color: #000000;
+  border: 1px black solid;
+  /* justify-content: center; */
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  position: relative;
+  /* top: -40px; */
+  z-index: 1;
+  /* background-color: yellow; */
+}

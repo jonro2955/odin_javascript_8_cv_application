@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import '../index.css';
 
-class Header extends Component {
+class Photo extends Component {
   // constructor(props) {
   //   super(props);
   // }
 
   render() {
     return (
-      <div className='Header'>
-        <h1>header: CV App </h1>
+      <div id='Photo'>
+        <p id='photoLabel'>Photo</p>
       </div>
     );
   }
 }
 
-export default Header;
+export default Photo;

@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-class Main extends Component {
+class ContactInfo extends Component {
   // constructor(props) {
   //   super(props);
   // }
 
   render() {
     return (
-      <div className='Main'>
-        <p>Main Content</p>
+      <div id='ContactInfo'>
+        <p>ContactInfo</p>
       </div>
     );
   }
 }
 
-export default Main;
+export default ContactInfo;
