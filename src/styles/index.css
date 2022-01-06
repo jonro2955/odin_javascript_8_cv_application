@@ -65,3 +65,11 @@
   z-index: 1;
   /* background-color: yellow; */
 }
+
+#Photo:hover {
+  background-color: bisque;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
