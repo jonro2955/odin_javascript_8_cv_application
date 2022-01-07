@@ -31,10 +31,11 @@
   width: 1000px;
 }
 #left-column {
-  border: 1px blueviolet solid;
+  background-color: cadetblue;
+  padding-top: 15%;
 }
 #right-column {
-  border: 1px brown solid;
+  background-color: bisque;
 }
 #Print {
   width: 100%;
@@ -48,28 +49,17 @@
 #Photo {
   height: 250px;
   width: 250px;
-  display:block;
-  position: static;
-  /* justify-content: center;
-  flex-direction: column;
   text-align: center;
-  align-items: center; */
+  font-size: 30px;
+  display: block;
+  position: relative;
+  left: 15%;
   color: #000000;
-  border: 1px black solid;
-  /* justify-content: center; */
   background-size: cover;
   background-position: center;
   border-radius: 50%;
   position: relative;
-  /* top: -40px; */
   z-index: 1;
-  /* background-color: yellow; */
+  text-transform: uppercase;
 }
 
-#Photo:hover {
-  background-color: bisque;
-  font-size: 30px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-}

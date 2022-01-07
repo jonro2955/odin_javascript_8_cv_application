@@ -6,36 +6,53 @@ class Photo extends Component {
     this.state = {
       editPhoto: false,
       photoURL:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU',
+        'https://moderndogmagazine.com/sites/default/files/images/articles/top_images/husky2.jpg',
+      //https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg
     };
   }
 
-  handlePhotoChange = (e) => {
-    this.setState({
-      photoURL: e.target.value,
-    });
-  };
-
-  toggleEditPhoto = () => {
+  togglePhotoEditor = (e) => {
+    e.preventDefault();
     this.setState((prevState) => ({
       editPhoto: !prevState.editPhoto,
     }));
   };
 
+  changePhoto = (e) => {
+    e.preventDefault();
+    this.togglePhotoEditor();
+    this.setState({
+      //'photoURLInput' is the id of the <input> field inside the photo editor form
+      photoURL: document.getElementById('photoURLInput').value,
+    });
+  };
+
   render() {
     const { editPhoto, photoURL } = this.state;
+    const photoStyle = {
+      backgroundImage: 'url(' + photoURL + ')',
+    };
+
     return (
-      <div id='Photo' onClick={this.toggleEditPhoto}>
-        <p id='photoLabel'>Photo</p>
+      <div id='Photo' onClick={this.togglePhotoEditor} style={photoStyle}>
+        <p id='photoLabel'>
+          Click <br></br> to Edit <br></br> Photo
+        </p>
+
         {editPhoto && (
           <form
             id='photoEditForm'
-            className='photo-edit-form'
-            onClick={this.toggleEditPhoto}
+            onClick={this.togglePhotoEditor}
+            onSubmit={this.changePhoto}
           >
             <label htmlFor='photoEditForm'>Photo URL</label>
-            <input id='photoURLInput' type='text' onChange={this.handlePhotoChange} />
-            <button type='submit'>Submit</button>
+            <input id='photoURLInput' type='text' />
+            <button id='photoEditorSubmitBtn' type='submit'>
+              Submit
+            </button>
+            <button id='photoEditorCloseBtn' onClick={this.togglePhotoEditor}>
+              Close
+            </button>
           </form>
         )}
       </div>
