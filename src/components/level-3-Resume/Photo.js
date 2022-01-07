@@ -4,7 +4,7 @@ class Photo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editPhoto: false,
+      editorToggle: false,
       photoURL:
         'https://moderndogmagazine.com/sites/default/files/images/articles/top_images/husky2.jpg',
       //https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg
@@ -14,7 +14,7 @@ class Photo extends Component {
   togglePhotoEditor = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
-      editPhoto: !prevState.editPhoto,
+      editorToggle: !prevState.editorToggle,
     }));
   };
 
@@ -28,7 +28,7 @@ class Photo extends Component {
   };
 
   render() {
-    const { editPhoto, photoURL } = this.state;
+    const { editorToggle, photoURL } = this.state;
     const photoStyle = {
       backgroundImage: 'url(' + photoURL + ')',
     };
@@ -39,7 +39,7 @@ class Photo extends Component {
           Click <br></br> to Edit <br></br> Photo
         </p>
 
-        {editPhoto && (
+        {editorToggle && (
           <form
             id='photoEditForm'
             onClick={this.togglePhotoEditor}
