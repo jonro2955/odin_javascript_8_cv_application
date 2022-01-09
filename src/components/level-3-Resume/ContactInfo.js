@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 class ContactInfo extends Component {
   constructor(props) {
     super(props);
+    this.changeContact = this.changeContact.bind(this);
+    this.toggleContactEditor = this.toggleContactEditor.bind(this);
+
     this.state = {
-      address: '',
-      phone: '',
-      email: '',
-      website: '',
-      linkedin: '',
+      address: '123 Town Street, City, State, ZIP',
+      phone: '555-555-5555',
+      email: 'info@website.com',
+      website: 'website.com',
+      linkedin: 'user-name',
       editorToggle: false,
     };
   }
@@ -20,9 +23,9 @@ class ContactInfo extends Component {
     }));
   };
 
-  changeContact = (e) => {
-    e.preventDefault();
-    this.togglePhotoEditor();
+  changeContact(e) {
+    // e.preventDefault();
+    this.toggleContactEditor();
     this.setState({
       address: document.getElementById('addressInput').value,
       phone: document.getElementById('phoneInput').value,
@@ -30,54 +33,61 @@ class ContactInfo extends Component {
       website: document.getElementById('websiteInput').value,
       linkedin: document.getElementById('linkedinInput').value,
     });
-  };
+    console.log(document.getElementById('addressInput').value);
+  }
 
   render() {
-    const { editorToggle } = this.state;
+    const { address, phone, email, website, linkedin, editorToggle } =
+      this.state;
 
     return (
       <div id='ContactInfo' onClick={this.toggleContactEditor}>
-        <p>ContactInfo</p>
+        <div className='left-column-headings'>ContactInfo</div>
+        <div className='address'>
+          <div className='contact-info-field-labels'>Address</div>
+          <p>{address}</p>
+        </div>
+        <div className='phone'>
+          <div className='contact-info-field-labels'>Phone</div>
+          <p>{phone}</p>
+        </div>
+        <div className='email'>
+          <div className='contact-info-field-labels'>Email</div>
+          <p>{email}</p>
+        </div>
+        <div className='website'>
+          <div className='contact-info-field-labels'>Website</div>
+          <p>{website}</p>
+        </div>
+        <div className='linkedin'>
+          <div className='contact-info-field-labels'>Linkedin</div>
+          <p>{linkedin}</p>
+        </div>
 
         {editorToggle && (
           <form
             id='contactEditForm'
             onClick={this.toggleContactEditor}
             onSubmit={this.changeContact}
+            action='#'
           >
+            <div>Edit Contact Info</div>
             <label htmlFor='addressInput'>Address</label>
-            <input
-              id='addressInput'
-              type='text'
-              placeholder='123 Address St'
-              onChange={this.handleAddress1Change}
-            />
+            <input id='addressInput' type='text' />
             <label htmlFor='phoneInput'>Phone</label>
-            <input
-              id='phoneInput'
-              type='text'
-              onChange={this.handlePhoneChange}
-            />
+            <input id='phoneInput' type='text' />
             <label htmlFor='emailInput'>Email</label>
-            <input
-              id='emailInput'
-              type='text'
-              onChange={this.handleEmailChange}
-            />
+            <input id='emailInput' type='text' />
             <label htmlFor='websiteInput'>Website</label>
-            <input
-              id='websiteInput'
-              type='text'
-              onChange={this.handleWebsiteChange}
-            />
+            <input id='websiteInput' type='text' />
             <label htmlFor='linkedinInput'>LinkedIn Username</label>
-            <input
-              id='linkedinInput'
-              type='text'
-              onChange={this.handleLinkedinChange}
-            />
-            <button id='contactEditorSubmitBtn' type='submit'>
-              Submit
+            <input id='linkedinInput' type='text' />
+            <button type='submit'>Enter</button>
+            <button
+              id='contactEditorCloseBtn'
+              onClick={this.toggleContactEditor}
+            >
+              Close
             </button>
           </form>
         )}

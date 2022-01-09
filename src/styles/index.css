@@ -25,10 +25,10 @@
 }
 
 #Resume {
-  width: 100%;
   display: grid;
   grid-template-columns: 200px auto;
   width: 1000px;
+  height: 1300px;
 }
 #left-column {
   background-color: cadetblue;
@@ -62,4 +62,24 @@
   z-index: 1;
   text-transform: uppercase;
 }
-
+#ContactInfo {
+  background-color: aqua;
+}
+#Skills {
+  background-color: bisque;
+}
+#contactEditForm {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.left-column-headings {
+  font-size: 25px;
+  font-weight: bold;
+}
+.contact-info-field-labels {
+  font-weight: bold;
+}

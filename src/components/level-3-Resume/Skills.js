@@ -9,7 +9,7 @@ class Skills extends Component {
   render() {
     return (
       <div id='Skills'>
-        <p>Skills</p>
+        <div className='left-column-headings'>Skills</div>
       </div>
     );
   }

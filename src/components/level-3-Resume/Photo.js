@@ -21,8 +21,11 @@ class Photo extends Component {
   changePhoto = (e) => {
     e.preventDefault();
     this.togglePhotoEditor();
+    const newURL = document.getElementById('photoURLInput').value;
+    if (newURL) {
+      console.log('hey')
+    }
     this.setState({
-      //'photoURLInput' is the id of the <input> field inside the photo editor form
       photoURL: document.getElementById('photoURLInput').value,
     });
   };
