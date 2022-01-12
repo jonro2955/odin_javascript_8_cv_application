@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 class ContactInfo extends Component {
   constructor(props) {
     super(props);
-    this.changeContact = this.changeContact.bind(this);
+    // this.changeContact = this.changeContact.bind(this);
+    // this.toggleContactEditor = this.toggleContactEditor.bind(this);
     this.toggleContactEditor = this.toggleContactEditor.bind(this);
-
+    this.changeContact = this.changeContact.bind(this);
     this.state = {
       address: '123 Town Street, City, State, ZIP',
       phone: '555-555-5555',
@@ -16,16 +17,17 @@ class ContactInfo extends Component {
     };
   }
 
-  toggleContactEditor = (e) => {
+  toggleContactEditor() {
+    this.setState((prevState) => ({
+      editorToggle: !prevState.editorToggle,
+    }));
+  }
+
+  changeContact(e) {
     e.preventDefault();
     this.setState((prevState) => ({
       editorToggle: !prevState.editorToggle,
     }));
-  };
-
-  changeContact(e) {
-    // e.preventDefault();
-    this.toggleContactEditor();
     this.setState({
       address: document.getElementById('addressInput').value,
       phone: document.getElementById('phoneInput').value,
@@ -33,7 +35,7 @@ class ContactInfo extends Component {
       website: document.getElementById('websiteInput').value,
       linkedin: document.getElementById('linkedinInput').value,
     });
-    console.log(document.getElementById('addressInput').value);
+    console.log('?');
   }
 
   render() {
@@ -41,7 +43,7 @@ class ContactInfo extends Component {
       this.state;
 
     return (
-      <div id='ContactInfo' onClick={this.toggleContactEditor}>
+      <div id='ContactInfo'>
         <div className='left-column-headings'>ContactInfo</div>
         <div className='address'>
           <div className='contact-info-field-labels'>Address</div>
@@ -63,14 +65,10 @@ class ContactInfo extends Component {
           <div className='contact-info-field-labels'>Linkedin</div>
           <p>{linkedin}</p>
         </div>
+        <button onClick={this.toggleContactEditor}>Edit</button>
 
         {editorToggle && (
-          <form
-            id='contactEditForm'
-            onClick={this.toggleContactEditor}
-            onSubmit={this.changeContact}
-            action='#'
-          >
+          <form id='contactEditForm' onSubmit={this.changeContact}>
             <div>Edit Contact Info</div>
             <label htmlFor='addressInput'>Address</label>
             <input id='addressInput' type='text' />
@@ -82,12 +80,11 @@ class ContactInfo extends Component {
             <input id='websiteInput' type='text' />
             <label htmlFor='linkedinInput'>LinkedIn Username</label>
             <input id='linkedinInput' type='text' />
-            <button type='submit'>Enter</button>
-            <button
-              id='contactEditorCloseBtn'
-              onClick={this.toggleContactEditor}
-            >
-              Close
+            <button type='submit' form='contactEditForm'>
+              Enter
+            </button>
+            <button type='button' onClick={this.toggleContactEditor}>
+              Cancel
             </button>
           </form>
         )}
