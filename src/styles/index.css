@@ -49,6 +49,8 @@
 #Photo {
   height: 250px;
   width: 250px;
+    border-radius: 50%;
+border:black 1px solid;
   text-align: center;
   font-size: 30px;
   display: block;
@@ -57,10 +59,22 @@
   color: #000000;
   background-size: cover;
   background-position: center;
-  border-radius: 50%;
+  background-color: white;
   position: relative;
   z-index: 1;
   text-transform: uppercase;
+}
+#photoEditBtn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#photoEditForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #ContactInfo {
   background-color: aqua;
@@ -82,4 +96,12 @@
 }
 .contact-info-field-labels {
   font-weight: bold;
+}
+#contactInfoHeading {
+  position: relative;
+}
+#contactInfoEditBtn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class Photo extends Component {
   constructor(props) {
     super(props);
+    this.togglePhotoEditor = this.togglePhotoEditor.bind(this);
+    this.changePhoto = this.changePhoto.bind(this);
     this.state = {
       editorToggle: false,
       photoURL:
@@ -13,49 +15,58 @@ class Photo extends Component {
 
   togglePhotoEditor = (e) => {
     e.preventDefault();
+
     this.setState((prevState) => ({
       editorToggle: !prevState.editorToggle,
     }));
   };
 
+  onChange = (e) => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   changePhoto = (e) => {
     e.preventDefault();
-    this.togglePhotoEditor();
-    const newURL = document.getElementById('photoURLInput').value;
-    if (newURL) {
-      console.log('hey')
+    const newURLValue = document.getElementById('photoURLInput').value;
+    if (newURLValue) {
+      this.setState({
+        photoURL: newURLValue,
+      });
     }
-    this.setState({
-      photoURL: document.getElementById('photoURLInput').value,
-    });
+    this.setState((prevState) => ({
+      editorToggle: !prevState.editorToggle,
+    }));
   };
 
   render() {
-    const { editorToggle, photoURL } = this.state;
     const photoStyle = {
-      backgroundImage: 'url(' + photoURL + ')',
+      backgroundImage: 'url(' + this.state.photoURL + ')',
     };
 
     return (
-      <div id='Photo' onClick={this.togglePhotoEditor} style={photoStyle}>
-        <p id='photoLabel'>
-          Click <br></br> to Edit <br></br> Photo
-        </p>
+      <div id='Photo' style={photoStyle}>
+        <button id='photoEditBtn' onClick={this.togglePhotoEditor}>
+          Change Photo
+        </button>
 
-        {editorToggle && (
-          <form
-            id='photoEditForm'
-            onClick={this.togglePhotoEditor}
-            onSubmit={this.changePhoto}
-          >
-            <label htmlFor='photoEditForm'>Photo URL</label>
-            <input id='photoURLInput' type='text' />
-            <button id='photoEditorSubmitBtn' type='submit'>
-              Submit
-            </button>
-            <button id='photoEditorCloseBtn' onClick={this.togglePhotoEditor}>
-              Close
-            </button>
+        {this.state.editorToggle && (
+          <form id='photoEditForm' onSubmit={this.togglePhotoEditor}>
+            <label htmlFor='photoEditForm'>New Photo URL</label>
+            <input
+              id='photoURLInput'
+              name='photoURL'
+              type='text'
+              htmlFor='photoEditForm'
+              value={this.state.photoURL}
+              onChange={this.onChange}
+              autoFocus
+            />
+            <input
+              type='submit'
+              value='Done'
+              style={{ fontWeight: 'bold', backgroundColor: 'orange' }}
+            />
           </form>
         )}
       </div>

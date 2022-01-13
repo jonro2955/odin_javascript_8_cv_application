@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 class ContactInfo extends Component {
   constructor(props) {
     super(props);
-    // this.changeContact = this.changeContact.bind(this);
-    // this.toggleContactEditor = this.toggleContactEditor.bind(this);
     this.toggleContactEditor = this.toggleContactEditor.bind(this);
     this.changeContact = this.changeContact.bind(this);
     this.state = {
@@ -17,75 +15,125 @@ class ContactInfo extends Component {
     };
   }
 
-  toggleContactEditor() {
-    this.setState((prevState) => ({
-      editorToggle: !prevState.editorToggle,
-    }));
-  }
-
-  changeContact(e) {
+  toggleContactEditor = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
       editorToggle: !prevState.editorToggle,
     }));
-    this.setState({
-      address: document.getElementById('addressInput').value,
-      phone: document.getElementById('phoneInput').value,
-      email: document.getElementById('emailInput').value,
-      website: document.getElementById('websiteInput').value,
-      linkedin: document.getElementById('linkedinInput').value,
-    });
-    console.log('?');
-  }
+  };
+
+  onChange = (e) => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  changeContact = (e) => {
+    e.preventDefault();
+    const addressInput = document.getElementById('addressInput').value;
+    const phoneInput = document.getElementById('phoneInput').value;
+    const emailInput = document.getElementById('emailInput').value;
+    const websiteInput = document.getElementById('websiteInput').value;
+    const linkedinInput = document.getElementById('linkedinInput').value;
+    if (
+      addressInput ||
+      phoneInput ||
+      emailInput ||
+      websiteInput ||
+      linkedinInput
+    ) {
+      this.setState({
+        address: document.getElementById('addressInput').value,
+        phone: document.getElementById('phoneInput').value,
+        email: document.getElementById('emailInput').value,
+        website: document.getElementById('websiteInput').value,
+        linkedin: document.getElementById('linkedinInput').value,
+      });
+    }
+    this.setState((prevState) => ({
+      editorToggle: !prevState.editorToggle,
+    }));
+  };
 
   render() {
-    const { address, phone, email, website, linkedin, editorToggle } =
-      this.state;
-
     return (
       <div id='ContactInfo'>
-        <div className='left-column-headings'>ContactInfo</div>
+        <div id='contactInfoHeading'>
+          <div className='left-column-headings'>ContactInfo</div>
+          <button id='contactInfoEditBtn' onClick={this.toggleContactEditor}>
+            Edit
+          </button>
+        </div>
         <div className='address'>
           <div className='contact-info-field-labels'>Address</div>
-          <p>{address}</p>
+          <p>{this.state.address}</p>
         </div>
         <div className='phone'>
           <div className='contact-info-field-labels'>Phone</div>
-          <p>{phone}</p>
+          <p>{this.state.phone}</p>
         </div>
         <div className='email'>
           <div className='contact-info-field-labels'>Email</div>
-          <p>{email}</p>
+          <p>{this.state.email}</p>
         </div>
         <div className='website'>
           <div className='contact-info-field-labels'>Website</div>
-          <p>{website}</p>
+          <p>{this.state.website}</p>
         </div>
         <div className='linkedin'>
           <div className='contact-info-field-labels'>Linkedin</div>
-          <p>{linkedin}</p>
+          <p>{this.state.linkedin}</p>
         </div>
-        <button onClick={this.toggleContactEditor}>Edit</button>
 
-        {editorToggle && (
-          <form id='contactEditForm' onSubmit={this.changeContact}>
+        {this.state.editorToggle && (
+          <form id='contactEditForm' onSubmit={this.toggleContactEditor}>
             <div>Edit Contact Info</div>
             <label htmlFor='addressInput'>Address</label>
-            <input id='addressInput' type='text' />
+            <input
+              id='addressInput'
+              type='text'
+              htmlFor='photoEditForm'
+              name='address'
+              value={this.state.address}
+              onChange={this.onChange}
+              autoFocus
+            />
             <label htmlFor='phoneInput'>Phone</label>
-            <input id='phoneInput' type='text' />
+            <input
+              id='phoneInput'
+              type='text'
+              name='phone'
+              onChange={this.onChange}
+              value={this.state.phone}
+            />
             <label htmlFor='emailInput'>Email</label>
-            <input id='emailInput' type='text' />
+            <input
+              id='emailInput'
+              type='text'
+              name='email'
+              onChange={this.onChange}
+              value={this.state.email}
+            />
             <label htmlFor='websiteInput'>Website</label>
-            <input id='websiteInput' type='text' />
+            <input
+              id='websiteInput'
+              type='text'
+              name='website'
+              onChange={this.onChange}
+              value={this.state.website}
+            />
             <label htmlFor='linkedinInput'>LinkedIn Username</label>
-            <input id='linkedinInput' type='text' />
-            <button type='submit' form='contactEditForm'>
-              Enter
-            </button>
-            <button type='button' onClick={this.toggleContactEditor}>
-              Cancel
-            </button>
+            <input
+              id='linkedinInput'
+              type='text'
+              name='linkedin'
+              onChange={this.onChange}
+              value={this.state.linkedin}
+            />
+            <input
+              type='submit'
+              value='Done'
+              style={{ fontWeight: 'bold', backgroundColor: 'orange' }}
+            />
           </form>
         )}
       </div>
