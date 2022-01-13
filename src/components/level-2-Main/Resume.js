@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Photo from '../level-3-Resume/Photo';
-import ContactInfo from '../level-3-Resume/ContactInfo';
+import Contact from '../level-3-Resume/Contact';
 import Skills from '../level-3-Resume/Skills';
 import Name from '../level-3-Resume/Name';
 import Title from '../level-3-Resume/Title';
@@ -18,7 +18,7 @@ class Resume extends Component {
       <div id='Resume'>
         <div id='left-column'>
           <Photo />
-          <ContactInfo />
+          <Contact />
           <Skills />
         </div>
         <div id='right-column'>

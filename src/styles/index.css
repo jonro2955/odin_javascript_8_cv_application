@@ -12,18 +12,15 @@
   border: 1px black solid;
   width: 100%;
 }
-
 #Main {
   border: 1px black solid;
   width: 100%;
 }
-
 #Footer {
   background-color: coral;
   border: 1px black solid;
   width: 100%;
 }
-
 #Resume {
   display: grid;
   grid-template-columns: 200px auto;
@@ -49,19 +46,14 @@
 #Photo {
   height: 250px;
   width: 250px;
-    border-radius: 50%;
-border:black 1px solid;
-  text-align: center;
+  border-radius: 50%;
+  border: black 1px solid;
   font-size: 30px;
-  display: block;
-  position: relative;
   left: 15%;
-  color: #000000;
   background-size: cover;
   background-position: center;
   background-color: white;
   position: relative;
-  z-index: 1;
   text-transform: uppercase;
 }
 #photoEditBtn {
@@ -70,38 +62,47 @@ border:black 1px solid;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#photoEditForm {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-#ContactInfo {
+#Contact {
   background-color: aqua;
+  border: black 1px solid;
 }
 #Skills {
   background-color: bisque;
+  border: black 1px solid;
 }
-#contactEditForm {
+#contactEditBtn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#skillsEditBtn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.editBtn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.componentEditForm {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
 }
-.left-column-headings {
+.doneBtn {
+  margin-top: 15px;
+}
+.leftColumnHeading {
+  position: relative;
   font-size: 25px;
   font-weight: bold;
 }
 .contact-info-field-labels {
   font-weight: bold;
-}
-#contactInfoHeading {
-  position: relative;
-}
-#contactInfoEditBtn {
-  position: absolute;
-  right: 0px;
-  top: 0px;
 }

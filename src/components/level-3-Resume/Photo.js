@@ -4,7 +4,6 @@ class Photo extends Component {
   constructor(props) {
     super(props);
     this.togglePhotoEditor = this.togglePhotoEditor.bind(this);
-    this.changePhoto = this.changePhoto.bind(this);
     this.state = {
       editorToggle: false,
       photoURL:
@@ -15,7 +14,6 @@ class Photo extends Component {
 
   togglePhotoEditor = (e) => {
     e.preventDefault();
-
     this.setState((prevState) => ({
       editorToggle: !prevState.editorToggle,
     }));
@@ -26,19 +24,6 @@ class Photo extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  changePhoto = (e) => {
-    e.preventDefault();
-    const newURLValue = document.getElementById('photoURLInput').value;
-    if (newURLValue) {
-      this.setState({
-        photoURL: newURLValue,
-      });
-    }
-    this.setState((prevState) => ({
-      editorToggle: !prevState.editorToggle,
-    }));
-  };
-
   render() {
     const photoStyle = {
       backgroundImage: 'url(' + this.state.photoURL + ')',
@@ -46,12 +31,12 @@ class Photo extends Component {
 
     return (
       <div id='Photo' style={photoStyle}>
-        <button id='photoEditBtn' onClick={this.togglePhotoEditor}>
+        <button class='photoEditBtn' onClick={this.togglePhotoEditor}>
           Change Photo
         </button>
 
         {this.state.editorToggle && (
-          <form id='photoEditForm' onSubmit={this.togglePhotoEditor}>
+          <form id='photoEditForm' class='componentEditForm' onSubmit={this.togglePhotoEditor}>
             <label htmlFor='photoEditForm'>New Photo URL</label>
             <input
               id='photoURLInput'
@@ -65,6 +50,7 @@ class Photo extends Component {
             <input
               type='submit'
               value='Done'
+              class='doneBtn'
               style={{ fontWeight: 'bold', backgroundColor: 'orange' }}
             />
           </form>
