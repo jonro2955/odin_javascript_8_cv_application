@@ -31,12 +31,12 @@ class Photo extends Component {
 
     return (
       <div id='Photo' style={photoStyle}>
-        <button class='photoEditBtn' onClick={this.togglePhotoEditor}>
+        <button onClick={this.togglePhotoEditor}>
           Change Photo
         </button>
 
         {this.state.editorToggle && (
-          <form id='photoEditForm' class='componentEditForm' onSubmit={this.togglePhotoEditor}>
+          <form id='photoEditForm' className='componentEditForm' onSubmit={this.togglePhotoEditor}>
             <label htmlFor='photoEditForm'>New Photo URL</label>
             <input
               id='photoURLInput'
@@ -50,7 +50,7 @@ class Photo extends Component {
             <input
               type='submit'
               value='Done'
-              class='doneBtn'
+              className='doneBtn'
               style={{ fontWeight: 'bold', backgroundColor: 'orange' }}
             />
           </form>

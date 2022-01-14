@@ -82,9 +82,8 @@
 }
 .editBtn {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 0px;
+  top: 0px;
 }
 .componentEditForm {
   display: flex;

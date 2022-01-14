@@ -13,7 +13,7 @@ class Skills extends Component {
       skill5: 'Team Management',
       skill6: 'Creative Problem Solving',
       skill7: 'Adaptability',
-      skill8: 'Business Sense',
+      skill8: 'Marketing Sense',
     };
   }
 
@@ -34,7 +34,7 @@ class Skills extends Component {
       <div id='Skills'>
         <div className='leftColumnHeading'>
           <div className='left-column-headings'>Skills</div>
-          <button id='skillsEditBtn' onClick={this.toggleSkillsEditor}>
+          <button className='editBtn' onClick={this.toggleSkillsEditor}>
             Edit
           </button>
         </div>
