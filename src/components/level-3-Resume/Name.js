@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Name extends Component {
   constructor(props) {
     super(props);
+    this.toggleEditor = this.toggleEditor.bind(this);
     this.state = {
       name: 'John Webster',
       editorToggle: false,
@@ -24,8 +25,8 @@ class Name extends Component {
   render() {
     return (
       <div id='Name'>
-        <div className='leftColumnHeading'>
-          <div className='left-column-headings'>Name</div>
+        <div className='leftColumnHeader'>
+          <div className='leftColumnHeading'>Name</div>
           <button className='editBtn' onClick={this.toggleEditor}>
             Edit
           </button>
@@ -37,12 +38,13 @@ class Name extends Component {
             className='componentEditForm'
             onSubmit={this.toggleEditor}
           >
-            <label htmlFor='nameEditForm'>Name</label>
+            <label className='inputFieldLabel' htmlFor='nameEditForm'>
+              Name
+            </label>
             <input
-              id='nameInput'
               name='name'
               type='text'
-              htmlFor='nameEditForm'
+              id='nameEditForm'
               value={this.state.name}
               onChange={this.onChange}
               autoFocus
@@ -51,7 +53,6 @@ class Name extends Component {
               type='submit'
               value='Done'
               className='doneBtn'
-              style={{ fontWeight: 'bold', backgroundColor: 'orange' }}
             />
           </form>
         )}

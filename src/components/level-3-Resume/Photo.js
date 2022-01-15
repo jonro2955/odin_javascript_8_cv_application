@@ -31,18 +31,19 @@ class Photo extends Component {
 
     return (
       <div id='Photo' style={photoStyle}>
-        <button onClick={this.togglePhotoEditor}>
-          Change Photo
-        </button>
+        <button onClick={this.togglePhotoEditor}>Change Photo</button>
 
         {this.state.editorToggle && (
-          <form id='photoEditForm' className='componentEditForm' onSubmit={this.togglePhotoEditor}>
-            <label htmlFor='photoEditForm'>New Photo URL</label>
+          <form
+            id='photoEditForm'
+            className='componentEditForm'
+            onSubmit={this.togglePhotoEditor}
+          >
+            <label htmlFor='photoURLInput'>New Photo URL</label>
             <input
               id='photoURLInput'
               name='photoURL'
               type='text'
-              htmlFor='photoEditForm'
               value={this.state.photoURL}
               onChange={this.onChange}
               autoFocus
@@ -51,7 +52,6 @@ class Photo extends Component {
               type='submit'
               value='Done'
               className='doneBtn'
-              style={{ fontWeight: 'bold', backgroundColor: 'orange' }}
             />
           </form>
         )}

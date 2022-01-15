@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.toggleContactEditor = this.toggleContactEditor.bind(this);
+    this.toggleEditor = this.toggleEditor.bind(this);
     this.changeContact = this.changeContact.bind(this);
     this.state = {
       editorToggle: false,
@@ -15,7 +15,7 @@ class Contact extends Component {
     };
   }
 
-  toggleContactEditor = (e) => {
+  toggleEditor = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
       editorToggle: !prevState.editorToggle,
@@ -57,51 +57,54 @@ class Contact extends Component {
   render() {
     return (
       <div id='Contact'>
-        <div className='leftColumnHeading'>
-          <div>Contact</div>
-          <button className='editBtn' onClick={this.toggleContactEditor}>
+        <div className='leftColumnHeader'>
+          <div className='leftColumnHeading'>Contact</div>
+          <button className='editBtn' onClick={this.toggleEditor}>
             Edit
           </button>
         </div>
         <div className='address'>
-          <div className='contact-info-field-labels'>Address</div>
+          <div className='contactInfoLabel'>Address</div>
           <p>{this.state.address}</p>
         </div>
         <div className='phone'>
-          <div className='contact-info-field-labels'>Phone</div>
+          <div className='contactInfoLabel'>Phone</div>
           <p>{this.state.phone}</p>
         </div>
         <div className='email'>
-          <div className='contact-info-field-labels'>Email</div>
+          <div className='contactInfoLabel'>Email</div>
           <p>{this.state.email}</p>
         </div>
         <div className='website'>
-          <div className='contact-info-field-labels'>Website</div>
+          <div className='contactInfoLabel'>Website</div>
           <p>{this.state.website}</p>
         </div>
         <div className='linkedin'>
-          <div className='contact-info-field-labels'>Linkedin</div>
+          <div className='contactInfoLabel'>Linkedin</div>
           <p>{this.state.linkedin}</p>
         </div>
 
         {this.state.editorToggle && (
           <form
             id='contactEditForm'
-            class='componentEditForm'
-            onSubmit={this.toggleContactEditor}
+            className='componentEditForm'
+            onSubmit={this.toggleEditor}
           >
             <div>Edit Contact Info</div>
-            <label htmlFor='addressInput'>Address</label>
+            <label className='inputFieldLabel' htmlFor='addressInput'>
+              Address
+            </label>
             <input
               id='addressInput'
               type='text'
-              htmlFor='photoEditForm'
               name='address'
               value={this.state.address}
               onChange={this.onChange}
               autoFocus
             />
-            <label htmlFor='phoneInput'>Phone</label>
+            <label className='inputFieldLabel' htmlFor='phoneInput'>
+              Phone
+            </label>
             <input
               id='phoneInput'
               type='text'
@@ -109,7 +112,9 @@ class Contact extends Component {
               onChange={this.onChange}
               value={this.state.phone}
             />
-            <label htmlFor='emailInput'>Email</label>
+            <label className='inputFieldLabel' htmlFor='emailInput'>
+              Email
+            </label>
             <input
               id='emailInput'
               type='text'
@@ -117,7 +122,9 @@ class Contact extends Component {
               onChange={this.onChange}
               value={this.state.email}
             />
-            <label htmlFor='websiteInput'>Website</label>
+            <label className='inputFieldLabel' htmlFor='websiteInput'>
+              Website
+            </label>
             <input
               id='websiteInput'
               type='text'
@@ -125,7 +132,9 @@ class Contact extends Component {
               onChange={this.onChange}
               value={this.state.website}
             />
-            <label htmlFor='linkedinInput'>LinkedIn Username</label>
+            <label className='inputFieldLabel' htmlFor='linkedinInput'>
+              LinkedIn Username
+            </label>
             <input
               id='linkedinInput'
               type='text'
@@ -136,8 +145,7 @@ class Contact extends Component {
             <input
               type='submit'
               value='Done'
-              class='doneBtn'
-              style={{ fontWeight: 'bold', backgroundColor: 'orange' }}
+              className='doneBtn'
             />
           </form>
         )}

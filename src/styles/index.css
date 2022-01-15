@@ -96,12 +96,17 @@
 }
 .doneBtn {
   margin-top: 15px;
+  font-weight: bold;
+  background-color: orange;
 }
-.leftColumnHeading {
+.leftColumnHeader {
   position: relative;
   font-size: 25px;
   font-weight: bold;
 }
-.contact-info-field-labels {
+.inputFieldLabel {
+  font-weight: bold;
+}
+.contactInfoLabel {
   font-weight: bold;
 }
