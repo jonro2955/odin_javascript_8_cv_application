@@ -5,7 +5,7 @@
   text-align: center;
   align-items: center;
   border: 1px black solid;
-  gap: 1em;
+  gap: 5px;
 }
 #Header {
   background-color: aqua;
@@ -23,32 +23,40 @@
 }
 #Resume {
   display: grid;
-  grid-template-columns: 200px auto;
-  width: 1000px;
-  height: 1300px;
+  grid-template-columns: 150px auto;
+  width: 660px;
+  max-width: 660px;
+  height: 850px;
+  max-height: 850px;
+  margin-top: 5px;
 }
 #left-column {
+  display: grid;
+  grid-template-rows: 180px 335px auto;
   background-color: cadetblue;
-  padding-top: 15%;
+  max-width: 150px;
+  overflow: visible;
 }
 #right-column {
   background-color: bisque;
+  overflow: visible;
 }
 #Print {
   width: 100%;
 }
 #printBtn {
-  width: 100%;
+  width: 660px;
   padding: 10px 0px;
   background-color: yellow;
   border-radius: 10px;
 }
 #Photo {
-  height: 250px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   border: black 1px solid;
   font-size: 30px;
+  margin: 15px 0;
   left: 15%;
   background-size: cover;
   background-position: center;
