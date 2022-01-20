@@ -4,8 +4,10 @@ class Education extends Component {
   constructor(props) {
     super(props);
     this.toggleEditor = this.toggleEditor.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       editorToggle: false,
+      education: [['School', 'Degree', 'Start', 'End']],
     };
   }
 
@@ -13,6 +15,20 @@ class Education extends Component {
     e.preventDefault();
     this.setState((prevState) => ({
       editorToggle: !prevState.editorToggle,
+    }));
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    let form = document.querySelector('#addEduForm');
+    let school = form.elements['schoolInput'].value;
+    let degree = form.elements['degreeInput'].value;
+    let start = form.elements['startInput'].value;
+    let end = form.elements['endInput'].value;
+
+    this.setState((prevState) => ({
+      editorToggle: false,
+      education: prevState.education.concat([school, degree, start, end]),
     }));
   };
 
@@ -25,27 +41,51 @@ class Education extends Component {
             Add
           </button>
         </div>
-        {/* <div>{this.state.profile}</div>
+        <div>{this.state.education}</div>
+
+        {/* education adder form */}
         {this.state.editorToggle && (
           <form
-            id='nameEditForm'
+            id='addEduForm'
             className='componentEditForm'
-            onSubmit={this.toggleEditor}
+            onSubmit={this.onSubmit}
           >
-            <label className='inputFieldLabel' htmlFor='nameInput'>
-              Profile
+            <div className='adderFormHeading'>Add Education</div>
+
+            {/* school name */}
+            <label className='inputFieldLabel' htmlFor='schoolInput'>
+              School Name
             </label>
             <input
-              id='nameInput'
-              name='profile'
+              id='schoolInput'
+              name='schoolInput'
               type='text'
-              value={this.state.profile}
-              onChange={this.onChange}
               autoFocus
+              required
             />
-            <input type='submit' value='Done' className='doneBtn' />
+
+            {/* degree */}
+            <label className='inputFieldLabel' htmlFor='degreeInput'>
+              Degree
+            </label>
+            <input id='degreeInput' name='degreeInput' type='text' required />
+
+            {/* start date */}
+            <label className='inputFieldLabel' htmlFor='startDate'>
+              Start Date
+            </label>
+            <input id='startInput' name='startInput' type='date' required />
+
+            {/* end date */}
+            <label className='inputFieldLabel' htmlFor='startDate'>
+              End Date
+            </label>
+            <input id='endInput' name='endInput' type='date' required />
+
+            {/* education form sumbit button */}
+            <input type='submit' value='Done' className='doneBtn' required />
           </form>
-        )} */}
+        )}
       </div>
     );
   }
