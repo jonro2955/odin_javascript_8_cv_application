@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cred from './Cred.js';
 
 class Education extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Education extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     let form = document.querySelector('#addEduForm');
+    let displayDiv = document.querySelector('#eduList');
     let school = form.elements['schoolInput'].value;
     let degree = form.elements['degreeInput'].value;
     let start = form.elements['startInput'].value;
@@ -30,6 +32,9 @@ class Education extends Component {
       editorToggle: false,
       education: prevState.education.concat([school, degree, start, end]),
     }));
+    displayDiv.append(
+      <Cred school='school' degree='degree' start='start' end='end' />
+    );
   };
 
   render() {
@@ -41,7 +46,7 @@ class Education extends Component {
             Add
           </button>
         </div>
-        <div>{this.state.education}</div>
+        <div id='eduList'>{this.state.education}</div>
 
         {/* education adder form */}
         {this.state.editorToggle && (
@@ -50,6 +55,10 @@ class Education extends Component {
             className='componentEditForm'
             onSubmit={this.onSubmit}
           >
+            <button className='closeBtn' onClick={this.toggleEditor}>
+              Cancel
+            </button>
+
             <div className='adderFormHeading'>Add Education</div>
 
             {/* school name */}
@@ -83,7 +92,10 @@ class Education extends Component {
             <input id='endInput' name='endInput' type='date' required />
 
             {/* education form sumbit button */}
-            <input type='submit' value='Done' className='doneBtn' required />
+            <input type='submit' value='Submit' className='doneBtn' />
+            <button className='doneBtn' onClick={this.toggleEditor}>
+              Cancel
+            </button>
           </form>
         )}
       </div>
