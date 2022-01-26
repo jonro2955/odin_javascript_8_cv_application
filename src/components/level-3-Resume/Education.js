@@ -8,7 +8,9 @@ class Education extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       editorToggle: false,
-      education: [['School', 'Degree', 'Start', 'End']],
+      education: [
+        <Cred school='school' degree='degree' start='start' end='end' />,
+      ],
     };
   }
 
@@ -21,32 +23,35 @@ class Education extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    // let eduList = document.querySelector('#eduList');
     let form = document.querySelector('#addEduForm');
-    let displayDiv = document.querySelector('#eduList');
     let school = form.elements['schoolInput'].value;
     let degree = form.elements['degreeInput'].value;
     let start = form.elements['startInput'].value;
     let end = form.elements['endInput'].value;
-
     this.setState((prevState) => ({
       editorToggle: false,
-      education: prevState.education.concat([school, degree, start, end]),
+      education: prevState.education.concat([
+        <Cred school={school} degree={degree} start={start} end={end} />,
+      ]),
     }));
-    displayDiv.append(
-      <Cred school='school' degree='degree' start='start' end='end' />
-    );
+    console.log(this.state.education);
   };
 
   render() {
     return (
       <div id='Education'>
-        <div className='leftColumnHeader'>
-          <div className='leftColumnHeading'>Education</div>
+        <div className='rightColumnHeader'>
+          <div>Education</div>
           <button className='editBtn' onClick={this.toggleEditor}>
             Add
           </button>
         </div>
-        <div id='eduList'>{this.state.education}</div>
+        <div id='eduList'>
+          {this.state.education.map((school) => (
+            <div key={school}> {school} </div>
+          ))}
+        </div>
 
         {/* education adder form */}
         {this.state.editorToggle && (
@@ -55,10 +60,6 @@ class Education extends Component {
             className='componentEditForm'
             onSubmit={this.onSubmit}
           >
-            <button className='closeBtn' onClick={this.toggleEditor}>
-              Cancel
-            </button>
-
             <div className='adderFormHeading'>Add Education</div>
 
             {/* school name */}

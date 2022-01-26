@@ -8,7 +8,12 @@ class Experience extends Component {
   render() {
     return (
       <div id='Experience'>
-        <p>Experience</p>
+        <div className='rightColumnHeader'>
+          <div>Experience</div>
+          <button className='editBtn' onClick={this.toggleEditor}>
+            Add
+          </button>
+        </div>
       </div>
     );
   }

@@ -121,3 +121,8 @@
 .adderFormHeading{
   font-size: 25px;
 }
+.rightColumnHeader{
+  position: relative;
+  font-size: 25px;
+  font-weight: bold;
+}
