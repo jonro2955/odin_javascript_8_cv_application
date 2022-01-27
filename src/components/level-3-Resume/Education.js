@@ -73,6 +73,20 @@ class Education extends Component {
     });
   };
 
+  deleteEntry = (e) => {
+    let targetIndex;
+    this.state.credentials.forEach((cred, i) => {
+      if (cred.id === e.target.id) {
+        targetIndex = i;
+      }
+    });
+    this.setState({
+      credentials: this.state.credentials.filter(
+        (cred, i) => i !== targetIndex
+      ),
+    });
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
     this.setState({
@@ -107,8 +121,8 @@ class Education extends Component {
 
         <CredList
           state={this.state}
-          deleteBtnAction={this.deleteTask}
-          editBtnAction={this.editTask}
+          deleteBtnAction={this.deleteEntry}
+          editBtnAction={this.editEntry}
         />
 
         {/* Form */}
