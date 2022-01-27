@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Cred from './Cred.js';
+import CredList from './CredList.js';
+// Run 'npm install uniqid' to use this package
+import uniqid from 'uniqid';
 
 class Education extends Component {
   constructor(props) {
@@ -8,34 +10,89 @@ class Education extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       editorToggle: false,
-      education: [
-        <Cred school='school' degree='degree' start='start' end='end' />,
-      ],
+      cred: {
+        id: uniqid(),
+        school: '',
+        degree: '',
+        start: '',
+        end: '',
+      },
+      credentials: [],
     };
   }
+
+  handleChangeSchool = (e) => {
+    e.preventDefault();
+    this.setState({
+      cred: {
+        id: this.state.cred.id,
+        school: e.target.value,
+        degree: this.state.cred.degree,
+        start: this.state.cred.start,
+        end: this.state.cred.end,
+      },
+    });
+  };
+
+  handleChangeDegree = (e) => {
+    e.preventDefault();
+    this.setState({
+      cred: {
+        id: this.state.cred.id,
+        school: this.state.cred.school,
+        degree: e.target.value,
+        start: this.state.cred.start,
+        end: this.state.cred.end,
+      },
+    });
+  };
+
+  handleChangeStart = (e) => {
+    e.preventDefault();
+    this.setState({
+      cred: {
+        id: this.state.cred.id,
+        school: this.state.cred.school,
+        degree: this.state.cred.degree,
+        start: e.target.value,
+        end: this.state.cred.end,
+      },
+    });
+  };
+
+  handleChangeEnd = (e) => {
+    e.preventDefault();
+    this.setState({
+      cred: {
+        id: this.state.cred.id,
+        school: this.state.cred.school,
+        degree: this.state.cred.degree,
+        start: this.state.cred.start,
+        end: e.target.value,
+      },
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      credentials: this.state.credentials.concat(this.state.cred),
+      cred: {
+        id: uniqid(),
+        school: '',
+        degree: '',
+        start: '',
+        end: '',
+      },
+      editorToggle: false,
+    });
+  };
 
   toggleEditor = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
       editorToggle: !prevState.editorToggle,
     }));
-  };
-
-  onSubmit = (e) => {
-    e.preventDefault();
-    // let eduList = document.querySelector('#eduList');
-    let form = document.querySelector('#addEduForm');
-    let school = form.elements['schoolInput'].value;
-    let degree = form.elements['degreeInput'].value;
-    let start = form.elements['startInput'].value;
-    let end = form.elements['endInput'].value;
-    this.setState((prevState) => ({
-      editorToggle: false,
-      education: prevState.education.concat([
-        <Cred school={school} degree={degree} start={start} end={end} />,
-      ]),
-    }));
-    console.log(this.state.education);
   };
 
   render() {
@@ -47,51 +104,68 @@ class Education extends Component {
             Add
           </button>
         </div>
-        <div id='eduList'>
-          {this.state.education.map((school) => (
-            <div key={school}> {school} </div>
-          ))}
-        </div>
 
-        {/* education adder form */}
+        <CredList
+          state={this.state}
+          deleteBtnAction={this.deleteTask}
+          editBtnAction={this.editTask}
+        />
+
+        {/* Form */}
         {this.state.editorToggle && (
           <form
-            id='addEduForm'
+            id='educationAdderForm'
             className='componentEditForm'
             onSubmit={this.onSubmit}
           >
             <div className='adderFormHeading'>Add Education</div>
-
             {/* school name */}
             <label className='inputFieldLabel' htmlFor='schoolInput'>
               School Name
             </label>
             <input
               id='schoolInput'
-              name='schoolInput'
+              name='school'
               type='text'
+              value={this.state.cred.school}
+              onChange={this.handleChangeSchool}
               autoFocus
               required
             />
-
             {/* degree */}
             <label className='inputFieldLabel' htmlFor='degreeInput'>
               Degree
             </label>
-            <input id='degreeInput' name='degreeInput' type='text' required />
-
+            <input
+              id='degreeInput'
+              name='degree'
+              type='text'
+              value={this.state.cred.degree}
+              onChange={this.handleChangeDegree}
+              required
+            />
             {/* start date */}
             <label className='inputFieldLabel' htmlFor='startDate'>
               Start Date
             </label>
-            <input id='startInput' name='startInput' type='date' required />
-
+            <input
+              id='startInput'
+              name='start'
+              type='date'
+              value={this.state.cred.start}
+              onChange={this.handleChangeStart}
+            />
             {/* end date */}
             <label className='inputFieldLabel' htmlFor='startDate'>
               End Date
             </label>
-            <input id='endInput' name='endInput' type='date' required />
-
+            <input
+              id='endInput'
+              name='end'
+              type='date'
+              value={this.state.cred.end}
+              onChange={this.handleChangeEnd}
+            />
             {/* education form sumbit button */}
             <input type='submit' value='Submit' className='doneBtn' />
             <button className='doneBtn' onClick={this.toggleEditor}>

@@ -23,7 +23,7 @@
 }
 #Resume {
   display: grid;
-  grid-template-columns: 150px auto;
+  grid-template-columns: 152px auto;
   width: 660px;
   max-width: 660px;
   height: 850px;
@@ -34,12 +34,13 @@
   display: grid;
   grid-template-rows: 180px 335px auto;
   background-color: cadetblue;
-  max-width: 150px;
+  max-width: 152px;
   overflow: visible;
 }
 #right-column {
   background-color: bisque;
   overflow: visible;
+  border: black 1px solid;
 }
 #Print {
   width: 100%;
@@ -72,11 +73,11 @@
 }
 #Contact {
   background-color: aqua;
-  border: black 1px solid;
+  /* border: black 1px solid; */
 }
 #Skills {
   background-color: bisque;
-  border: black 1px solid;
+  /* border: black 1px solid; */
 }
 #contactEditBtn {
   position: absolute;
@@ -101,6 +102,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
+  z-index: 1;
 }
 .doneBtn {
   margin-top: 15px;
@@ -118,10 +120,10 @@
 .contactInfoLabel {
   font-weight: bold;
 }
-.adderFormHeading{
+.adderFormHeading {
   font-size: 25px;
 }
-.rightColumnHeader{
+.rightColumnHeader {
   position: relative;
   font-size: 25px;
   font-weight: bold;
