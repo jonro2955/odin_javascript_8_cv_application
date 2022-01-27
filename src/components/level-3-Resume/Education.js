@@ -74,15 +74,9 @@ class Education extends Component {
   };
 
   deleteEntry = (e) => {
-    let targetIndex;
-    this.state.credentials.forEach((cred, i) => {
-      if (cred.id === e.target.id) {
-        targetIndex = i;
-      }
-    });
     this.setState({
       credentials: this.state.credentials.filter(
-        (cred, i) => i !== targetIndex
+        (cred) => cred.id !== e.target.id
       ),
     });
   };
