@@ -128,3 +128,9 @@
   font-size: 25px;
   font-weight: bold;
 }
+.cred {
+  border: black 1px solid;
+}
+.credBtnGroup {
+  border: black 1px solid;
+}

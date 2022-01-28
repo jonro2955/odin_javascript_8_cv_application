@@ -6,9 +6,12 @@ import uniqid from 'uniqid';
 class Education extends Component {
   constructor(props) {
     super(props);
+    this.toggleAdder = this.toggleAdder.bind(this);
     this.toggleEditor = this.toggleEditor.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmitAdd = this.onSubmitAdd.bind(this);
+    this.onSubmitEdit = this.onSubmitEdit.bind(this);
     this.state = {
+      adderToggle: false,
       editorToggle: false,
       cred: {
         id: uniqid(),
@@ -81,7 +84,7 @@ class Education extends Component {
     });
   };
 
-  onSubmit = (e) => {
+  onSubmitAdd = (e) => {
     e.preventDefault();
     this.setState({
       credentials: this.state.credentials.concat(this.state.cred),
@@ -92,8 +95,30 @@ class Education extends Component {
         start: '',
         end: '',
       },
-      editorToggle: false,
+      adderToggle: false,
     });
+  };
+
+  onSubmitEdit = (e) => {
+    e.preventDefault();
+    this.setState({
+      // credentials: this.state.credentials.concat(this.state.cred),
+      // cred: {
+      //   id: uniqid(),
+      //   school: '',
+      //   degree: '',
+      //   start: '',
+      //   end: '',
+      // },
+      EditorToggle: false,
+    });
+  };
+
+  toggleAdder = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => ({
+      adderToggle: !prevState.adderToggle,
+    }));
   };
 
   toggleEditor = (e) => {
@@ -108,7 +133,7 @@ class Education extends Component {
       <div id='Education'>
         <div className='rightColumnHeader'>
           <div>Education</div>
-          <button className='editBtn' onClick={this.toggleEditor}>
+          <button className='editBtn' onClick={this.toggleAdder}>
             Add
           </button>
         </div>
@@ -116,20 +141,83 @@ class Education extends Component {
         <CredList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
-          editBtnAction={this.editEntry}
+          editBtnAction={this.toggleEditor}
         />
 
-        {/* Form */}
-        {this.state.editorToggle && (
+        {/* Form: school adder */}
+        {this.state.adderToggle && (
           <form
             id='educationAdderForm'
             className='componentEditForm'
-            onSubmit={this.onSubmit}
+            onSubmit={this.onSubmitAdd}
           >
             <div className='adderFormHeading'>Add Education</div>
             {/* school name */}
             <label className='inputFieldLabel' htmlFor='schoolInput'>
-              School Name
+              School
+            </label>
+            <input
+              id='schoolInput'
+              name='school'
+              type='text'
+              value={this.state.cred.school}
+              onChange={this.handleChangeSchool}
+              autoFocus
+              required
+            />
+            {/* degree */}
+            <label className='inputFieldLabel' htmlFor='degreeInput'>
+              Degree
+            </label>
+            <input
+              id='degreeInput'
+              name='degree'
+              type='text'
+              value={this.state.cred.degree}
+              onChange={this.handleChangeDegree}
+              required
+            />
+            {/* start date */}
+            <label className='inputFieldLabel' htmlFor='startDate'>
+              Start Date
+            </label>
+            <input
+              id='startInput'
+              name='start'
+              type='date'
+              value={this.state.cred.start}
+              onChange={this.handleChangeStart}
+            />
+            {/* end date */}
+            <label className='inputFieldLabel' htmlFor='startDate'>
+              End Date
+            </label>
+            <input
+              id='endInput'
+              name='end'
+              type='date'
+              value={this.state.cred.end}
+              onChange={this.handleChangeEnd}
+            />
+            {/* education form sumbit button */}
+            <input type='submit' value='Submit' className='doneBtn' />
+            <button className='doneBtn' onClick={this.toggleAdder}>
+              Cancel
+            </button>
+          </form>
+        )}
+
+        {/* Form: school editor */}
+        {this.state.editorToggle && (
+          <form
+            id='educationEditorForm'
+            className='componentEditForm'
+            onSubmit={this.onSubmitEdit}
+          >
+            <div className='adderFormHeading'>Edit School</div>
+            {/* school name */}
+            <label className='inputFieldLabel' htmlFor='schoolInput'>
+              School
             </label>
             <input
               id='schoolInput'

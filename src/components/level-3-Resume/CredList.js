@@ -10,17 +10,19 @@ class CredList extends Component {
       <ul>
         {this.props.state.credentials.map((cred) => {
           return (
-            <div key={cred.id}>
+            <div key={cred.id} className='cred'>
               <p>School: {cred.school}</p>
               <p>Degree: {cred.degree}</p>
               <p>Start: {cred.start}</p>
               <p>End: {cred.end}</p>
-              <button id={cred.id} onClick={this.props.editBtnAction}>
-                Edit
-              </button>
-              <button id={cred.id} onClick={this.props.deleteBtnAction}>
-                Delete
-              </button>
+              <div className='credBtnGroup'>
+                <button id={cred.id} onClick={this.props.editBtnAction}>
+                  Edit
+                </button>
+                <button id={cred.id} onClick={this.props.deleteBtnAction}>
+                  Delete
+                </button>
+              </div>
             </div>
           );
         })}
