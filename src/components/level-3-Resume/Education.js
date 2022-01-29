@@ -7,12 +7,12 @@ class Education extends Component {
   constructor(props) {
     super(props);
     this.toggleAdder = this.toggleAdder.bind(this);
-    this.toggleEditor = this.toggleEditor.bind(this);
+    this.openEditor = this.openEditor.bind(this);
     this.onSubmitAdd = this.onSubmitAdd.bind(this);
     this.onSubmitEdit = this.onSubmitEdit.bind(this);
     this.state = {
-      adderToggle: false,
-      editorToggle: false,
+      adderOn: false,
+      editorOn: false,
       cred: {
         id: uniqid(),
         school: '',
@@ -50,7 +50,7 @@ class Education extends Component {
     });
   };
 
-  handleChangeStart = (e) => {
+  handleChangeStartDate = (e) => {
     e.preventDefault();
     this.setState({
       cred: {
@@ -63,7 +63,7 @@ class Education extends Component {
     });
   };
 
-  handleChangeEnd = (e) => {
+  handleChangeEndDate = (e) => {
     e.preventDefault();
     this.setState({
       cred: {
@@ -87,6 +87,7 @@ class Education extends Component {
   onSubmitAdd = (e) => {
     e.preventDefault();
     this.setState({
+      adderOn: false,
       credentials: this.state.credentials.concat(this.state.cred),
       cred: {
         id: uniqid(),
@@ -95,7 +96,6 @@ class Education extends Component {
         start: '',
         end: '',
       },
-      adderToggle: false,
     });
   };
 
@@ -117,15 +117,34 @@ class Education extends Component {
   toggleAdder = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
-      adderToggle: !prevState.adderToggle,
+      adderOn: !prevState.adderOn,
     }));
   };
 
-  toggleEditor = (e) => {
+  openEditor = (e) => {
     e.preventDefault();
-    this.setState((prevState) => ({
-      editorToggle: !prevState.editorToggle,
-    }));
+    let credentialsTargetIndex;
+    this.state.credentials.forEach((cred, i) => {
+      if (cred.id === e.target.id) {
+        credentialsTargetIndex = i;
+      }
+    });
+    this.setState({
+      editorOn: true,
+      cred: {
+        id: this.state.credentials[credentialsTargetIndex].id,
+        school: this.state.credentials[credentialsTargetIndex].school,
+        degree: this.state.credentials[credentialsTargetIndex].degree,
+        start: this.state.credentials[credentialsTargetIndex].start,
+        end: this.state.credentials[credentialsTargetIndex].end,
+      },
+    });
+  };
+
+  closeEditor = () => {
+    this.setState({
+      editorOn: false,
+    });
   };
 
   render() {
@@ -141,11 +160,11 @@ class Education extends Component {
         <CredList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
-          editBtnAction={this.toggleEditor}
+          editBtnAction={this.openEditor}
         />
 
         {/* Form: school adder */}
-        {this.state.adderToggle && (
+        {this.state.adderOn && (
           <form
             id='educationAdderForm'
             className='componentEditForm'
@@ -186,7 +205,7 @@ class Education extends Component {
               name='start'
               type='date'
               value={this.state.cred.start}
-              onChange={this.handleChangeStart}
+              onChange={this.handleChangeStartDate}
             />
             {/* end date */}
             <label className='inputFieldLabel' htmlFor='startDate'>
@@ -197,7 +216,7 @@ class Education extends Component {
               name='end'
               type='date'
               value={this.state.cred.end}
-              onChange={this.handleChangeEnd}
+              onChange={this.handleChangeEndDate}
             />
             {/* education form sumbit button */}
             <input type='submit' value='Submit' className='doneBtn' />
@@ -208,7 +227,7 @@ class Education extends Component {
         )}
 
         {/* Form: school editor */}
-        {this.state.editorToggle && (
+        {this.state.editorOn && (
           <form
             id='educationEditorForm'
             className='componentEditForm'
@@ -249,7 +268,7 @@ class Education extends Component {
               name='start'
               type='date'
               value={this.state.cred.start}
-              onChange={this.handleChangeStart}
+              onChange={this.handleChangeStartDate}
             />
             {/* end date */}
             <label className='inputFieldLabel' htmlFor='startDate'>
@@ -260,11 +279,11 @@ class Education extends Component {
               name='end'
               type='date'
               value={this.state.cred.end}
-              onChange={this.handleChangeEnd}
+              onChange={this.handleChangeEndDate}
             />
             {/* education form sumbit button */}
             <input type='submit' value='Submit' className='doneBtn' />
-            <button className='doneBtn' onClick={this.toggleEditor}>
+            <button className='doneBtn' onClick={this.closeEditor}>
               Cancel
             </button>
           </form>
