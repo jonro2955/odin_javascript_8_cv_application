@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CredList from './CredList.js';
+import SchoolList from './SchoolList.js';
 // Run 'npm install uniqid' to use this package
 import uniqid from 'uniqid';
 
@@ -108,7 +108,7 @@ class Education extends Component {
   };
 
   /* openEditor(e) is to be attached to a school entry's edit button. 
-  That edit button will be assigned a unique id from within the CredList 
+  That edit button will be assigned a unique id from within the SchoolList 
   component's render function. This id is used to determine the targetIndex 
   for editing the correct item in the credentials array.*/
   openEditor = (e) => {
@@ -132,7 +132,7 @@ class Education extends Component {
   };
 
   /* deleteEntry(e) is to be attached to a school entry's delete button. 
-  That button will be assigned a unique id from within the CredList 
+  That button will be assigned a unique id from within the SchoolList 
   component's render function. This id is used to delete the item 
   with the same id the credentials array.*/
   deleteEntry = (e) => {
@@ -172,7 +172,7 @@ class Education extends Component {
           </button>
         </div>
 
-        <CredList
+        <SchoolList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
           editBtnAction={this.openEditor}

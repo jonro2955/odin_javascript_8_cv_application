@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CredList extends Component {
+class SchoolList extends Component {
   constructor(props) {
     super(props);
   }
@@ -31,4 +31,4 @@ class CredList extends Component {
   }
 }
 
-export default CredList;
+export default SchoolList;
