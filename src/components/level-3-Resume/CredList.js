@@ -8,18 +8,18 @@ class CredList extends Component {
   render() {
     return (
       <ul>
-        {this.props.state.credentials.map((cred) => {
+        {this.props.state.credentials.map((school) => {
           return (
-            <div key={cred.id} className='cred'>
-              <p>School: {cred.school}</p>
-              <p>Degree: {cred.degree}</p>
-              <p>Start: {cred.start}</p>
-              <p>End: {cred.end}</p>
+            <div key={school.id} className='school'>
+              <p>School: {school.school}</p>
+              <p>Degree: {school.degree}</p>
+              <p>Start: {school.start}</p>
+              <p>End: {school.end}</p>
               <div className='credBtnGroup'>
-                <button id={cred.id} onClick={this.props.editBtnAction}>
+                <button id={school.id} onClick={this.props.editBtnAction}>
                   Edit
                 </button>
-                <button id={cred.id} onClick={this.props.deleteBtnAction}>
+                <button id={school.id} onClick={this.props.deleteBtnAction}>
                   Delete
                 </button>
               </div>

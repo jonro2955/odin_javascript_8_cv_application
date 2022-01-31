@@ -6,34 +6,38 @@ import uniqid from 'uniqid';
 class Education extends Component {
   constructor(props) {
     super(props);
-    this.toggleAdder = this.toggleAdder.bind(this);
-    this.openEditor = this.openEditor.bind(this);
-    this.onSubmitAdd = this.onSubmitAdd.bind(this);
-    this.onSubmitEdit = this.onSubmitEdit.bind(this);
     this.state = {
       adderOn: false,
       editorOn: false,
       currentEditIndex: '',
-      cred: {
+      school: {
         id: uniqid(),
         school: '',
         degree: '',
         start: '',
         end: '',
       },
-      credentials: [],
+      credentials: [
+        {
+          id: uniqid(),
+          school: 'My School',
+          degree: 'My Degree',
+          start: '2022-01-10',
+          end: '2022-02-10',
+        },
+      ],
     };
   }
 
   handleChangeSchool = (e) => {
     e.preventDefault();
     this.setState({
-      cred: {
-        id: this.state.cred.id,
+      school: {
+        id: this.state.school.id,
         school: e.target.value,
-        degree: this.state.cred.degree,
-        start: this.state.cred.start,
-        end: this.state.cred.end,
+        degree: this.state.school.degree,
+        start: this.state.school.start,
+        end: this.state.school.end,
       },
     });
   };
@@ -41,12 +45,12 @@ class Education extends Component {
   handleChangeDegree = (e) => {
     e.preventDefault();
     this.setState({
-      cred: {
-        id: this.state.cred.id,
-        school: this.state.cred.school,
+      school: {
+        id: this.state.school.id,
+        school: this.state.school.school,
         degree: e.target.value,
-        start: this.state.cred.start,
-        end: this.state.cred.end,
+        start: this.state.school.start,
+        end: this.state.school.end,
       },
     });
   };
@@ -54,12 +58,12 @@ class Education extends Component {
   handleChangeStartDate = (e) => {
     e.preventDefault();
     this.setState({
-      cred: {
-        id: this.state.cred.id,
-        school: this.state.cred.school,
-        degree: this.state.cred.degree,
+      school: {
+        id: this.state.school.id,
+        school: this.state.school.school,
+        degree: this.state.school.degree,
         start: e.target.value,
-        end: this.state.cred.end,
+        end: this.state.school.end,
       },
     });
   };
@@ -67,30 +71,21 @@ class Education extends Component {
   handleChangeEndDate = (e) => {
     e.preventDefault();
     this.setState({
-      cred: {
-        id: this.state.cred.id,
-        school: this.state.cred.school,
-        degree: this.state.cred.degree,
-        start: this.state.cred.start,
+      school: {
+        id: this.state.school.id,
+        school: this.state.school.school,
+        degree: this.state.school.degree,
+        start: this.state.school.start,
         end: e.target.value,
       },
     });
   };
 
-  deleteEntry = (e) => {
-    this.setState({
-      credentials: this.state.credentials.filter(
-        (cred) => cred.id !== e.target.id
-      ),
-    });
-  };
-
-  onSubmitAdd = (e) => {
-    e.preventDefault();
+  onSubmitAddSchool = () => {
     this.setState({
       adderOn: false,
-      credentials: this.state.credentials.concat(this.state.cred),
-      cred: {
+      credentials: this.state.credentials.concat(this.state.school),
+      school: {
         id: uniqid(),
         school: '',
         degree: '',
@@ -100,49 +95,10 @@ class Education extends Component {
     });
   };
 
-  onSubmitEdit = (e) => {
-    e.preventDefault();
-    let credentialsEditCopy = this.state.credentials;
-    credentialsEditCopy[this.state.currentEditIndex] = this.state.cred;
-    this.setState({
-      credentials: credentialsEditCopy,
-      editorOn: false,
-      cred: {
-        id: uniqid(),
-        school: '',
-        degree: '',
-        start: '',
-        end: '',
-      },
-    });
-  };
-
-  toggleAdder = (e) => {
-    e.preventDefault();
+  toggleSchoolAdder = () => {
     this.setState((prevState) => ({
       adderOn: !prevState.adderOn,
     }));
-  };
-
-  openEditor = (e) => {
-    e.preventDefault();
-    let targetIndex;
-    this.state.credentials.forEach((cred, i) => {
-      if (cred.id === e.target.id) {
-        targetIndex = i;
-      }
-    });
-    this.setState({
-      editorOn: true,
-      currentEditIndex: targetIndex,
-      cred: {
-        id: this.state.credentials[targetIndex].id,
-        school: this.state.credentials[targetIndex].school,
-        degree: this.state.credentials[targetIndex].degree,
-        start: this.state.credentials[targetIndex].start,
-        end: this.state.credentials[targetIndex].end,
-      },
-    });
   };
 
   closeEditor = () => {
@@ -151,12 +107,67 @@ class Education extends Component {
     });
   };
 
+  /* openEditor(e) is to be attached to a school entry's edit button. 
+  That edit button will be assigned a unique id from within the CredList 
+  component's render function. This id is used to determine the targetIndex 
+  for editing the correct item in the credentials array.*/
+  openEditor = (e) => {
+    let targetIndex;
+    this.state.credentials.forEach((school, i) => {
+      if (school.id === e.target.id) {
+        targetIndex = i;
+      }
+    });
+    this.setState((prevState) => ({
+      editorOn: !prevState.editorOn,
+      currentEditIndex: targetIndex,
+      school: {
+        id: this.state.credentials[targetIndex].id,
+        school: this.state.credentials[targetIndex].school,
+        degree: this.state.credentials[targetIndex].degree,
+        start: this.state.credentials[targetIndex].start,
+        end: this.state.credentials[targetIndex].end,
+      },
+    }));
+  };
+
+  /* deleteEntry(e) is to be attached to a school entry's delete button. 
+  That button will be assigned a unique id from within the CredList 
+  component's render function. This id is used to delete the item 
+  with the same id the credentials array.*/
+  deleteEntry = (e) => {
+    this.setState({
+      credentials: this.state.credentials.filter(
+        (school) => school.id !== e.target.id
+      ),
+    });
+  };
+
+  /*Replaces the correct school item in the this.state.credentials array
+  with the current school (this.state.school) and resets the current school*/
+  onSubmitEditSchool = (e) => {
+    e.preventDefault();
+    let credentialsEditCopy = this.state.credentials;
+    credentialsEditCopy[this.state.currentEditIndex] = this.state.school;
+    this.setState({
+      credentials: credentialsEditCopy,
+      editorOn: false,
+      school: {
+        id: uniqid(),
+        school: '',
+        degree: '',
+        start: '',
+        end: '',
+      },
+    });
+  };
+
   render() {
     return (
       <div id='Education'>
         <div className='rightColumnHeader'>
           <div>Education</div>
-          <button className='editBtn' onClick={this.toggleAdder}>
+          <button className='editBtn' onClick={this.toggleSchoolAdder}>
             Add
           </button>
         </div>
@@ -172,9 +183,9 @@ class Education extends Component {
           <form
             id='educationAdderForm'
             className='componentEditForm'
-            onSubmit={this.onSubmitAdd}
+            onSubmit={this.onSubmitAddSchool}
           >
-            <div className='adderFormHeading'>Add Education</div>
+            <div className='adderFormHeading'>Add School</div>
             {/* school name */}
             <label className='inputFieldLabel' htmlFor='schoolInput'>
               School
@@ -183,7 +194,7 @@ class Education extends Component {
               id='schoolInput'
               name='school'
               type='text'
-              value={this.state.cred.school}
+              value={this.state.school.school}
               onChange={this.handleChangeSchool}
               autoFocus
               required
@@ -196,7 +207,7 @@ class Education extends Component {
               id='degreeInput'
               name='degree'
               type='text'
-              value={this.state.cred.degree}
+              value={this.state.school.degree}
               onChange={this.handleChangeDegree}
               required
             />
@@ -208,7 +219,7 @@ class Education extends Component {
               id='startInput'
               name='start'
               type='date'
-              value={this.state.cred.start}
+              value={this.state.school.start}
               onChange={this.handleChangeStartDate}
             />
             {/* end date */}
@@ -219,12 +230,12 @@ class Education extends Component {
               id='endInput'
               name='end'
               type='date'
-              value={this.state.cred.end}
+              value={this.state.school.end}
               onChange={this.handleChangeEndDate}
             />
-            {/* education form sumbit button */}
+            {/* form sumbit button */}
             <input type='submit' value='Submit' className='doneBtn' />
-            <button className='doneBtn' onClick={this.toggleAdder}>
+            <button className='doneBtn' onClick={this.toggleSchoolAdder}>
               Cancel
             </button>
           </form>
@@ -235,7 +246,7 @@ class Education extends Component {
           <form
             id='educationEditorForm'
             className='componentEditForm'
-            onSubmit={this.onSubmitEdit}
+            onSubmit={this.onSubmitEditSchool}
           >
             <div className='adderFormHeading'>Edit School</div>
             {/* school name */}
@@ -246,7 +257,7 @@ class Education extends Component {
               id='schoolInput'
               name='school'
               type='text'
-              value={this.state.cred.school}
+              value={this.state.school.school}
               onChange={this.handleChangeSchool}
               autoFocus
               required
@@ -259,7 +270,7 @@ class Education extends Component {
               id='degreeInput'
               name='degree'
               type='text'
-              value={this.state.cred.degree}
+              value={this.state.school.degree}
               onChange={this.handleChangeDegree}
               required
             />
@@ -271,7 +282,7 @@ class Education extends Component {
               id='startInput'
               name='start'
               type='date'
-              value={this.state.cred.start}
+              value={this.state.school.start}
               onChange={this.handleChangeStartDate}
             />
             {/* end date */}
@@ -282,10 +293,10 @@ class Education extends Component {
               id='endInput'
               name='end'
               type='date'
-              value={this.state.cred.end}
+              value={this.state.school.end}
               onChange={this.handleChangeEndDate}
             />
-            {/* education form sumbit button */}
+            {/* form sumbit button */}
             <input type='submit' value='Submit' className='doneBtn' />
             <button className='doneBtn' onClick={this.closeEditor}>
               Cancel
