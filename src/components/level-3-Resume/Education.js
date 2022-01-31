@@ -13,6 +13,7 @@ class Education extends Component {
     this.state = {
       adderOn: false,
       editorOn: false,
+      currentEditIndex: '',
       cred: {
         id: uniqid(),
         school: '',
@@ -101,16 +102,18 @@ class Education extends Component {
 
   onSubmitEdit = (e) => {
     e.preventDefault();
+    let credentialsEditCopy = this.state.credentials;
+    credentialsEditCopy[this.state.currentEditIndex] = this.state.cred;
     this.setState({
-      // credentials: this.state.credentials.concat(this.state.cred),
-      // cred: {
-      //   id: uniqid(),
-      //   school: '',
-      //   degree: '',
-      //   start: '',
-      //   end: '',
-      // },
-      EditorToggle: false,
+      credentials: credentialsEditCopy,
+      editorOn: false,
+      cred: {
+        id: uniqid(),
+        school: '',
+        degree: '',
+        start: '',
+        end: '',
+      },
     });
   };
 
@@ -123,20 +126,21 @@ class Education extends Component {
 
   openEditor = (e) => {
     e.preventDefault();
-    let credentialsTargetIndex;
+    let targetIndex;
     this.state.credentials.forEach((cred, i) => {
       if (cred.id === e.target.id) {
-        credentialsTargetIndex = i;
+        targetIndex = i;
       }
     });
     this.setState({
       editorOn: true,
+      currentEditIndex: targetIndex,
       cred: {
-        id: this.state.credentials[credentialsTargetIndex].id,
-        school: this.state.credentials[credentialsTargetIndex].school,
-        degree: this.state.credentials[credentialsTargetIndex].degree,
-        start: this.state.credentials[credentialsTargetIndex].start,
-        end: this.state.credentials[credentialsTargetIndex].end,
+        id: this.state.credentials[targetIndex].id,
+        school: this.state.credentials[targetIndex].school,
+        degree: this.state.credentials[targetIndex].degree,
+        start: this.state.credentials[targetIndex].start,
+        end: this.state.credentials[targetIndex].end,
       },
     });
   };
