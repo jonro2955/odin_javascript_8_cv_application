@@ -10,12 +10,14 @@ class EducationList extends Component {
       <ul>
         {this.props.state.schoolsList.map((school) => {
           return (
-            <div key={school.id} className='school'>
-              <p>School: {school.school}</p>
-              <p>Degree: {school.degree}</p>
-              <p>Start: {school.start}</p>
-              <p>End: {school.end}</p>
-              <div className='credBtnGroup'>
+            <div key={school.id} className='schoolEntry'>
+              <p>{school.school}</p>
+              <p>{school.location}</p>
+              <p>{school.degree}</p>
+              <p>{school.gpa}</p>
+              <p>{school.start}</p>
+              <p>{school.end}</p>
+              <div className='entryBtnDiv'>
                 <button id={school.id} onClick={this.props.editBtnAction}>
                   Edit
                 </button>

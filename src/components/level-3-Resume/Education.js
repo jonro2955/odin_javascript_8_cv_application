@@ -13,15 +13,19 @@ class Education extends Component {
       school: {
         id: uniqid(),
         school: '',
+        location: '',
         degree: '',
+        gpa: '',
         start: '',
         end: '',
       },
       schoolsList: [
         {
           id: uniqid(),
-          school: 'My School',
-          degree: 'My Degree',
+          school: 'School',
+          location: 'Location',
+          degree: 'Degree',
+          gpa: '3.5',
           start: '2022-01-10',
           end: '2023-02-10',
         },
@@ -34,7 +38,23 @@ class Education extends Component {
       school: {
         id: this.state.school.id,
         school: e.target.value,
+        location: this.state.location,
         degree: this.state.school.degree,
+        gpa: this.state.school.gpa,
+        start: this.state.school.start,
+        end: this.state.school.end,
+      },
+    });
+  };
+
+  handleChangeLocation = (e) => {
+    this.setState({
+      school: {
+        id: this.state.school.id,
+        school: this.state.school.school,
+        location: e.target.value,
+        degree: this.state.school.degree,
+        gpa: this.state.school.gpa,
         start: this.state.school.start,
         end: this.state.school.end,
       },
@@ -46,7 +66,22 @@ class Education extends Component {
       school: {
         id: this.state.school.id,
         school: this.state.school.school,
+        location: this.state.location,
         degree: e.target.value,
+        gpa: this.state.school.gpa,
+        start: this.state.school.start,
+        end: this.state.school.end,
+      },
+    });
+  };
+
+  handleChangeGPA = (e) => {
+    this.setState({
+      school: {
+        id: this.state.school.id,
+        school: this.state.school.school,
+        location: this.state.location,
+        gpa: e.target.value,
         start: this.state.school.start,
         end: this.state.school.end,
       },
@@ -58,7 +93,9 @@ class Education extends Component {
       school: {
         id: this.state.school.id,
         school: this.state.school.school,
+        location: this.state.location,
         degree: this.state.school.degree,
+        gpa: this.state.school.gpa,
         start: e.target.value,
         end: this.state.school.end,
       },
@@ -70,7 +107,9 @@ class Education extends Component {
       school: {
         id: this.state.school.id,
         school: this.state.school.school,
+        location: this.state.location,
         degree: this.state.school.degree,
+        gpa: this.state.school.gpa,
         start: this.state.school.start,
         end: e.target.value,
       },
@@ -84,7 +123,9 @@ class Education extends Component {
       school: {
         id: uniqid(),
         school: '',
+        location: '',
         degree: '',
+        gpa: '',
         start: '',
         end: '',
       },
@@ -97,7 +138,9 @@ class Education extends Component {
       school: {
         id: uniqid(),
         school: '',
+        location: '',
         degree: '',
+        gpa: '',
         start: '',
         end: '',
       },
@@ -129,7 +172,9 @@ class Education extends Component {
       school: {
         id: this.state.schoolsList[targetIndex].id,
         school: this.state.schoolsList[targetIndex].school,
+        location: this.state.schoolsList[targetIndex].location,
         degree: this.state.schoolsList[targetIndex].degree,
+        gpa: this.state.schoolsList[targetIndex].gpa,
         start: this.state.schoolsList[targetIndex].start,
         end: this.state.schoolsList[targetIndex].end,
       },
@@ -154,7 +199,9 @@ class Education extends Component {
       school: {
         id: uniqid(),
         school: '',
+        location: '',
         degree: '',
+        gpa: '',
         start: '',
         end: '',
       },
@@ -166,7 +213,7 @@ class Education extends Component {
       <div id='Education'>
         <div className='rightColumnHeader'>
           <div>Education</div>
-          <button className='editBtn' onClick={this.toggleAdder}>
+          <button className='schoolAddBtn' onClick={this.toggleAdder}>
             Add
           </button>
         </div>
@@ -175,11 +222,11 @@ class Education extends Component {
           deleteBtnAction={this.deleteEntry}
           editBtnAction={this.openEditor}
         />
-        {/* Add/Edit Form */}
+        {/* Form */}
         {this.state.formOn && (
           <form
-            id='educationAdderForm'
-            className='componentEditForm'
+            id='educationForm'
+            className='form'
             onSubmit={
               this.state.formHeading === 'Edit School'
                 ? this.onSubmitEdit
@@ -200,6 +247,18 @@ class Education extends Component {
               autoFocus
               required
             />
+            {/* location */}
+            <label className='inputFieldLabel' htmlFor='locationInput'>
+              Location
+            </label>
+            <input
+              id='locationInput'
+              name='location'
+              type='text'
+              value={this.state.school.location}
+              onChange={this.handleChangeLocation}
+              required
+            />
             {/* degree */}
             <label className='inputFieldLabel' htmlFor='degreeInput'>
               Degree
@@ -210,6 +269,18 @@ class Education extends Component {
               type='text'
               value={this.state.school.degree}
               onChange={this.handleChangeDegree}
+              required
+            />
+            {/* gpa */}
+            <label className='inputFieldLabel' htmlFor='gpaInput'>
+              GPA
+            </label>
+            <input
+              id='gpaInput'
+              name='gpa'
+              type='text'
+              value={this.state.school.gpa}
+              onChange={this.handleChangeGPA}
               required
             />
             {/* start date */}
@@ -235,8 +306,8 @@ class Education extends Component {
               onChange={this.handleChangeEndDate}
             />
             {/* form sumbit button */}
-            <input type='submit' value='Submit' className='doneBtn' />
-            <button className='doneBtn' onClick={this.toggleAdder}>
+            <input type='submit' value='Submit' className='formBtn' />
+            <button className='formBtn' onClick={this.toggleAdder}>
               Cancel
             </button>
           </form>

@@ -12,7 +12,8 @@ class Experience extends Component {
       experience: {
         id: uniqid(),
         organization: '',
-        position: '',
+        location: '',
+        title: '',
         description1: '',
         description2: '',
         description3: '',
@@ -22,13 +23,31 @@ class Experience extends Component {
       experienceList: [
         {
           id: uniqid(),
-          organization: 'My Organization',
-          position: 'My Position',
-          description1: 'Exp description1',
-          description2: 'Exp description2',
-          description3: 'Exp description3',
-          start: '2022-01-10',
-          end: '2023-01-10',
+          organization: 'Awesome Web Company',
+          location: 'Toronto, ON',
+          title: 'Senior Web Developer',
+          description1:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+          description2:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+          description3:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+          start: '2021-01-01',
+          end: '2022-01-10',
+        },
+        {
+          id: uniqid(),
+          organization: 'Super Web Company',
+          location: 'Vancouver, BC',
+          title: 'Junior Web Developer',
+          description1:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+          description2:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+          description3:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+          start: '2020-01-01',
+          end: '2021-01-10',
         },
       ],
     };
@@ -39,7 +58,24 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: e.target.value,
-        position: this.state.experience.position,
+        location: this.state.experience.location,
+        title: this.state.experience.title,
+        description1: this.state.experience.description1,
+        description2: this.state.experience.description2,
+        description3: this.state.experience.description3,
+        start: this.state.experience.start,
+        end: this.state.experience.end,
+      },
+    });
+  };
+
+  handleChangeLocation = (e) => {
+    this.setState({
+      experience: {
+        id: this.state.experience.id,
+        organization: this.state.experience.location,
+        location: e.target.value,
+        title: this.state.experience.title,
         description1: this.state.experience.description1,
         description2: this.state.experience.description2,
         description3: this.state.experience.description3,
@@ -54,7 +90,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: this.state.experience.organization,
-        position: e.target.value,
+        location: this.state.experience.location,
+        title: e.target.value,
         description1: this.state.experience.description1,
         description2: this.state.experience.description2,
         description3: this.state.experience.description3,
@@ -69,7 +106,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: this.state.experience.organization,
-        position: this.state.experience.position,
+        location: this.state.experience.location,
+        title: this.state.experience.title,
         description1: e.target.value,
         description2: this.state.experience.description2,
         description3: this.state.experience.description3,
@@ -84,7 +122,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: this.state.experience.organization,
-        position: this.state.experience.position,
+        location: this.state.experience.location,
+        title: this.state.experience.title,
         description1: e.target.value,
         description2: this.state.experience.description2,
         description3: this.state.experience.description3,
@@ -99,7 +138,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: this.state.experience.organization,
-        position: this.state.experience.position,
+        location: this.state.experience.location,
+        title: this.state.experience.title,
         description1: this.state.experience.description1,
         description2: e.target.value,
         description3: this.state.experience.description3,
@@ -114,7 +154,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: this.state.experience.organization,
-        position: this.state.experience.position,
+        location: this.state.experience.location,
+        title: this.state.experience.title,
         description1: this.state.experience.description1,
         description2: this.state.experience.description2,
         description3: e.target.value,
@@ -129,7 +170,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: this.state.experience.organization,
-        position: this.state.experience.position,
+        location: this.state.experience.location,
+        title: this.state.experience.title,
         description1: this.state.experience.description1,
         description2: this.state.experience.description2,
         description3: this.state.experience.description3,
@@ -144,7 +186,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experience.id,
         organization: this.state.experience.organization,
-        position: this.state.experience.position,
+        location: this.state.experience.location,
+        title: this.state.experience.title,
         description1: this.state.experience.description1,
         description2: this.state.experience.description2,
         description3: this.state.experience.description3,
@@ -161,7 +204,8 @@ class Experience extends Component {
       experience: {
         id: uniqid(),
         organization: '',
-        position: '',
+        location: '',
+        title: '',
         description1: '',
         description2: '',
         description3: '',
@@ -177,7 +221,8 @@ class Experience extends Component {
       experience: {
         id: uniqid(),
         organization: '',
-        position: '',
+        location: '',
+        title: '',
         description1: '',
         description2: '',
         description3: '',
@@ -212,7 +257,8 @@ class Experience extends Component {
       experience: {
         id: this.state.experienceList[targetIndex].id,
         organization: this.state.experienceList[targetIndex].organization,
-        position: this.state.experienceList[targetIndex].position,
+        location: this.state.experienceList[targetIndex].location,
+        title: this.state.experienceList[targetIndex].title,
         description1: this.state.experienceList[targetIndex].description1,
         description2: this.state.experienceList[targetIndex].description2,
         description3: this.state.experienceList[targetIndex].description3,
@@ -240,7 +286,8 @@ class Experience extends Component {
       experience: {
         id: uniqid(),
         organization: '',
-        position: '',
+        location: '',
+        title: '',
         description1: '',
         description2: '',
         description3: '',
@@ -255,7 +302,7 @@ class Experience extends Component {
       <div id='Experience'>
         <div className='rightColumnHeader'>
           <div>Experience</div>
-          <button className='editBtn' onClick={this.toggleAdder}>
+          <button className='experienceAddBtn' onClick={this.toggleAdder}>
             Add
           </button>
         </div>
@@ -264,11 +311,11 @@ class Experience extends Component {
           deleteBtnAction={this.deleteEntry}
           editBtnAction={this.openEditor}
         />
-        {/* Add/Edit Form */}
+        {/* Form */}
         {this.state.formOn && (
           <form
-            id='experienceAdderForm'
-            className='componentEditForm'
+            id='experienceForm'
+            className='form'
             onSubmit={
               this.state.formHeading === 'Edit Experience'
                 ? this.onSubmitEdit
@@ -289,15 +336,27 @@ class Experience extends Component {
               autoFocus
               required
             />
-            {/* position */}
+            {/* location */}
+            <label className='inputFieldLabel' htmlFor='locationInput'>
+              Location
+            </label>
+            <input
+              id='locationInput'
+              name='location'
+              type='text'
+              value={this.state.experience.location}
+              onChange={this.handleChangeLocation}
+              required
+            />
+            {/* title */}
             <label className='inputFieldLabel' htmlFor='positionInput'>
               Position
             </label>
             <input
               id='positionInput'
-              name='position'
+              name='title'
               type='text'
-              value={this.state.experience.position}
+              value={this.state.experience.title}
               onChange={this.handleChangePosition}
               required
             />
@@ -357,8 +416,8 @@ class Experience extends Component {
               onChange={this.handleChangeEndDate}
             />
             {/* form sumbit button */}
-            <input type='submit' value='Submit' className='doneBtn' />
-            <button className='doneBtn' onClick={this.toggleAdder}>
+            <input type='submit' value='Submit' className='formBtn' />
+            <button className='formBtn' onClick={this.toggleAdder}>
               Cancel
             </button>
           </form>

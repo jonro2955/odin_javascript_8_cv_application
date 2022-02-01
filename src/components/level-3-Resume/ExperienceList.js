@@ -10,17 +10,18 @@ class ExperienceList extends Component {
       <ul>
         {this.props.state.experienceList.map((exp) => {
           return (
-            <div key={exp.id} className='school'>
-              <p>Organization: {exp.organization}</p>
-              <p>Position: {exp.position}</p>
+            <div key={exp.id} className='experienceEntry'>
+              <p>{exp.organization}</p>
+              <p>{exp.location}</p>
+              <p>{exp.title}</p>
               <ul>
                 <div>{exp.description1}</div>
                 <div>{exp.description2}</div>
                 <div>{exp.description3}</div>
               </ul>
-              <p>Start: {exp.start}</p>
-              <p>End: {exp.end}</p>
-              <div className='credBtnGroup'>
+              <p>{exp.start}</p>
+              <p>{exp.end}</p>
+              <div className='entryBtnDiv'>
                 <button id={exp.id} onClick={this.props.editBtnAction}>
                   Edit
                 </button>

@@ -1,10 +1,6 @@
-import './styles/reset.css';
-import './styles/index.css';
-
 import React, { Component } from 'react';
-import Header from './components/level-1-App/Header';
-import Main from './components/level-1-App/Main';
-import Footer from './components/level-1-App/Footer';
+import Resume from './components/level-2-Main/Resume';
+import PrintButton from './components/level-2-Main/PrintButton';
 
 class App extends Component {
   // constructor(props) {
@@ -14,8 +10,8 @@ class App extends Component {
   render() {
     return (
       <div id='App'>
-        <Main />
-        <Footer />
+        <Resume />
+        <PrintButton />
       </div>
     );
   }

@@ -4,22 +4,8 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  border: 1px black solid;
+  border: 1px red solid;
   gap: 5px;
-}
-#Header {
-  background-color: aqua;
-  border: 1px black solid;
-  width: 100%;
-}
-#Main {
-  border: 1px black solid;
-  width: 100%;
-}
-#Footer {
-  background-color: coral;
-  border: 1px black solid;
-  width: 100%;
 }
 #Resume {
   display: grid;
@@ -29,6 +15,7 @@
   height: 850px;
   max-height: 850px;
   margin-top: 5px;
+  border: 1px orange solid;
 }
 #left-column {
   display: grid;
@@ -36,26 +23,18 @@
   background-color: cadetblue;
   max-width: 152px;
   overflow: visible;
+  border: 1px yellow solid;
 }
 #right-column {
   background-color: bisque;
   overflow: visible;
-  border: black 1px solid;
-}
-#Print {
-  width: 100%;
-}
-#printBtn {
-  width: 660px;
-  padding: 10px 0px;
-  background-color: yellow;
-  border-radius: 10px;
+  border: green 1px solid;
 }
 #Photo {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: black 1px solid;
+  border: blue 1px solid;
   font-size: 30px;
   margin: 15px 0;
   left: 15%;
@@ -65,36 +44,36 @@
   position: relative;
   text-transform: uppercase;
 }
-#photoEditBtn {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 #Contact {
   background-color: aqua;
-  /* border: black 1px solid; */
+  border: purple 1px solid;
 }
 #Skills {
   background-color: bisque;
-  /* border: black 1px solid; */
+  border: red 1px solid;
 }
-#contactEditBtn {
-  position: absolute;
-  right: 0px;
-  top: 0px;
+#Name {
+  border: orange 1px solid;
 }
-#skillsEditBtn {
-  position: absolute;
-  right: 0px;
-  top: 0px;
+#Title {
+  border: yellow 1px solid;
 }
-.editBtn {
-  position: absolute;
-  right: 0px;
-  top: 0px;
+#Profile {
+  border: green 1px solid;
 }
-.componentEditForm {
+#Education {
+  border: blue 1px solid;
+}
+#Experience {
+  border: purple 1px solid;
+}
+#PrintButton {
+  width: 660px;
+  padding: 10px 0px;
+  background-color: yellow;
+  border-radius: 10px;
+}
+.form {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -104,7 +83,7 @@
   background-color: cornflowerblue;
   z-index: 1;
 }
-.doneBtn {
+.formBtn {
   margin-top: 15px;
   font-weight: bold;
   background-color: orange;
@@ -128,9 +107,26 @@
   font-size: 25px;
   font-weight: bold;
 }
-.cred {
+.schoolEntry {
   border: black 1px solid;
 }
-.credBtnGroup {
+.experienceEntry {
   border: black 1px solid;
+}
+.schoolAddBtn {
+}
+.entryBtnDiv {
+}
+.experienceAddBtn {
+}
+.editBtn {
+  /* position: absolute;
+  right: 0px;
+  top: 0px; */
+}
+.photoEditBtn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
