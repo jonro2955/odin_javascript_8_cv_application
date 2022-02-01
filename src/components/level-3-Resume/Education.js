@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SchoolList from './SchoolList.js';
+import EducationList from './EducationList.js';
 // Run 'npm install uniqid' to use this package
 import uniqid from 'uniqid';
 
@@ -7,8 +7,8 @@ class Education extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      adderOn: false,
-      editorOn: false,
+      formOn: false,
+      formHeading: '',
       currentEditIndex: '',
       school: {
         id: uniqid(),
@@ -79,7 +79,7 @@ class Education extends Component {
 
   onSubmitAdd = () => {
     this.setState({
-      adderOn: false,
+      formOn: false,
       schoolsList: this.state.schoolsList.concat(this.state.school),
       school: {
         id: uniqid(),
@@ -93,6 +93,7 @@ class Education extends Component {
 
   toggleAdder = () => {
     this.setState((prevState) => ({
+      formHeading: 'Add School',
       school: {
         id: uniqid(),
         school: '',
@@ -100,18 +101,18 @@ class Education extends Component {
         start: '',
         end: '',
       },
-      adderOn: !prevState.adderOn,
+      formOn: !prevState.formOn,
     }));
   };
 
-  closeEditor = () => {
+  closeForm = () => {
     this.setState({
-      editorOn: false,
+      formOn: false,
     });
   };
 
   /* openEditor(e) is to be attached to an entry's edit button. 
-  From within the SchoolList componenet, that edit button will be assigned 
+  From within the EducationList componenet, that edit button will be assigned 
   a corresponding id. This id is used to determine the targetIndex 
   for editing the correct school item in the schoolsList array.*/
   openEditor = (e) => {
@@ -122,7 +123,8 @@ class Education extends Component {
       }
     });
     this.setState((prevState) => ({
-      editorOn: !prevState.editorOn,
+      formOn: !prevState.formOn,
+      formHeading: 'Edit School',
       currentEditIndex: targetIndex,
       school: {
         id: this.state.schoolsList[targetIndex].id,
@@ -148,7 +150,7 @@ class Education extends Component {
     copy[this.state.currentEditIndex] = this.state.school;
     this.setState({
       schoolsList: copy,
-      editorOn: false,
+      formOn: false,
       school: {
         id: uniqid(),
         school: '',
@@ -168,19 +170,23 @@ class Education extends Component {
             Add
           </button>
         </div>
-        <SchoolList
+        <EducationList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
           editBtnAction={this.openEditor}
         />
-        {/* Form: adder */}
-        {this.state.adderOn && (
+        {/* Add/Edit Form */}
+        {this.state.formOn && (
           <form
             id='educationAdderForm'
             className='componentEditForm'
-            onSubmit={this.onSubmitAdd}
+            onSubmit={
+              this.state.formHeading === 'Edit School'
+                ? this.onSubmitEdit
+                : this.onSubmitAdd
+            }
           >
-            <div className='adderFormHeading'>Add School</div>
+            <div className='adderFormHeading'>{this.state.formHeading}</div>
             {/* school name */}
             <label className='inputFieldLabel' htmlFor='schoolInput'>
               School
@@ -231,68 +237,6 @@ class Education extends Component {
             {/* form sumbit button */}
             <input type='submit' value='Submit' className='doneBtn' />
             <button className='doneBtn' onClick={this.toggleAdder}>
-              Cancel
-            </button>
-          </form>
-        )}
-        {/* Form: editor */}
-        {this.state.editorOn && (
-          <form
-            id='educationEditorForm'
-            className='componentEditForm'
-            onSubmit={this.onSubmitEdit}
-          >
-            <div className='adderFormHeading'>Edit School</div>
-            {/* school name */}
-            <label className='inputFieldLabel' htmlFor='schoolInput'>
-              School
-            </label>
-            <input
-              id='schoolInput'
-              name='school'
-              type='text'
-              value={this.state.school.school}
-              onChange={this.handleChangeSchool}
-              autoFocus
-              required
-            />
-            {/* degree */}
-            <label className='inputFieldLabel' htmlFor='degreeInput'>
-              Degree
-            </label>
-            <input
-              id='degreeInput'
-              name='degree'
-              type='text'
-              value={this.state.school.degree}
-              onChange={this.handleChangeDegree}
-              required
-            />
-            {/* start date */}
-            <label className='inputFieldLabel' htmlFor='startDate'>
-              Start Date
-            </label>
-            <input
-              id='startInput'
-              name='start'
-              type='date'
-              value={this.state.school.start}
-              onChange={this.handleChangeStartDate}
-            />
-            {/* end date */}
-            <label className='inputFieldLabel' htmlFor='endDate'>
-              End Date
-            </label>
-            <input
-              id='endInput'
-              name='end'
-              type='date'
-              value={this.state.school.end}
-              onChange={this.handleChangeEndDate}
-            />
-            {/* form sumbit button */}
-            <input type='submit' value='Submit' className='doneBtn' />
-            <button className='doneBtn' onClick={this.closeEditor}>
               Cancel
             </button>
           </form>

@@ -6,8 +6,8 @@ class Experience extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      adderOn: false,
-      editorOn: false,
+      formOn: false,
+      formHeading: '',
       currentEditIndex: '',
       experience: {
         id: uniqid(),
@@ -156,7 +156,7 @@ class Experience extends Component {
 
   onSubmitAdd = () => {
     this.setState({
-      adderOn: false,
+      formOn: false,
       experienceList: this.state.experienceList.concat(this.state.experience),
       experience: {
         id: uniqid(),
@@ -173,13 +173,24 @@ class Experience extends Component {
 
   toggleAdder = () => {
     this.setState((prevState) => ({
-      adderOn: !prevState.adderOn,
+      formHeading: 'Add Experience',
+      experience: {
+        id: uniqid(),
+        organization: '',
+        position: '',
+        description1: '',
+        description2: '',
+        description3: '',
+        start: '',
+        end: '',
+      },
+      formOn: !prevState.formOn,
     }));
   };
 
-  closeEditor = () => {
+  closeForm = () => {
     this.setState({
-      editorOn: false,
+      formOn: false,
     });
   };
 
@@ -195,7 +206,8 @@ class Experience extends Component {
       }
     });
     this.setState((prevState) => ({
-      editorOn: !prevState.editorOn,
+      formOn: !prevState.formOn,
+      formHeading: 'Edit Experience',
       currentEditIndex: targetIndex,
       experience: {
         id: this.state.experienceList[targetIndex].id,
@@ -224,7 +236,7 @@ class Experience extends Component {
     copy[this.state.currentEditIndex] = this.state.experience;
     this.setState({
       experienceList: copy,
-      editorOn: false,
+      formOn: false,
       experience: {
         id: uniqid(),
         organization: '',
@@ -252,14 +264,18 @@ class Experience extends Component {
           deleteBtnAction={this.deleteEntry}
           editBtnAction={this.openEditor}
         />
-        {/* Adder Form */}
-        {this.state.adderOn && (
+        {/* Add/Edit Form */}
+        {this.state.formOn && (
           <form
             id='experienceAdderForm'
             className='componentEditForm'
-            onSubmit={this.onSubmitAdd}
+            onSubmit={
+              this.state.formHeading === 'Edit Experience'
+                ? this.onSubmitEdit
+                : this.onSubmitAdd
+            }
           >
-            <div className='adderFormHeading'>Add Experience</div>
+            <div className='adderFormHeading'>{this.state.formHeading}</div>
             {/* organization */}
             <label className='inputFieldLabel' htmlFor='orgnanizationInput'>
               Organization
@@ -343,107 +359,6 @@ class Experience extends Component {
             {/* form sumbit button */}
             <input type='submit' value='Submit' className='doneBtn' />
             <button className='doneBtn' onClick={this.toggleAdder}>
-              Cancel
-            </button>
-          </form>
-        )}
-
-        {/* Editor Form: This form looks like a duplicate of the adder but 
-        an important difference is it calls the this.onSubmitEdit callback 
-        upon onSubmit. */}
-        {this.state.editorOn && (
-          <form
-            id='experienceEditorForm'
-            className='componentEditForm'
-            onSubmit={this.onSubmitEdit}
-          >
-            <div className='adderFormHeading'>Edit Experience</div>
-            {/* organization */}
-            <label className='inputFieldLabel' htmlFor='orgnanizationInput'>
-              Organization
-            </label>
-            <input
-              id='orgnanizationInput'
-              name='orgnanization'
-              type='text'
-              value={this.state.experience.organization}
-              onChange={this.handleChangeOrganization}
-              autoFocus
-              required
-            />
-            {/* position */}
-            <label className='inputFieldLabel' htmlFor='positionInput'>
-              Position
-            </label>
-            <input
-              id='positionInput'
-              name='position'
-              type='text'
-              value={this.state.experience.position}
-              onChange={this.handleChangePosition}
-              required
-            />
-            {/* description1 */}
-            <label className='inputFieldLabel' htmlFor='description1Input'>
-              Description 1
-            </label>
-            <input
-              id='description1Input'
-              name='description1'
-              type='text'
-              value={this.state.experience.description1}
-              onChange={this.handleChangeDescription1}
-              required
-            />
-            {/* description2 */}
-            <label className='inputFieldLabel' htmlFor='description2Input'>
-              Description 2
-            </label>
-            <input
-              id='description2Input'
-              name='description2'
-              type='text'
-              value={this.state.experience.description2}
-              onChange={this.handleChangeDescription2}
-              required
-            />
-            {/* description3 */}
-            <label className='inputFieldLabel' htmlFor='description3Input'>
-              Description 3
-            </label>
-            <input
-              id='description3Input'
-              name='description3'
-              type='text'
-              value={this.state.experience.description3}
-              onChange={this.handleChangeDescription3}
-              required
-            />
-            {/* start date */}
-            <label className='inputFieldLabel' htmlFor='startDate'>
-              Start Date
-            </label>
-            <input
-              id='startInput'
-              name='start'
-              type='date'
-              value={this.state.experience.start}
-              onChange={this.handleChangeStartDate}
-            />
-            {/* end date */}
-            <label className='inputFieldLabel' htmlFor='endDate'>
-              End Date
-            </label>
-            <input
-              id='endInput'
-              name='end'
-              type='date'
-              value={this.state.experience.end}
-              onChange={this.handleChangeEndDate}
-            />
-            {/* form sumbit button */}
-            <input type='submit' value='Submit' className='doneBtn' />
-            <button className='doneBtn' onClick={this.closeEditor}>
               Cancel
             </button>
           </form>
