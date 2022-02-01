@@ -8,7 +8,7 @@ class SchoolList extends Component {
   render() {
     return (
       <ul>
-        {this.props.state.credentials.map((school) => {
+        {this.props.state.schoolsList.map((school) => {
           return (
             <div key={school.id} className='school'>
               <p>School: {school.school}</p>
