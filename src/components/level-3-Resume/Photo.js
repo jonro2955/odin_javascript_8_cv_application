@@ -32,11 +32,11 @@ class Photo extends Component {
     return (
       <div id='Photo' style={photoStyle}>
         <button className='photoEditBtn' onClick={this.togglePhotoEditor}>Change Photo</button>
-
+        {/* form */}
         {this.state.editorToggle && (
           <form
             id='photoEditForm'
-            className='componentEditForm'
+            className='form'
             onSubmit={this.togglePhotoEditor}
           >
             <label htmlFor='photoURLInput'>New Photo URL</label>

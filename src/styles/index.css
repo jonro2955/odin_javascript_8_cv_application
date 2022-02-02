@@ -12,8 +12,8 @@
   grid-template-columns: 152px auto;
   width: 660px;
   max-width: 660px;
-  height: 850px;
-  max-height: 850px;
+  /* height: 850px; */
+  /* max-height: 850px; */
   margin-top: 5px;
   border: 1px orange solid;
 }
@@ -67,7 +67,7 @@
 #Experience {
   border: purple 1px solid;
 }
-#PrintButton {
+#PDFButton {
   width: 660px;
   padding: 10px 0px;
   background-color: yellow;

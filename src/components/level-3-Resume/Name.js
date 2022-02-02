@@ -32,12 +32,9 @@ class Name extends Component {
           </button>
         </div>
         <div>{this.state.name}</div>
+        {/* form */}
         {this.state.editorToggle && (
-          <form
-            id='nameEditForm'
-            className='componentEditForm'
-            onSubmit={this.toggleEditor}
-          >
+          <form id='nameEditForm' className='form' onSubmit={this.toggleEditor}>
             <label className='inputFieldLabel' htmlFor='nameEditForm'>
               Name
             </label>
@@ -49,11 +46,7 @@ class Name extends Component {
               onChange={this.onChange}
               autoFocus
             />
-            <input
-              type='submit'
-              value='Done'
-              className='doneBtn'
-            />
+            <input type='submit' value='Done' className='formBtn' />
           </form>
         )}
       </div>

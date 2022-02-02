@@ -154,11 +154,11 @@ class Education extends Component {
     });
   };
 
-  /* openEditor(e) is to be attached to an entry's edit button. 
+  /* toggleEditor(e) is to be attached to an entry's edit button. 
   From within the EducationList componenet, that edit button will be assigned 
   a corresponding id. This id is used to determine the targetIndex 
   for editing the correct school item in the schoolsList array.*/
-  openEditor = (e) => {
+  toggleEditor = (e) => {
     let targetIndex;
     this.state.schoolsList.forEach((school, i) => {
       if (school.id === e.target.id) {
@@ -220,7 +220,7 @@ class Education extends Component {
         <EducationList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
-          editBtnAction={this.openEditor}
+          editBtnAction={this.toggleEditor}
         />
         {/* Form */}
         {this.state.formOn && (

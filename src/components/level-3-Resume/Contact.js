@@ -87,7 +87,7 @@ class Contact extends Component {
         {this.state.editorToggle && (
           <form
             id='contactEditForm'
-            className='componentEditForm'
+            className='form'
             onSubmit={this.toggleEditor}
           >
             <div>Edit Contact Info</div>
@@ -142,11 +142,7 @@ class Contact extends Component {
               onChange={this.onChange}
               value={this.state.linkedin}
             />
-            <input
-              type='submit'
-              value='Done'
-              className='doneBtn'
-            />
+            <input type='submit' value='Done' className='formBtn' />
           </form>
         )}
       </div>

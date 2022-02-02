@@ -6,7 +6,7 @@ class PrintButton extends Component {
   // }
 
   render() {
-    return <button id='PrintButton'>Generate PDF</button>;
+    return <button id='PDFButton'>Generate PDF</button>;
   }
 }
 

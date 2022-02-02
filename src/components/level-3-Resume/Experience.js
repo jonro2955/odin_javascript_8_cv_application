@@ -25,21 +25,7 @@ class Experience extends Component {
           id: uniqid(),
           organization: 'Awesome Web Company',
           location: 'Toronto, ON',
-          title: 'Senior Web Developer',
-          description1:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-          description2:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-          description3:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-          start: '2021-01-01',
-          end: '2022-01-10',
-        },
-        {
-          id: uniqid(),
-          organization: 'Super Web Company',
-          location: 'Vancouver, BC',
-          title: 'Junior Web Developer',
+          title: 'Web Developer',
           description1:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
           description2:
@@ -239,11 +225,11 @@ class Experience extends Component {
     });
   };
 
-  /* openEditor(e) is to be attached to an entry's edit button. 
+  /* toggleEditor(e) is to be attached to an entry's edit button. 
   That edit button will be assigned the corresponding id from within the ExperienceList 
   component's render function. This id is used to determine the targetIndex 
   for editing the correct experience item in the experienceList array.*/
-  openEditor = (e) => {
+  toggleEditor = (e) => {
     let targetIndex;
     this.state.experienceList.forEach((exp, i) => {
       if (exp.id === e.target.id) {
@@ -309,7 +295,7 @@ class Experience extends Component {
         <ExperienceList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
-          editBtnAction={this.openEditor}
+          editBtnAction={this.toggleEditor}
         />
         {/* Form */}
         {this.state.formOn && (

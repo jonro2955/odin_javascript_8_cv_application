@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Resume from './components/level-2-Main/Resume';
-import PrintButton from './components/level-2-Main/PrintButton';
+import Resume from '../level-2-App/Resume';
+import PrintButton from '../level-2-App/PrintButton';
 
 class App extends Component {
   // constructor(props) {

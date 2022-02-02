@@ -46,10 +46,11 @@ class Skills extends Component {
         <div>{this.state.skill6}</div>
         <div>{this.state.skill7}</div>
         <div>{this.state.skill8}</div>
+        {/* form */}
         {this.state.editorToggle && (
           <form
             id='skillsEditForm'
-            className='componentEditForm'
+            className='form'
             onSubmit={this.toggleEditor}
           >
             <label className='inputFieldLabel' htmlFor='skill1Input'>

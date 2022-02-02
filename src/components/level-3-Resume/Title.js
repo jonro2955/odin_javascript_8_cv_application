@@ -35,7 +35,7 @@ class Title extends Component {
         {this.state.editorToggle && (
           <form
             id='nameEditForm'
-            className='componentEditForm'
+            className='form'
             onSubmit={this.toggleEditor}
           >
             <label className='inputFieldLabel' htmlFor='nameInput'>
