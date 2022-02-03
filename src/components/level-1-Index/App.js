@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Resume from '../level-2-App/Resume';
-import PrintButton from '../level-2-App/PrintButton';
+import PDFButton from '../level-2-App/PDFButton';
 
 class App extends Component {
   // constructor(props) {
@@ -9,9 +9,9 @@ class App extends Component {
 
   render() {
     return (
-      <div id='App'>
+      <div id='AppComponent'>
         <Resume />
-        <PrintButton />
+        <PDFButton />
       </div>
     );
   }

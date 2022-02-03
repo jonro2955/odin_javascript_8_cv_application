@@ -10,15 +10,13 @@ class Education extends Component {
       formOn: false,
       formHeading: '',
       currentEditIndex: '',
-      school: {
-        id: uniqid(),
-        school: '',
-        location: '',
-        degree: '',
-        gpa: '',
-        start: '',
-        end: '',
-      },
+      id: uniqid(),
+      school: '',
+      location: '',
+      degree: '',
+      gpa: '',
+      start: '',
+      end: '',
       schoolsList: [
         {
           id: uniqid(),
@@ -33,118 +31,76 @@ class Education extends Component {
     };
   }
 
-  handleChangeSchool = (e) => {
+  handleChangeName = (e) => {
     this.setState({
-      school: {
-        id: this.state.school.id,
-        school: e.target.value,
-        location: this.state.location,
-        degree: this.state.school.degree,
-        gpa: this.state.school.gpa,
-        start: this.state.school.start,
-        end: this.state.school.end,
-      },
+      school: e.target.value,
     });
   };
 
   handleChangeLocation = (e) => {
     this.setState({
-      school: {
-        id: this.state.school.id,
-        school: this.state.school.school,
-        location: e.target.value,
-        degree: this.state.school.degree,
-        gpa: this.state.school.gpa,
-        start: this.state.school.start,
-        end: this.state.school.end,
-      },
+      location: e.target.value,
     });
   };
 
   handleChangeDegree = (e) => {
     this.setState({
-      school: {
-        id: this.state.school.id,
-        school: this.state.school.school,
-        location: this.state.location,
-        degree: e.target.value,
-        gpa: this.state.school.gpa,
-        start: this.state.school.start,
-        end: this.state.school.end,
-      },
+      degree: e.target.value,
     });
   };
 
   handleChangeGPA = (e) => {
     this.setState({
-      school: {
-        id: this.state.school.id,
-        school: this.state.school.school,
-        location: this.state.location,
-        gpa: e.target.value,
-        start: this.state.school.start,
-        end: this.state.school.end,
-      },
+      gpa: e.target.value,
     });
   };
 
   handleChangeStartDate = (e) => {
     this.setState({
-      school: {
-        id: this.state.school.id,
-        school: this.state.school.school,
-        location: this.state.location,
-        degree: this.state.school.degree,
-        gpa: this.state.school.gpa,
-        start: e.target.value,
-        end: this.state.school.end,
-      },
+      start: e.target.value,
     });
   };
 
   handleChangeEndDate = (e) => {
     this.setState({
-      school: {
-        id: this.state.school.id,
-        school: this.state.school.school,
-        location: this.state.location,
-        degree: this.state.school.degree,
-        gpa: this.state.school.gpa,
-        start: this.state.school.start,
-        end: e.target.value,
-      },
+      end: e.target.value,
     });
   };
 
   onSubmitAdd = () => {
+    let newSchool = {
+      id: this.state.id,
+      school: this.state.school,
+      location: this.state.location,
+      degree: this.state.degree,
+      gpa: this.state.gpa,
+      start: this.state.start,
+      end: this.state.end,
+    };
     this.setState({
       formOn: false,
-      schoolsList: this.state.schoolsList.concat(this.state.school),
-      school: {
-        id: uniqid(),
-        school: '',
-        location: '',
-        degree: '',
-        gpa: '',
-        start: '',
-        end: '',
-      },
+      schoolsList: this.state.schoolsList.concat(newSchool),
+      id: uniqid(),
+      school: '',
+      location: '',
+      degree: '',
+      gpa: '',
+      start: '',
+      end: '',
     });
   };
 
   toggleAdder = () => {
     this.setState((prevState) => ({
-      formHeading: 'Add School',
-      school: {
-        id: uniqid(),
-        school: '',
-        location: '',
-        degree: '',
-        gpa: '',
-        start: '',
-        end: '',
-      },
       formOn: !prevState.formOn,
+      formHeading: 'Add School',
+      id: uniqid(),
+      school: '',
+      location: '',
+      degree: '',
+      gpa: '',
+      start: '',
+      end: '',
     }));
   };
 
@@ -160,8 +116,8 @@ class Education extends Component {
   for editing the correct school item in the schoolsList array.*/
   toggleEditor = (e) => {
     let targetIndex;
-    this.state.schoolsList.forEach((school, i) => {
-      if (school.id === e.target.id) {
+    this.state.schoolsList.forEach((sch, i) => {
+      if (sch.id === e.target.id) {
         targetIndex = i;
       }
     });
@@ -169,15 +125,13 @@ class Education extends Component {
       formOn: !prevState.formOn,
       formHeading: 'Edit School',
       currentEditIndex: targetIndex,
-      school: {
-        id: this.state.schoolsList[targetIndex].id,
-        school: this.state.schoolsList[targetIndex].school,
-        location: this.state.schoolsList[targetIndex].location,
-        degree: this.state.schoolsList[targetIndex].degree,
-        gpa: this.state.schoolsList[targetIndex].gpa,
-        start: this.state.schoolsList[targetIndex].start,
-        end: this.state.schoolsList[targetIndex].end,
-      },
+      id: this.state.schoolsList[targetIndex].id,
+      school: this.state.schoolsList[targetIndex].school,
+      location: this.state.schoolsList[targetIndex].location,
+      degree: this.state.schoolsList[targetIndex].degree,
+      gpa: this.state.schoolsList[targetIndex].gpa,
+      start: this.state.schoolsList[targetIndex].start,
+      end: this.state.schoolsList[targetIndex].end,
     }));
   };
 
@@ -191,26 +145,26 @@ class Education extends Component {
 
   onSubmitEdit = (e) => {
     e.preventDefault();
-    let copy = this.state.schoolsList;
-    copy[this.state.currentEditIndex] = this.state.school;
+    let newSchool = {
+      id: this.state.id,
+      school: this.state.school,
+      location: this.state.location,
+      degree: this.state.degree,
+      gpa: this.state.gpa,
+      start: this.state.start,
+      end: this.state.end,
+    };
+    let copyOfSchoolsList = this.state.schoolsList;
+    copyOfSchoolsList[this.state.currentEditIndex] = newSchool;
     this.setState({
-      schoolsList: copy,
+      schoolsList: copyOfSchoolsList,
       formOn: false,
-      school: {
-        id: uniqid(),
-        school: '',
-        location: '',
-        degree: '',
-        gpa: '',
-        start: '',
-        end: '',
-      },
     });
   };
 
   render() {
     return (
-      <div id='Education'>
+      <div id='EducationComponent'>
         <div className='rightColumnHeader'>
           <div>Education</div>
           <button className='schoolAddBtn' onClick={this.toggleAdder}>
@@ -234,18 +188,17 @@ class Education extends Component {
             }
           >
             <div className='adderFormHeading'>{this.state.formHeading}</div>
-            {/* school name */}
+            {/* school school */}
             <label className='inputFieldLabel' htmlFor='schoolInput'>
               School
             </label>
             <input
               id='schoolInput'
-              name='school'
+              school='school'
               type='text'
-              value={this.state.school.school}
-              onChange={this.handleChangeSchool}
+              value={this.state.school || ''}
+              onChange={this.handleChangeName}
               autoFocus
-              required
             />
             {/* location */}
             <label className='inputFieldLabel' htmlFor='locationInput'>
@@ -253,9 +206,9 @@ class Education extends Component {
             </label>
             <input
               id='locationInput'
-              name='location'
+              school='location'
               type='text'
-              value={this.state.school.location}
+              value={this.state.location || ''}
               onChange={this.handleChangeLocation}
               required
             />
@@ -265,9 +218,9 @@ class Education extends Component {
             </label>
             <input
               id='degreeInput'
-              name='degree'
+              school='degree'
               type='text'
-              value={this.state.school.degree}
+              value={this.state.degree || ''}
               onChange={this.handleChangeDegree}
               required
             />
@@ -277,9 +230,9 @@ class Education extends Component {
             </label>
             <input
               id='gpaInput'
-              name='gpa'
+              school='gpa'
               type='text'
-              value={this.state.school.gpa}
+              value={this.state.gpa || ''}
               onChange={this.handleChangeGPA}
               required
             />
@@ -289,9 +242,9 @@ class Education extends Component {
             </label>
             <input
               id='startInput'
-              name='start'
+              school='start'
               type='date'
-              value={this.state.school.start}
+              value={this.state.start || ''}
               onChange={this.handleChangeStartDate}
             />
             {/* end date */}
@@ -300,9 +253,9 @@ class Education extends Component {
             </label>
             <input
               id='endInput'
-              name='end'
+              school='end'
               type='date'
-              value={this.state.school.end}
+              value={this.state.end || ''}
               onChange={this.handleChangeEndDate}
             />
             {/* form sumbit button */}

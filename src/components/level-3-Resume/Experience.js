@@ -9,17 +9,17 @@ class Experience extends Component {
       formOn: false,
       formHeading: '',
       currentEditIndex: '',
-      experience: {
-        id: uniqid(),
-        organization: '',
-        location: '',
-        title: '',
-        description1: '',
-        description2: '',
-        description3: '',
-        start: '',
-        end: '',
-      },
+
+      id: uniqid(),
+      organization: '',
+      location: '',
+      title: '',
+      description1: '',
+      description2: '',
+      description3: '',
+      start: '',
+      end: '',
+
       experienceList: [
         {
           id: uniqid(),
@@ -41,181 +41,98 @@ class Experience extends Component {
 
   handleChangeOrganization = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: e.target.value,
-        location: this.state.experience.location,
-        title: this.state.experience.title,
-        description1: this.state.experience.description1,
-        description2: this.state.experience.description2,
-        description3: this.state.experience.description3,
-        start: this.state.experience.start,
-        end: this.state.experience.end,
-      },
+      organization: e.target.value,
     });
   };
 
   handleChangeLocation = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.location,
-        location: e.target.value,
-        title: this.state.experience.title,
-        description1: this.state.experience.description1,
-        description2: this.state.experience.description2,
-        description3: this.state.experience.description3,
-        start: this.state.experience.start,
-        end: this.state.experience.end,
-      },
+      location: e.target.value,
     });
   };
 
   handleChangePosition = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.organization,
-        location: this.state.experience.location,
-        title: e.target.value,
-        description1: this.state.experience.description1,
-        description2: this.state.experience.description2,
-        description3: this.state.experience.description3,
-        start: this.state.experience.start,
-        end: this.state.experience.end,
-      },
+      title: e.target.value,
     });
   };
 
   handleChangeDescription1 = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.organization,
-        location: this.state.experience.location,
-        title: this.state.experience.title,
-        description1: e.target.value,
-        description2: this.state.experience.description2,
-        description3: this.state.experience.description3,
-        start: this.state.experience.start,
-        end: this.state.experience.end,
-      },
+      description1: e.target.value,
     });
   };
 
   handleChangeDescription1 = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.organization,
-        location: this.state.experience.location,
-        title: this.state.experience.title,
-        description1: e.target.value,
-        description2: this.state.experience.description2,
-        description3: this.state.experience.description3,
-        start: this.state.experience.start,
-        end: this.state.experience.end,
-      },
+      description1: e.target.value,
     });
   };
 
   handleChangeDescription2 = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.organization,
-        location: this.state.experience.location,
-        title: this.state.experience.title,
-        description1: this.state.experience.description1,
-        description2: e.target.value,
-        description3: this.state.experience.description3,
-        start: this.state.experience.start,
-        end: this.state.experience.end,
-      },
+      description2: e.target.value,
     });
   };
 
   handleChangeDescription3 = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.organization,
-        location: this.state.experience.location,
-        title: this.state.experience.title,
-        description1: this.state.experience.description1,
-        description2: this.state.experience.description2,
-        description3: e.target.value,
-        start: this.state.experience.start,
-        end: this.state.experience.end,
-      },
+      description3: e.target.value,
     });
   };
 
   handleChangeStartDate = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.organization,
-        location: this.state.experience.location,
-        title: this.state.experience.title,
-        description1: this.state.experience.description1,
-        description2: this.state.experience.description2,
-        description3: this.state.experience.description3,
-        start: e.target.value,
-        end: this.state.experience.end,
-      },
+      start: e.target.value,
     });
   };
 
   handleChangeEndDate = (e) => {
     this.setState({
-      experience: {
-        id: this.state.experience.id,
-        organization: this.state.experience.organization,
-        location: this.state.experience.location,
-        title: this.state.experience.title,
-        description1: this.state.experience.description1,
-        description2: this.state.experience.description2,
-        description3: this.state.experience.description3,
-        start: this.state.experience.start,
-        end: e.target.value,
-      },
+      end: e.target.value,
     });
   };
 
   onSubmitAdd = () => {
+    let newExperience = {
+      id: this.state.id,
+      organization: this.state.organization,
+      location: this.state.location,
+      title: this.state.title,
+      description1: this.state.description1,
+      description2: this.state.description2,
+      description3: this.state.description3,
+      start: this.state.start,
+      end: this.state.end,
+    };
     this.setState({
       formOn: false,
-      experienceList: this.state.experienceList.concat(this.state.experience),
-      experience: {
-        id: uniqid(),
-        organization: '',
-        location: '',
-        title: '',
-        description1: '',
-        description2: '',
-        description3: '',
-        start: '',
-        end: '',
-      },
+      experienceList: this.state.experienceList.concat(newExperience),
+      id: uniqid(),
+      organization: '',
+      location: '',
+      title: '',
+      description1: '',
+      description2: '',
+      description3: '',
+      start: '',
+      end: '',
     });
   };
 
   toggleAdder = () => {
     this.setState((prevState) => ({
-      formHeading: 'Add Experience',
-      experience: {
-        id: uniqid(),
-        organization: '',
-        location: '',
-        title: '',
-        description1: '',
-        description2: '',
-        description3: '',
-        start: '',
-        end: '',
-      },
       formOn: !prevState.formOn,
+      formHeading: 'Add Experience',
+      id: uniqid(),
+      organization: '',
+      location: '',
+      title: '',
+      description1: '',
+      description2: '',
+      description3: '',
+      start: '',
+      end: '',
     }));
   };
 
@@ -240,17 +157,15 @@ class Experience extends Component {
       formOn: !prevState.formOn,
       formHeading: 'Edit Experience',
       currentEditIndex: targetIndex,
-      experience: {
-        id: this.state.experienceList[targetIndex].id,
-        organization: this.state.experienceList[targetIndex].organization,
-        location: this.state.experienceList[targetIndex].location,
-        title: this.state.experienceList[targetIndex].title,
-        description1: this.state.experienceList[targetIndex].description1,
-        description2: this.state.experienceList[targetIndex].description2,
-        description3: this.state.experienceList[targetIndex].description3,
-        start: this.state.experienceList[targetIndex].start,
-        end: this.state.experienceList[targetIndex].end,
-      },
+      id: this.state.experienceList[targetIndex].id,
+      organization: this.state.experienceList[targetIndex].organization,
+      location: this.state.experienceList[targetIndex].location,
+      title: this.state.experienceList[targetIndex].title,
+      description1: this.state.experienceList[targetIndex].description1,
+      description2: this.state.experienceList[targetIndex].description2,
+      description3: this.state.experienceList[targetIndex].description3,
+      start: this.state.experienceList[targetIndex].start,
+      end: this.state.experienceList[targetIndex].end,
     }));
   };
 
@@ -264,28 +179,28 @@ class Experience extends Component {
 
   onSubmitEdit = (e) => {
     e.preventDefault();
-    let copy = this.state.experienceList;
-    copy[this.state.currentEditIndex] = this.state.experience;
+    let newExperience = {
+      id: this.state.id,
+      organization: this.state.organization,
+      location: this.state.location,
+      title: this.state.title,
+      description1: this.state.description1,
+      description2: this.state.description2,
+      description3: this.state.description3,
+      start: this.state.start,
+      end: this.state.end,
+    };
+    let copyOfExpList = this.state.experienceList;
+    copyOfExpList[this.state.currentEditIndex] = newExperience;
     this.setState({
-      experienceList: copy,
+      experienceList: copyOfExpList,
       formOn: false,
-      experience: {
-        id: uniqid(),
-        organization: '',
-        location: '',
-        title: '',
-        description1: '',
-        description2: '',
-        description3: '',
-        start: '',
-        end: '',
-      },
     });
   };
 
   render() {
     return (
-      <div id='Experience'>
+      <div id='ExperienceComponent'>
         <div className='rightColumnHeader'>
           <div>Experience</div>
           <button className='experienceAddBtn' onClick={this.toggleAdder}>
@@ -317,7 +232,7 @@ class Experience extends Component {
               id='orgnanizationInput'
               name='orgnanization'
               type='text'
-              value={this.state.experience.organization}
+              value={this.state.organization}
               onChange={this.handleChangeOrganization}
               autoFocus
               required
@@ -330,7 +245,7 @@ class Experience extends Component {
               id='locationInput'
               name='location'
               type='text'
-              value={this.state.experience.location}
+              value={this.state.location}
               onChange={this.handleChangeLocation}
               required
             />
@@ -342,7 +257,7 @@ class Experience extends Component {
               id='positionInput'
               name='title'
               type='text'
-              value={this.state.experience.title}
+              value={this.state.title}
               onChange={this.handleChangePosition}
               required
             />
@@ -354,7 +269,7 @@ class Experience extends Component {
               id='description1Input'
               name='description1'
               type='text'
-              value={this.state.experience.description1}
+              value={this.state.description1}
               onChange={this.handleChangeDescription1}
             />
             {/* description2 */}
@@ -365,7 +280,7 @@ class Experience extends Component {
               id='description2Input'
               name='description2'
               type='text'
-              value={this.state.experience.description2}
+              value={this.state.description2}
               onChange={this.handleChangeDescription2}
             />
             {/* description3 */}
@@ -376,7 +291,7 @@ class Experience extends Component {
               id='description3Input'
               name='description3'
               type='text'
-              value={this.state.experience.description3}
+              value={this.state.description3}
               onChange={this.handleChangeDescription3}
             />
             {/* start date */}
@@ -387,7 +302,7 @@ class Experience extends Component {
               id='startInput'
               name='start'
               type='date'
-              value={this.state.experience.start}
+              value={this.state.start}
               onChange={this.handleChangeStartDate}
             />
             {/* end date */}
@@ -398,7 +313,7 @@ class Experience extends Component {
               id='endInput'
               name='end'
               type='date'
-              value={this.state.experience.end}
+              value={this.state.end}
               onChange={this.handleChangeEndDate}
             />
             {/* form sumbit button */}

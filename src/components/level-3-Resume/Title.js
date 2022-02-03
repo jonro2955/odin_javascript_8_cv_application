@@ -24,20 +24,14 @@ class Title extends Component {
 
   render() {
     return (
-      <div id='Title'>
-        <div className='leftColumnHeader'>
-          <div className='leftColumnHeading'>Title</div>
-          <button className='editBtn' onClick={this.toggleEditor}>
-            Edit
-          </button>
-        </div>
+      <div id='TitleComponent'>
+        <button className='editBtn' onClick={this.toggleEditor}>
+          Edit
+        </button>
         <div>{this.state.title}</div>
+        {/* form */}
         {this.state.editorToggle && (
-          <form
-            id='nameEditForm'
-            className='form'
-            onSubmit={this.toggleEditor}
-          >
+          <form id='nameEditForm' className='form' onSubmit={this.toggleEditor}>
             <label className='inputFieldLabel' htmlFor='nameInput'>
               Title
             </label>
@@ -49,11 +43,7 @@ class Title extends Component {
               onChange={this.onChange}
               autoFocus
             />
-            <input
-              type='submit'
-              value='Done'
-              className='doneBtn'
-            />
+            <input type='submit' value='Done' className='doneBtn' />
           </form>
         )}
       </div>

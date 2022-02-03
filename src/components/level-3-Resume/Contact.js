@@ -56,7 +56,7 @@ class Contact extends Component {
 
   render() {
     return (
-      <div id='Contact'>
+      <div id='ContactComponent'>
         <div className='leftColumnHeader'>
           <div className='leftColumnHeading'>Contact</div>
           <button className='editBtn' onClick={this.toggleEditor}>
@@ -65,23 +65,23 @@ class Contact extends Component {
         </div>
         <div className='address'>
           <div className='contactInfoLabel'>Address</div>
-          <p>{this.state.address}</p>
+          <div>{this.state.address}</div>
         </div>
         <div className='phone'>
           <div className='contactInfoLabel'>Phone</div>
-          <p>{this.state.phone}</p>
+          <div>{this.state.phone}</div>
         </div>
         <div className='email'>
           <div className='contactInfoLabel'>Email</div>
-          <p>{this.state.email}</p>
+          <div>{this.state.email}</div>
         </div>
         <div className='website'>
           <div className='contactInfoLabel'>Website</div>
-          <p>{this.state.website}</p>
+          <div>{this.state.website}</div>
         </div>
         <div className='linkedin'>
           <div className='contactInfoLabel'>Linkedin</div>
-          <p>{this.state.linkedin}</p>
+          <div>{this.state.linkedin}</div>
         </div>
 
         {this.state.editorToggle && (

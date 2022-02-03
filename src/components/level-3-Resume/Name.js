@@ -24,14 +24,13 @@ class Name extends Component {
 
   render() {
     return (
-      <div id='Name'>
+      <div id='NameComponent'>
         <div className='leftColumnHeader'>
-          <div className='leftColumnHeading'>Name</div>
+          <div className='leftColumnHeading'>{this.state.name}</div>
           <button className='editBtn' onClick={this.toggleEditor}>
             Edit
           </button>
         </div>
-        <div>{this.state.name}</div>
         {/* form */}
         {this.state.editorToggle && (
           <form id='nameEditForm' className='form' onSubmit={this.toggleEditor}>

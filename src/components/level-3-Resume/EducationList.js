@@ -7,16 +7,16 @@ class EducationList extends Component {
 
   render() {
     return (
-      <ul>
+      <div>
         {this.props.state.schoolsList.map((school) => {
           return (
             <div key={school.id} className='schoolEntry'>
-              <p>{school.school}</p>
-              <p>{school.location}</p>
-              <p>{school.degree}</p>
-              <p>{school.gpa}</p>
-              <p>{school.start}</p>
-              <p>{school.end}</p>
+              <div>{school.school}</div>
+              <div>{school.location}</div>
+              <div>{school.degree}</div>
+              <div>{school.gpa}</div>
+              <div>{school.start}</div>
+              <div>{school.end}</div>
               <div className='entryBtnDiv'>
                 <button id={school.id} onClick={this.props.editBtnAction}>
                   Edit
@@ -28,7 +28,7 @@ class EducationList extends Component {
             </div>
           );
         })}
-      </ul>
+      </div>
     );
   }
 }

@@ -31,7 +31,7 @@ class Skills extends Component {
 
   render() {
     return (
-      <div id='Skills'>
+      <div id='SkillsComponent'>
         <div className='leftColumnHeader'>
           <div className='leftColumnHeading'>Skills</div>
           <button className='editBtn' onClick={this.toggleEditor}>
@@ -143,11 +143,7 @@ class Skills extends Component {
               value={this.state.skill8}
               onChange={this.onChange}
             />
-            <input
-              type='submit'
-              value='Done'
-              className='doneBtn'
-            />
+            <input type='submit' value='Done' className='doneBtn' />
           </form>
         )}
       </div>

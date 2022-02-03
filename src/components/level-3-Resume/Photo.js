@@ -30,8 +30,10 @@ class Photo extends Component {
     };
 
     return (
-      <div id='Photo' style={photoStyle}>
-        <button className='photoEditBtn' onClick={this.togglePhotoEditor}>Change Photo</button>
+      <div id='PhotoComponent' style={photoStyle}>
+        <button className='photoEditBtn' onClick={this.togglePhotoEditor}>
+          Change Photo
+        </button>
         {/* form */}
         {this.state.editorToggle && (
           <form
@@ -48,11 +50,7 @@ class Photo extends Component {
               onChange={this.onChange}
               autoFocus
             />
-            <input
-              type='submit'
-              value='Done'
-              className='doneBtn'
-            />
+            <input type='submit' value='Done' className='doneBtn' />
           </form>
         )}
       </div>

@@ -7,20 +7,18 @@ class ExperienceList extends Component {
 
   render() {
     return (
-      <ul>
+      <div>
         {this.props.state.experienceList.map((exp) => {
           return (
             <div key={exp.id} className='experienceEntry'>
-              <p>{exp.organization}</p>
-              <p>{exp.location}</p>
-              <p>{exp.title}</p>
-              <ul>
-                <div>{exp.description1}</div>
-                <div>{exp.description2}</div>
-                <div>{exp.description3}</div>
-              </ul>
-              <p>{exp.start}</p>
-              <p>{exp.end}</p>
+              <div>{exp.organization}</div>
+              <div>{exp.location}</div>
+              <div>{exp.title}</div>
+              <div>{exp.description1}</div>
+              <div>{exp.description2}</div>
+              <div>{exp.description3}</div>
+              <div>{exp.start}</div>
+              <div>{exp.end}</div>
               <div className='entryBtnDiv'>
                 <button id={exp.id} onClick={this.props.editBtnAction}>
                   Edit
@@ -32,7 +30,7 @@ class ExperienceList extends Component {
             </div>
           );
         })}
-      </ul>
+      </div>
     );
   }
 }

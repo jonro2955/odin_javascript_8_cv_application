@@ -1,36 +1,37 @@
-#App {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+#AppComponent {
   text-align: center;
-  align-items: center;
   border: 1px red solid;
-  gap: 5px;
+  width: 1100px;
+  height: 1400px;
+  margin: auto;
 }
-#Resume {
+#ResumeComponent {
   display: grid;
-  grid-template-columns: 152px auto;
-  width: 660px;
-  max-width: 660px;
-  /* height: 850px; */
-  /* max-height: 850px; */
-  margin-top: 5px;
+  grid-template-columns: 225px 775px;
   border: 1px orange solid;
+  max-width: 1000px;
+  max-height: 1300px;
+  margin: 50px auto;
 }
-#left-column {
+#PDFButtonComponent {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px 0px;
+  background-color: yellow;
+  width: 1000px;
+  border-radius: 10px;
+}
+#resume-left-column {
   display: grid;
   grid-template-rows: 180px 335px auto;
-  background-color: cadetblue;
-  max-width: 152px;
   overflow: visible;
   border: 1px yellow solid;
 }
-#right-column {
-  background-color: bisque;
+#resume-right-column {
   overflow: visible;
   border: green 1px solid;
 }
-#Photo {
+#PhotoComponent {
   height: 150px;
   width: 150px;
   border-radius: 50%;
@@ -44,34 +45,44 @@
   position: relative;
   text-transform: uppercase;
 }
-#Contact {
-  background-color: aqua;
+#ContactComponent {
   border: purple 1px solid;
 }
-#Skills {
-  background-color: bisque;
+#SkillsComponent {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
   border: red 1px solid;
 }
-#Name {
+#NameComponent {
   border: orange 1px solid;
 }
-#Title {
+#TitleComponent {
+  position: relative;
   border: yellow 1px solid;
 }
-#Profile {
+#ProfileComponent {
   border: green 1px solid;
 }
-#Education {
+#EducationComponent {
   border: blue 1px solid;
+}
+.rightColumnHeader {
+  position: relative;
+  font-size: 25px;
+  font-weight: bold;
+  border: black 1px solid;
+}
+.schoolEntry {
+  margin: 25px;
+  border: black 1px solid;
+}
+.experienceEntry {
+  margin: 25px;
+  border: black 1px solid;
 }
 #Experience {
   border: purple 1px solid;
-}
-#PDFButton {
-  width: 660px;
-  padding: 10px 0px;
-  background-color: yellow;
-  border-radius: 10px;
 }
 .form {
   display: flex;
@@ -102,27 +113,16 @@
 .adderFormHeading {
   font-size: 25px;
 }
-.rightColumnHeader {
-  position: relative;
-  font-size: 25px;
-  font-weight: bold;
-}
-.schoolEntry {
-  border: black 1px solid;
-}
-.experienceEntry {
-  border: black 1px solid;
-}
-.schoolAddBtn {
+/* .schoolAddBtn {
 }
 .entryBtnDiv {
 }
 .experienceAddBtn {
-}
+} */
 .editBtn {
-  /* position: absolute;
+  position: absolute;
   right: 0px;
-  top: 0px; */
+  top: 0px;
 }
 .photoEditBtn {
   position: absolute;

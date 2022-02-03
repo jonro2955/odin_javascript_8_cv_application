@@ -15,13 +15,13 @@ class Resume extends Component {
 
   render() {
     return (
-      <div id='Resume'>
-        <div id='left-column'>
+      <div id='ResumeComponent'>
+        <div id='resume-left-column'>
           <Photo />
           <Contact />
           <Skills />
         </div>
-        <div id='right-column'>
+        <div id='resume-right-column'>
           <Name />
           <Title />
           <Profile />
