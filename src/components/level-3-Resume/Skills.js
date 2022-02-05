@@ -32,12 +32,10 @@ class Skills extends Component {
   render() {
     return (
       <div id='SkillsComponent'>
-        <div className='leftColumnHeader'>
-          <div className='leftColumnHeading'>Skills</div>
-          <button className='editBtn' onClick={this.toggleEditor}>
-            Edit
-          </button>
-        </div>
+        <div className='leftColumnHeading'>Skills</div>
+        <button className='editBtn' onClick={this.toggleEditor}>
+          Edit
+        </button>
         <div>{this.state.skill1}</div>
         <div>{this.state.skill2}</div>
         <div>{this.state.skill3}</div>

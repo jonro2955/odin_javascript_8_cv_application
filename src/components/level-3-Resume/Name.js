@@ -3,37 +3,41 @@ import React, { Component } from 'react';
 class Name extends Component {
   constructor(props) {
     super(props);
-    this.toggleEditor = this.toggleEditor.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
+
     this.state = {
       name: 'John Webster',
-      editorToggle: false,
+      formOn: false,
     };
   }
 
-  toggleEditor = (e) => {
-    e.preventDefault();
+  toggleForm = () => {
     this.setState((prevState) => ({
-      editorToggle: !prevState.editorToggle,
+      formOn: !prevState.formOn,
     }));
   };
 
+  closeForm = () => {
+    this.setState({
+      formOn: false,
+    });
+  };
+
   onChange = (e) => {
-    e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
     return (
       <div id='NameComponent'>
-        <div className='leftColumnHeader'>
-          <div className='leftColumnHeading'>{this.state.name}</div>
-          <button className='editBtn' onClick={this.toggleEditor}>
-            Edit
-          </button>
-        </div>
+        <button className='editBtn' onClick={this.toggleForm}>
+          Edit
+        </button>
+        <div className='leftColumnHeading'>{this.state.name}</div>
         {/* form */}
-        {this.state.editorToggle && (
-          <form id='nameEditForm' className='form' onSubmit={this.toggleEditor}>
+        {this.state.formOn && (
+          <form id='nameEditForm' className='form' onSubmit={this.toggleForm}>
             <label className='inputFieldLabel' htmlFor='nameEditForm'>
               Name
             </label>

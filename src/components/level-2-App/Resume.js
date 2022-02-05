@@ -16,17 +16,19 @@ class Resume extends Component {
   render() {
     return (
       <div id='ResumeComponent'>
-        <div id='resume-left-column'>
-          <Photo />
-          <Contact />
-          <Skills />
-        </div>
-        <div id='resume-right-column'>
-          <Name />
-          <Title />
-          <Profile />
-          <Education />
-          <Experience />
+        <div id='resumeInnerDiv'>
+          <div id='resume-left-column'>
+            <Photo />
+            <Contact />
+            <Skills />
+          </div>
+          <div id='resume-right-column'>
+            <Name />
+            <Title />
+            <Profile />
+            <Education />
+            <Experience />
+          </div>
         </div>
       </div>
     );

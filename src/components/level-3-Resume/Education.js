@@ -167,7 +167,7 @@ class Education extends Component {
       <div id='EducationComponent'>
         <div className='rightColumnHeader'>
           <div>Education</div>
-          <button className='schoolAddBtn' onClick={this.toggleAdder}>
+          <button className='editBtn' onClick={this.toggleAdder}>
             Add
           </button>
         </div>

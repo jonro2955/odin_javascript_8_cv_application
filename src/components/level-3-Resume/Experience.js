@@ -203,7 +203,7 @@ class Experience extends Component {
       <div id='ExperienceComponent'>
         <div className='rightColumnHeader'>
           <div>Experience</div>
-          <button className='experienceAddBtn' onClick={this.toggleAdder}>
+          <button className='editBtn' onClick={this.toggleAdder}>
             Add
           </button>
         </div>

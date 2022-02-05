@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.toggleEditor = this.toggleEditor.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
     this.changeContact = this.changeContact.bind(this);
     this.state = {
-      editorToggle: false,
+      formOn: false,
       address: '123 Town Street, City, State, ZIP',
       phone: '555-555-5555',
       email: 'info@website.com',
@@ -15,20 +15,23 @@ class Contact extends Component {
     };
   }
 
-  toggleEditor = (e) => {
-    e.preventDefault();
+  toggleForm = () => {
     this.setState((prevState) => ({
-      editorToggle: !prevState.editorToggle,
+      formOn: !prevState.formOn,
     }));
   };
 
+  closeForm = () => {
+    this.setState({
+      formOn: false,
+    });
+  };
+
   onChange = (e) => {
-    e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  changeContact = (e) => {
-    e.preventDefault();
+  changeContact = () => {
     const addressInput = document.getElementById('addressInput').value;
     const phoneInput = document.getElementById('phoneInput').value;
     const emailInput = document.getElementById('emailInput').value;
@@ -50,7 +53,7 @@ class Contact extends Component {
       });
     }
     this.setState((prevState) => ({
-      editorToggle: !prevState.editorToggle,
+      formOn: !prevState.formOn,
     }));
   };
 
@@ -59,7 +62,7 @@ class Contact extends Component {
       <div id='ContactComponent'>
         <div className='leftColumnHeader'>
           <div className='leftColumnHeading'>Contact</div>
-          <button className='editBtn' onClick={this.toggleEditor}>
+          <button className='editBtn' onClick={this.toggleForm}>
             Edit
           </button>
         </div>
@@ -84,11 +87,11 @@ class Contact extends Component {
           <div>{this.state.linkedin}</div>
         </div>
 
-        {this.state.editorToggle && (
+        {this.state.formOn && (
           <form
             id='contactEditForm'
             className='form'
-            onSubmit={this.toggleEditor}
+            onSubmit={this.toggleForm}
           >
             <div>Edit Contact Info</div>
             <label className='inputFieldLabel' htmlFor='addressInput'>

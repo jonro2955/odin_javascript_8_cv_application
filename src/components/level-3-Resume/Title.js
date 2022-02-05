@@ -43,7 +43,7 @@ class Title extends Component {
               onChange={this.onChange}
               autoFocus
             />
-            <input type='submit' value='Done' className='doneBtn' />
+            <input type='submit' value='Done' className='formBtn' />
           </form>
         )}
       </div>
