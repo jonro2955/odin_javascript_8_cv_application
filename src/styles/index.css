@@ -1,6 +1,5 @@
 #AppComponent {
   text-align: center;
-  border: 1px red solid;
   margin: auto;
 }
 #ResumeComponent {
@@ -29,7 +28,7 @@
 }
 #resume-left-column {
   display: grid;
-  grid-template-rows: 180px 335px auto;
+  grid-template-rows: 300px 335px auto;
   overflow: visible;
   border: 1px yellow solid;
 }
@@ -38,46 +37,144 @@
   border: green 1px solid;
 }
 #PhotoComponent {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  border: blue 1px solid;
-  font-size: 30px;
-  margin: 15px 0;
-  left: 15%;
+  position: relative;
+}
+#photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 235px;
+  width: 235px;
   background-size: cover;
   background-position: center;
   background-color: white;
-  position: relative;
-  text-transform: uppercase;
+  /* z-index: 1; */
+  border-radius: 50%;
+  border: blue 1px solid;
+  font-size: 30px;
+  margin-left: 15px;
+}
+#photo:hover:before {
+  content: 'EDIT';
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding-top: 100px;
+  font-weight: bolder;
+}
+.photoEditBtn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 #ContactComponent {
   position: relative;
-  border: purple 1px solid;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15px;
+}
+#ContactComponent .editBtn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#ContactComponent:hover .editBtn {
+  display: block;
 }
 #SkillsComponent {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex-direction: column;
   border: red 1px solid;
+}
+#SkillsComponent .editBtn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#SkillsComponent:hover .editBtn {
+  display: block;
 }
 #NameComponent {
   position: relative;
   border: orange 1px solid;
 }
+#NameComponent .editBtn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#NameComponent:hover .editBtn {
+  display: block;
+}
 #TitleComponent {
   position: relative;
   border: yellow 1px solid;
 }
+#TitleComponent .editBtn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#TitleComponent:hover .editBtn {
+  display: block;
+}
 #ProfileComponent {
   position: relative;
-
   border: green 1px solid;
+}
+#ProfileComponent .editBtn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#ProfileComponent:hover .editBtn {
+  display: block;
 }
 #EducationComponent {
   position: relative;
   border: blue 1px solid;
+}
+#EducationComponent .editBtn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#EducationComponent:hover .editBtn {
+  display: block;
+}
+.entryBtns {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#ExperienceComponent {
+  position: relative;
+}
+#ExperienceComponent .editBtn {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#ExperienceComponent:hover .editBtn {
+  display: block;
+}
+#introGroup {
+  margin: 25px;
 }
 .rightColumnHeader {
   position: relative;
@@ -86,6 +183,8 @@
   border: black 1px solid;
 }
 .schoolEntry {
+    position: relative;
+
   margin: 25px;
   border: black 1px solid;
 }
@@ -105,6 +204,7 @@
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
   z-index: 1;
+  width: 500px;
 }
 .formBtn {
   margin-top: 15px;
@@ -122,24 +222,12 @@
 .contactInfoLabel {
   font-weight: bold;
 }
+.contactInfo {
+  margin: 0 5px;
+}
+.borderBottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
 .adderFormHeading {
   font-size: 25px;
 }
-/* .schoolAddBtn {
-}
-.entryBtnDiv {
-}
-.experienceAddBtn {
-} */
-.editBtn {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-.photoEditBtn {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-

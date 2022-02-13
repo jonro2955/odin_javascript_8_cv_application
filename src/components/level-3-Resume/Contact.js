@@ -60,25 +60,23 @@ class Contact extends Component {
   render() {
     return (
       <div id='ContactComponent'>
-        <div className='leftColumnHeader'>
-          <div className='leftColumnHeading'>Contact</div>
-          <button className='editBtn' onClick={this.toggleForm}>
-            Edit
-          </button>
-        </div>
-        <div className='address'>
+        <button className='editBtn' type='button' onClick={this.toggleForm}>
+          Edit
+        </button>
+
+        <div className='address borderBottom'>
           <div className='contactInfoLabel'>Address</div>
           <div>{this.state.address}</div>
         </div>
-        <div className='phone'>
+        <div className='phone borderBottom'>
           <div className='contactInfoLabel'>Phone</div>
           <div>{this.state.phone}</div>
         </div>
-        <div className='email'>
+        <div className='email borderBottom'>
           <div className='contactInfoLabel'>Email</div>
           <div>{this.state.email}</div>
         </div>
-        <div className='website'>
+        <div className='website borderBottom'>
           <div className='contactInfoLabel'>Website</div>
           <div>{this.state.website}</div>
         </div>
@@ -86,13 +84,9 @@ class Contact extends Component {
           <div className='contactInfoLabel'>Linkedin</div>
           <div>{this.state.linkedin}</div>
         </div>
-
+        {/* Form */}
         {this.state.formOn && (
-          <form
-            id='contactEditForm'
-            className='form'
-            onSubmit={this.toggleForm}
-          >
+          <form className='form' onSubmit={this.toggleForm}>
             <div>Edit Contact Info</div>
             <label className='inputFieldLabel' htmlFor='addressInput'>
               Address
@@ -101,6 +95,7 @@ class Contact extends Component {
               id='addressInput'
               type='text'
               name='address'
+              maxLength='100'
               value={this.state.address}
               onChange={this.onChange}
               autoFocus
@@ -112,6 +107,7 @@ class Contact extends Component {
               id='phoneInput'
               type='text'
               name='phone'
+              maxLength='100'
               onChange={this.onChange}
               value={this.state.phone}
             />
@@ -122,6 +118,7 @@ class Contact extends Component {
               id='emailInput'
               type='text'
               name='email'
+              maxLength='100'
               onChange={this.onChange}
               value={this.state.email}
             />
@@ -132,6 +129,7 @@ class Contact extends Component {
               id='websiteInput'
               type='text'
               name='website'
+              maxLength='100'
               onChange={this.onChange}
               value={this.state.website}
             />
@@ -142,6 +140,7 @@ class Contact extends Component {
               id='linkedinInput'
               type='text'
               name='linkedin'
+              maxLength='100'
               onChange={this.onChange}
               value={this.state.linkedin}
             />

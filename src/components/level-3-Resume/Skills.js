@@ -36,21 +36,19 @@ class Skills extends Component {
         <button className='editBtn' onClick={this.toggleEditor}>
           Edit
         </button>
-        <div>{this.state.skill1}</div>
-        <div>{this.state.skill2}</div>
-        <div>{this.state.skill3}</div>
-        <div>{this.state.skill4}</div>
-        <div>{this.state.skill5}</div>
-        <div>{this.state.skill6}</div>
-        <div>{this.state.skill7}</div>
-        <div>{this.state.skill8}</div>
+        <ul>
+          <li>{this.state.skill1}</li>
+          <li>{this.state.skill2}</li>
+          <li>{this.state.skill3}</li>
+          <li>{this.state.skill4}</li>
+          <li>{this.state.skill5}</li>
+          <li>{this.state.skill6}</li>
+          <li>{this.state.skill7}</li>
+          <li>{this.state.skill8}</li>
+        </ul>
         {/* form */}
         {this.state.editorToggle && (
-          <form
-            id='skillsEditForm'
-            className='form'
-            onSubmit={this.toggleEditor}
-          >
+          <form className='form' onSubmit={this.toggleEditor}>
             <label className='inputFieldLabel' htmlFor='skill1Input'>
               Skill 1
             </label>
@@ -58,6 +56,7 @@ class Skills extends Component {
               id='skill1Input'
               name='skill1'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill1}
               onChange={this.onChange}
@@ -70,6 +69,7 @@ class Skills extends Component {
               id='skill2Input'
               name='skill2'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill2}
               onChange={this.onChange}
@@ -82,6 +82,7 @@ class Skills extends Component {
               className='inputFieldLabel'
               name='skill3'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill3}
               onChange={this.onChange}
@@ -93,6 +94,7 @@ class Skills extends Component {
               id='skill4Input'
               name='skill4'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill4}
               onChange={this.onChange}
@@ -104,6 +106,7 @@ class Skills extends Component {
               id='skill5Input'
               name='skill5'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill5}
               onChange={this.onChange}
@@ -115,6 +118,7 @@ class Skills extends Component {
               id='skill6Input'
               name='skill6'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill6}
               onChange={this.onChange}
@@ -126,6 +130,7 @@ class Skills extends Component {
               id='skill7Input'
               name='skill7'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill7}
               onChange={this.onChange}
@@ -137,11 +142,12 @@ class Skills extends Component {
               id='skill8Input'
               name='skill8'
               type='text'
+              maxLength='100'
               htmlFor='skillsEditForm'
               value={this.state.skill8}
               onChange={this.onChange}
             />
-            <input type='submit' value='Done' className='doneBtn' />
+            <input type='submit' value='Done' className='formBtn' />
           </form>
         )}
       </div>

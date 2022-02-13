@@ -30,27 +30,23 @@ class Photo extends Component {
     };
 
     return (
-      <div id='PhotoComponent' style={photoStyle}>
-        <button className='photoEditBtn' onClick={this.togglePhotoEditor}>
-          Change Photo
-        </button>
+      <div id='PhotoComponent'>
+        <div id='photo' style={photoStyle} onClick={this.togglePhotoEditor}>
+        </div>
         {/* form */}
         {this.state.editorToggle && (
-          <form
-            id='photoEditForm'
-            className='form'
-            onSubmit={this.togglePhotoEditor}
-          >
+          <form className='form' onSubmit={this.togglePhotoEditor}>
             <label htmlFor='photoURLInput'>New Photo URL</label>
-            <input
+            <textarea
               id='photoURLInput'
               name='photoURL'
-              type='text'
+              rows='9'
+              wrap='soft'
               value={this.state.photoURL}
               onChange={this.onChange}
               autoFocus
-            />
-            <input type='submit' value='Done' className='doneBtn' />
+            ></textarea>
+            <input type='submit' value='Done' className='formBtn' />
           </form>
         )}
       </div>

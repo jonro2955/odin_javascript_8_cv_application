@@ -23,9 +23,11 @@ class Resume extends Component {
             <Skills />
           </div>
           <div id='resume-right-column'>
-            <Name />
-            <Title />
-            <Profile />
+            <div id='introGroup'>
+              <Name />
+              <Title />
+              <Profile />
+            </div>
             <Education />
             <Experience />
           </div>

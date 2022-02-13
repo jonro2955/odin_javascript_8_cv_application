@@ -31,7 +31,7 @@ class Title extends Component {
         <div>{this.state.title}</div>
         {/* form */}
         {this.state.editorToggle && (
-          <form id='nameEditForm' className='form' onSubmit={this.toggleEditor}>
+          <form className='form' onSubmit={this.toggleEditor}>
             <label className='inputFieldLabel' htmlFor='nameInput'>
               Title
             </label>
@@ -39,6 +39,7 @@ class Title extends Component {
               id='nameInput'
               name='title'
               type='text'
+              maxLength='100'
               value={this.state.title}
               onChange={this.onChange}
               autoFocus

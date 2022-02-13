@@ -23,15 +23,43 @@ class Experience extends Component {
       experienceList: [
         {
           id: uniqid(),
+          organization: 'Best Web Company',
+          location: 'Toronto, ON',
+          title: 'Web Developer',
+          description1:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
+          description2:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
+          description3:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
+          start: '2020-01-01',
+          end: '2021-01-10',
+        },
+        {
+          id: uniqid(),
           organization: 'Awesome Web Company',
           location: 'Toronto, ON',
           title: 'Web Developer',
           description1:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
           description2:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
           description3:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
+          start: '2020-01-01',
+          end: '2021-01-10',
+        },
+        {
+          id: uniqid(),
+          organization: 'Amazing Web Company',
+          location: 'Toronto, ON',
+          title: 'Web Developer',
+          description1:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
+          description2:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
+          description3:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
           start: '2020-01-01',
           end: '2021-01-10',
         },
@@ -201,12 +229,10 @@ class Experience extends Component {
   render() {
     return (
       <div id='ExperienceComponent'>
-        <div className='rightColumnHeader'>
-          <div>Experience</div>
-          <button className='editBtn' onClick={this.toggleAdder}>
-            Add
-          </button>
-        </div>
+        <div>Experience</div>
+        <button className='editBtn' onClick={this.toggleAdder}>
+          Add
+        </button>
         <ExperienceList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
@@ -215,7 +241,6 @@ class Experience extends Component {
         {/* Form */}
         {this.state.formOn && (
           <form
-            id='experienceForm'
             className='form'
             onSubmit={
               this.state.formHeading === 'Edit Experience'
@@ -232,6 +257,7 @@ class Experience extends Component {
               id='orgnanizationInput'
               name='orgnanization'
               type='text'
+              maxLength='100'
               value={this.state.organization}
               onChange={this.handleChangeOrganization}
               autoFocus
@@ -245,6 +271,7 @@ class Experience extends Component {
               id='locationInput'
               name='location'
               type='text'
+              maxLength='100'
               value={this.state.location}
               onChange={this.handleChangeLocation}
               required
@@ -257,65 +284,72 @@ class Experience extends Component {
               id='positionInput'
               name='title'
               type='text'
+              maxLength='100'
               value={this.state.title}
               onChange={this.handleChangePosition}
               required
             />
-            {/* description1 */}
-            <label className='inputFieldLabel' htmlFor='description1Input'>
-              Description 1
-            </label>
-            <input
-              id='description1Input'
-              name='description1'
-              type='text'
-              value={this.state.description1}
-              onChange={this.handleChangeDescription1}
-            />
-            {/* description2 */}
-            <label className='inputFieldLabel' htmlFor='description2Input'>
-              Description 2
-            </label>
-            <input
-              id='description2Input'
-              name='description2'
-              type='text'
-              value={this.state.description2}
-              onChange={this.handleChangeDescription2}
-            />
-            {/* description3 */}
-            <label className='inputFieldLabel' htmlFor='description3Input'>
-              Description 3
-            </label>
-            <input
-              id='description3Input'
-              name='description3'
-              type='text'
-              value={this.state.description3}
-              onChange={this.handleChangeDescription3}
-            />
             {/* start date */}
             <label className='inputFieldLabel' htmlFor='startDate'>
-              Start Date
+              Start
             </label>
             <input
               id='startInput'
               name='start'
-              type='date'
+              type='text'
               value={this.state.start}
               onChange={this.handleChangeStartDate}
             />
             {/* end date */}
             <label className='inputFieldLabel' htmlFor='endDate'>
-              End Date
+              End
             </label>
             <input
               id='endInput'
               name='end'
-              type='date'
+              type='text'
               value={this.state.end}
               onChange={this.handleChangeEndDate}
             />
+            {/* description1 */}
+            <label className='inputFieldLabel' htmlFor='description1Input'>
+              Description 1
+            </label>
+            <textarea
+              rows='4'
+              maxLength='300'
+              id='description1Input'
+              name='description1'
+              wrap='soft'
+              value={this.state.description1}
+              onChange={this.handleChangeDescription1}
+            ></textarea>
+            {/* description2 */}
+            <label className='inputFieldLabel' htmlFor='description2Input'>
+              Description 2
+            </label>
+            <textarea
+              rows='4'
+              maxLength='300'
+              id='description2Input'
+              name='description2'
+              wrap='soft'
+              value={this.state.description2}
+              onChange={this.handleChangeDescription2}
+            ></textarea>
+            {/* description3 */}
+            <label className='inputFieldLabel' htmlFor='description3Input'>
+              Description 3
+            </label>
+            <textarea
+              rows='4'
+              maxLength='300'
+              id='description3Input'
+              name='description3'
+              wrap='soft'
+              value={this.state.description3}
+              onChange={this.handleChangeDescription3}
+            ></textarea>
             {/* form sumbit button */}
             <input type='submit' value='Submit' className='formBtn' />
             <button className='formBtn' onClick={this.toggleAdder}>

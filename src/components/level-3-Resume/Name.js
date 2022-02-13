@@ -37,13 +37,14 @@ class Name extends Component {
         <div className='leftColumnHeading'>{this.state.name}</div>
         {/* form */}
         {this.state.formOn && (
-          <form id='nameEditForm' className='form' onSubmit={this.toggleForm}>
+          <form className='form' onSubmit={this.toggleForm}>
             <label className='inputFieldLabel' htmlFor='nameEditForm'>
               Name
             </label>
             <input
               name='name'
               type='text'
+              maxLength='100'
               id='nameEditForm'
               value={this.state.name}
               onChange={this.onChange}

@@ -14,11 +14,13 @@ class ExperienceList extends Component {
               <div>{exp.organization}</div>
               <div>{exp.location}</div>
               <div>{exp.title}</div>
-              <div>{exp.description1}</div>
-              <div>{exp.description2}</div>
-              <div>{exp.description3}</div>
               <div>{exp.start}</div>
               <div>{exp.end}</div>
+              <ul>
+                <li>{exp.description1}</li>
+                <li>{exp.description2}</li>
+                <li>{exp.description3}</li>
+              </ul>
               <div className='entryBtnDiv'>
                 <button id={exp.id} onClick={this.props.editBtnAction}>
                   Edit

@@ -5,7 +5,7 @@ class Profile extends Component {
     super(props);
     this.toggleEditor = this.toggleEditor.bind(this);
     this.state = {
-      profile: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      profile: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. `,
       editorToggle: false,
     };
   }
@@ -31,19 +31,21 @@ class Profile extends Component {
         </button>
         <div>{this.state.profile}</div>
         {this.state.editorToggle && (
-          <form id='nameEditForm' className='form' onSubmit={this.toggleEditor}>
-            <label className='inputFieldLabel' htmlFor='nameInput'>
+          <form className='form' onSubmit={this.toggleEditor}>
+            <label className='inputFieldLabel' htmlFor='profileInput'>
               Profile
             </label>
-            <input
-              id='nameInput'
+            <textarea
+              rows='9'
+              maxLength='525'
+              id='profileInput'
               name='profile'
-              type='text'
+              wrap='soft'
               value={this.state.profile}
               onChange={this.onChange}
               autoFocus
-            />
-            <input type='submit' value='Done' className='doneBtn' />
+            ></textarea>
+            <input type='submit' value='Done' className='formBtn' />
           </form>
         )}
       </div>

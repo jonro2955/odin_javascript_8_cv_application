@@ -20,7 +20,16 @@ class Education extends Component {
       schoolsList: [
         {
           id: uniqid(),
-          school: 'School',
+          school: 'Awesome School',
+          location: 'Location',
+          degree: 'Degree',
+          gpa: '3.5',
+          start: '2022-01-10',
+          end: '2023-02-10',
+        },
+        {
+          id: uniqid(),
+          school: 'Best School',
           location: 'Location',
           degree: 'Degree',
           gpa: '3.5',
@@ -165,12 +174,10 @@ class Education extends Component {
   render() {
     return (
       <div id='EducationComponent'>
-        <div className='rightColumnHeader'>
-          <div>Education</div>
-          <button className='editBtn' onClick={this.toggleAdder}>
-            Add
-          </button>
-        </div>
+        <div>Education</div>
+        <button className='editBtn' onClick={this.toggleAdder}>
+          Add
+        </button>
         <EducationList
           state={this.state}
           deleteBtnAction={this.deleteEntry}
@@ -179,7 +186,6 @@ class Education extends Component {
         {/* Form */}
         {this.state.formOn && (
           <form
-            id='educationForm'
             className='form'
             onSubmit={
               this.state.formHeading === 'Edit School'
@@ -196,7 +202,8 @@ class Education extends Component {
               id='schoolInput'
               school='school'
               type='text'
-              value={this.state.school || ''}
+              maxLength='100'
+              value={this.state.school}
               onChange={this.handleChangeName}
               autoFocus
             />
@@ -208,32 +215,22 @@ class Education extends Component {
               id='locationInput'
               school='location'
               type='text'
-              value={this.state.location || ''}
+              maxLength='100'
+              value={this.state.location}
               onChange={this.handleChangeLocation}
               required
             />
             {/* degree */}
             <label className='inputFieldLabel' htmlFor='degreeInput'>
-              Degree
+              Degree/Credential
             </label>
             <input
               id='degreeInput'
               school='degree'
               type='text'
-              value={this.state.degree || ''}
+              maxLength='100'
+              value={this.state.degree}
               onChange={this.handleChangeDegree}
-              required
-            />
-            {/* gpa */}
-            <label className='inputFieldLabel' htmlFor='gpaInput'>
-              GPA
-            </label>
-            <input
-              id='gpaInput'
-              school='gpa'
-              type='text'
-              value={this.state.gpa || ''}
-              onChange={this.handleChangeGPA}
               required
             />
             {/* start date */}
@@ -243,8 +240,8 @@ class Education extends Component {
             <input
               id='startInput'
               school='start'
-              type='date'
-              value={this.state.start || ''}
+              type='text'
+              value={this.state.start}
               onChange={this.handleChangeStartDate}
             />
             {/* end date */}
@@ -254,9 +251,22 @@ class Education extends Component {
             <input
               id='endInput'
               school='end'
-              type='date'
-              value={this.state.end || ''}
+              type='text'
+              value={this.state.end}
               onChange={this.handleChangeEndDate}
+            />
+            {/* gpa */}
+            <label className='inputFieldLabel' htmlFor='gpaInput'>
+              GPA
+            </label>
+            <input
+              id='gpaInput'
+              school='gpa'
+              type='text'
+              maxLength='100'
+              value={this.state.gpa}
+              onChange={this.handleChangeGPA}
+              required
             />
             {/* form sumbit button */}
             <input type='submit' value='Submit' className='formBtn' />
