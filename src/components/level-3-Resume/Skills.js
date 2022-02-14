@@ -32,124 +32,124 @@ class Skills extends Component {
   render() {
     return (
       <div id='SkillsComponent'>
-        <div className='leftColumnHeading'>Skills</div>
-        <button className='editBtn' onClick={this.toggleEditor}>
-          Edit
-        </button>
-        <ul>
-          <li>{this.state.skill1}</li>
-          <li>{this.state.skill2}</li>
-          <li>{this.state.skill3}</li>
-          <li>{this.state.skill4}</li>
-          <li>{this.state.skill5}</li>
-          <li>{this.state.skill6}</li>
-          <li>{this.state.skill7}</li>
-          <li>{this.state.skill8}</li>
-        </ul>
-        {/* form */}
-        {this.state.editorToggle && (
-          <form className='form' onSubmit={this.toggleEditor}>
-            <label className='inputFieldLabel' htmlFor='skill1Input'>
-              Skill 1
-            </label>
-            <input
-              id='skill1Input'
-              name='skill1'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill1}
-              onChange={this.onChange}
-              autoFocus
-            />
-            <label className='inputFieldLabel' htmlFor='skill2Input'>
-              Skill 2
-            </label>
-            <input
-              id='skill2Input'
-              name='skill2'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill2}
-              onChange={this.onChange}
-            />
-            <label className='inputFieldLabel' htmlFor='skill3Input'>
-              Skill 3
-            </label>
-            <input
-              id='skill3Input'
-              className='inputFieldLabel'
-              name='skill3'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill3}
-              onChange={this.onChange}
-            />
-            <label className='inputFieldLabel' htmlFor='skill4Input'>
-              Skill 4
-            </label>
-            <input
-              id='skill4Input'
-              name='skill4'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill4}
-              onChange={this.onChange}
-            />
-            <label className='inputFieldLabel' htmlFor='skill5Input'>
-              Skill 5
-            </label>
-            <input
-              id='skill5Input'
-              name='skill5'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill5}
-              onChange={this.onChange}
-            />
-            <label className='inputFieldLabel' htmlFor='skill6Input'>
-              Skill 6
-            </label>
-            <input
-              id='skill6Input'
-              name='skill6'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill6}
-              onChange={this.onChange}
-            />
-            <label className='inputFieldLabel' htmlFor='skill7Input'>
-              Skill 7
-            </label>
-            <input
-              id='skill7Input'
-              name='skill7'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill7}
-              onChange={this.onChange}
-            />
-            <label className='inputFieldLabel' htmlFor='skill8Input'>
-              Skill 8
-            </label>
-            <input
-              id='skill8Input'
-              name='skill8'
-              type='text'
-              maxLength='100'
-              htmlFor='skillsEditForm'
-              value={this.state.skill8}
-              onChange={this.onChange}
-            />
-            <input type='submit' value='Done' className='formBtn' />
-          </form>
-        )}
+        <div id='skillsCenterBox'>
+          <div className='skillHeading'>Skills</div>
+          <button className='editBtn' onClick={this.toggleEditor}>
+            Edit
+          </button>
+          <div>{this.state.skill1}</div>
+          <div>{this.state.skill2}</div>
+          <div>{this.state.skill3}</div>
+          <div>{this.state.skill4}</div>
+          <div>{this.state.skill5}</div>
+          <div>{this.state.skill6}</div>
+          <div>{this.state.skill7}</div>
+          <div>{this.state.skill8}</div>
+          {/* form */}
+          {this.state.editorToggle && (
+            <form className='form' onSubmit={this.toggleEditor}>
+              <label className='inputFieldLabel' htmlFor='skill1Input'>
+                Skill 1
+              </label>
+              <input
+                id='skill1Input'
+                name='skill1'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill1}
+                onChange={this.onChange}
+                autoFocus
+              />
+              <label className='inputFieldLabel' htmlFor='skill2Input'>
+                Skill 2
+              </label>
+              <input
+                id='skill2Input'
+                name='skill2'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill2}
+                onChange={this.onChange}
+              />
+              <label className='inputFieldLabel' htmlFor='skill3Input'>
+                Skill 3
+              </label>
+              <input
+                id='skill3Input'
+                className='inputFieldLabel'
+                name='skill3'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill3}
+                onChange={this.onChange}
+              />
+              <label className='inputFieldLabel' htmlFor='skill4Input'>
+                Skill 4
+              </label>
+              <input
+                id='skill4Input'
+                name='skill4'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill4}
+                onChange={this.onChange}
+              />
+              <label className='inputFieldLabel' htmlFor='skill5Input'>
+                Skill 5
+              </label>
+              <input
+                id='skill5Input'
+                name='skill5'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill5}
+                onChange={this.onChange}
+              />
+              <label className='inputFieldLabel' htmlFor='skill6Input'>
+                Skill 6
+              </label>
+              <input
+                id='skill6Input'
+                name='skill6'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill6}
+                onChange={this.onChange}
+              />
+              <label className='inputFieldLabel' htmlFor='skill7Input'>
+                Skill 7
+              </label>
+              <input
+                id='skill7Input'
+                name='skill7'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill7}
+                onChange={this.onChange}
+              />
+              <label className='inputFieldLabel' htmlFor='skill8Input'>
+                Skill 8
+              </label>
+              <input
+                id='skill8Input'
+                name='skill8'
+                type='text'
+                maxLength='100'
+                htmlFor='skillsEditForm'
+                value={this.state.skill8}
+                onChange={this.onChange}
+              />
+              <input type='submit' value='Done' className='formBtn' />
+            </form>
+          )}
+        </div>
       </div>
     );
   }

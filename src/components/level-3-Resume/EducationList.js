@@ -5,6 +5,7 @@ class EducationList extends Component {
     super(props);
     this.state = {
       hover: false,
+      buttonsToShow: 'none',
     };
   }
 
@@ -13,34 +14,35 @@ class EducationList extends Component {
   };
 
   render() {
-    let btnStyle;
-    if (this.state.hover) {
-      btnStyle = { display: 'block' };
-    } else {
-      btnStyle = { display: 'none' };
-    }
     return (
       <div>
         {this.props.state.schoolsList.map((school) => {
           return (
-            <div
-              key={school.id}
-              className='schoolEntry'
-              onMouseEnter={this.toggleHover}
-              onMouseLeave={this.toggleHover}
-            >
-              <div>
-                {school.school}, {school.location}
+            <div key={school.id} className='schoolEntry'>
+              <div className='schoolEntryColumn'>
+                {school.start} - {school.end}
               </div>
-              <div>{school.degree}</div>
-              <div>{school.gpa}</div>
-              <div>{school.start}</div>
-              <div>{school.end}</div>
-              <div style={btnStyle} className='entryBtns'>
-                <button id={school.id} onClick={this.props.editBtnAction}>
+              <div className='schoolEntryColumn'>
+                <div>{school.school}</div>
+                <div>{school.location}</div>
+              </div>
+              <div className='schoolEntryColumn'>
+                <div>{school.degree}</div>
+                <div>GPA: {school.gpa}</div>
+              </div>
+              <div className='entryEditBtns'>
+                <button
+                  className='entryEditBtn'
+                  id={school.id}
+                  onClick={this.props.editBtnAction}
+                >
                   Edit
                 </button>
-                <button id={school.id} onClick={this.props.deleteBtnAction}>
+                <button
+                  className='entryEditBtn'
+                  id={school.id}
+                  onClick={this.props.deleteBtnAction}
+                >
                   Delete
                 </button>
               </div>

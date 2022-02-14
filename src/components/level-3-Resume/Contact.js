@@ -60,93 +60,95 @@ class Contact extends Component {
   render() {
     return (
       <div id='ContactComponent'>
-        <button className='editBtn' type='button' onClick={this.toggleForm}>
-          Edit
-        </button>
+        <div id='contactCenterBox'>
+          <button className='editBtn' type='button' onClick={this.toggleForm}>
+            Edit
+          </button>
 
-        <div className='address borderBottom'>
-          <div className='contactInfoLabel'>Address</div>
-          <div>{this.state.address}</div>
+          <div className='address'>
+            <div className='contactHeading'>Address</div>
+            <div>{this.state.address}</div>
+          </div>
+          <div className='phone'>
+            <div className='contactHeading'>Phone</div>
+            <div>{this.state.phone}</div>
+          </div>
+          <div className='email'>
+            <div className='contactHeading'>Email</div>
+            <div>{this.state.email}</div>
+          </div>
+          <div className='website'>
+            <div className='contactHeading'>Website</div>
+            <div>{this.state.website}</div>
+          </div>
+          <div className='linkedin'>
+            <div className='contactHeading'>Linkedin</div>
+            <div>{this.state.linkedin}</div>
+          </div>
+          {/* Form */}
+          {this.state.formOn && (
+            <form className='form' onSubmit={this.toggleForm}>
+              <div>Edit Contact Info</div>
+              <label className='inputFieldLabel' htmlFor='addressInput'>
+                Address
+              </label>
+              <input
+                id='addressInput'
+                type='text'
+                name='address'
+                maxLength='100'
+                value={this.state.address}
+                onChange={this.onChange}
+                autoFocus
+              />
+              <label className='inputFieldLabel' htmlFor='phoneInput'>
+                Phone
+              </label>
+              <input
+                id='phoneInput'
+                type='text'
+                name='phone'
+                maxLength='100'
+                onChange={this.onChange}
+                value={this.state.phone}
+              />
+              <label className='inputFieldLabel' htmlFor='emailInput'>
+                Email
+              </label>
+              <input
+                id='emailInput'
+                type='text'
+                name='email'
+                maxLength='100'
+                onChange={this.onChange}
+                value={this.state.email}
+              />
+              <label className='inputFieldLabel' htmlFor='websiteInput'>
+                Website
+              </label>
+              <input
+                id='websiteInput'
+                type='text'
+                name='website'
+                maxLength='100'
+                onChange={this.onChange}
+                value={this.state.website}
+              />
+              <label className='inputFieldLabel' htmlFor='linkedinInput'>
+                LinkedIn Username
+              </label>
+              <input
+                id='linkedinInput'
+                type='text'
+                name='linkedin'
+                maxLength='100'
+                onChange={this.onChange}
+                value={this.state.linkedin}
+              />
+              <input type='submit' value='Done' className='formBtn' />
+            </form>
+          )}
         </div>
-        <div className='phone borderBottom'>
-          <div className='contactInfoLabel'>Phone</div>
-          <div>{this.state.phone}</div>
-        </div>
-        <div className='email borderBottom'>
-          <div className='contactInfoLabel'>Email</div>
-          <div>{this.state.email}</div>
-        </div>
-        <div className='website borderBottom'>
-          <div className='contactInfoLabel'>Website</div>
-          <div>{this.state.website}</div>
-        </div>
-        <div className='linkedin'>
-          <div className='contactInfoLabel'>Linkedin</div>
-          <div>{this.state.linkedin}</div>
-        </div>
-        {/* Form */}
-        {this.state.formOn && (
-          <form className='form' onSubmit={this.toggleForm}>
-            <div>Edit Contact Info</div>
-            <label className='inputFieldLabel' htmlFor='addressInput'>
-              Address
-            </label>
-            <input
-              id='addressInput'
-              type='text'
-              name='address'
-              maxLength='100'
-              value={this.state.address}
-              onChange={this.onChange}
-              autoFocus
-            />
-            <label className='inputFieldLabel' htmlFor='phoneInput'>
-              Phone
-            </label>
-            <input
-              id='phoneInput'
-              type='text'
-              name='phone'
-              maxLength='100'
-              onChange={this.onChange}
-              value={this.state.phone}
-            />
-            <label className='inputFieldLabel' htmlFor='emailInput'>
-              Email
-            </label>
-            <input
-              id='emailInput'
-              type='text'
-              name='email'
-              maxLength='100'
-              onChange={this.onChange}
-              value={this.state.email}
-            />
-            <label className='inputFieldLabel' htmlFor='websiteInput'>
-              Website
-            </label>
-            <input
-              id='websiteInput'
-              type='text'
-              name='website'
-              maxLength='100'
-              onChange={this.onChange}
-              value={this.state.website}
-            />
-            <label className='inputFieldLabel' htmlFor='linkedinInput'>
-              LinkedIn Username
-            </label>
-            <input
-              id='linkedinInput'
-              type='text'
-              name='linkedin'
-              maxLength='100'
-              onChange={this.onChange}
-              value={this.state.linkedin}
-            />
-            <input type='submit' value='Done' className='formBtn' />
-          </form>
-        )}
       </div>
     );
   }

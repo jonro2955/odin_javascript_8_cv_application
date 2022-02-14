@@ -20,12 +20,12 @@ class Education extends Component {
       schoolsList: [
         {
           id: uniqid(),
-          school: 'Awesome School',
-          location: 'Location',
-          degree: 'Degree',
+          school: 'Kwantlen Polytechnic University',
+          location: 'Surrey, BC',
+          degree: 'Diploma in Digital Design',
           gpa: '3.5',
-          start: '2022-01-10',
-          end: '2023-02-10',
+          start: 'JAN 2020',
+          end: 'APR 2022',
         },
         {
           id: uniqid(),
@@ -33,8 +33,8 @@ class Education extends Component {
           location: 'Location',
           degree: 'Degree',
           gpa: '3.5',
-          start: '2022-01-10',
-          end: '2023-02-10',
+          start: 'JAN 2020',
+          end: 'APR 2022',
         },
       ],
     };
@@ -174,7 +174,7 @@ class Education extends Component {
   render() {
     return (
       <div id='EducationComponent'>
-        <div>Education</div>
+        <div id='EducationHeading' className='alignLeft'>Education</div>
         <button className='editBtn' onClick={this.toggleAdder}>
           Add
         </button>

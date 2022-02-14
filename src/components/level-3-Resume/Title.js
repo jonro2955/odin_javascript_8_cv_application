@@ -28,7 +28,7 @@ class Title extends Component {
         <button className='editBtn' onClick={this.toggleEditor}>
           Edit
         </button>
-        <div>{this.state.title}</div>
+        <div id='title' className='alignLeft'>{this.state.title}</div>
         {/* form */}
         {this.state.editorToggle && (
           <form className='form' onSubmit={this.toggleEditor}>

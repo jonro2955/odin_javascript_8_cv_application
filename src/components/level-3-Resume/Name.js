@@ -34,7 +34,7 @@ class Name extends Component {
         <button className='editBtn' onClick={this.toggleForm}>
           Edit
         </button>
-        <div className='leftColumnHeading'>{this.state.name}</div>
+        <div id='name' className='alignLeft'>{this.state.name}</div>
         {/* form */}
         {this.state.formOn && (
           <form className='form' onSubmit={this.toggleForm}>

@@ -32,8 +32,8 @@ class Experience extends Component {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
           description3:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
-          start: '2020-01-01',
-          end: '2021-01-10',
+          start: 'JAN 2020',
+          end: 'JAN 2021',
         },
         {
           id: uniqid(),
@@ -46,8 +46,8 @@ class Experience extends Component {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
           description3:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
-          start: '2020-01-01',
-          end: '2021-01-10',
+          start: 'JAN 2020',
+          end: 'JAN 2021',
         },
         {
           id: uniqid(),
@@ -60,8 +60,8 @@ class Experience extends Component {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
           description3:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. ',
-          start: '2020-01-01',
-          end: '2021-01-10',
+          start: 'JAN 2020',
+          end: 'JAN 2021',
         },
       ],
     };
@@ -82,12 +82,6 @@ class Experience extends Component {
   handleChangePosition = (e) => {
     this.setState({
       title: e.target.value,
-    });
-  };
-
-  handleChangeDescription1 = (e) => {
-    this.setState({
-      description1: e.target.value,
     });
   };
 
@@ -229,7 +223,7 @@ class Experience extends Component {
   render() {
     return (
       <div id='ExperienceComponent'>
-        <div>Experience</div>
+        <div id='ExperienceHeading' className='alignLeft'>Experience</div>
         <button className='editBtn' onClick={this.toggleAdder}>
           Add
         </button>

@@ -25,11 +25,11 @@ class Profile extends Component {
   render() {
     return (
       <div id='ProfileComponent'>
-        <div className='leftColumnHeading'>Profile</div>
+        <div id='profileHeading' className='alignLeft'>Profile</div>
         <button className='editBtn' onClick={this.toggleEditor}>
           Edit
         </button>
-        <div>{this.state.profile}</div>
+        <div className='alignLeft'>{this.state.profile}</div>
         {this.state.editorToggle && (
           <form className='form' onSubmit={this.toggleEditor}>
             <label className='inputFieldLabel' htmlFor='profileInput'>
