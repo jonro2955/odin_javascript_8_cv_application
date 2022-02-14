@@ -20,9 +20,9 @@ class Education extends Component {
       schoolsList: [
         {
           id: uniqid(),
-          school: 'Kwantlen Polytechnic University',
-          location: 'Surrey, BC',
-          degree: 'Diploma in Digital Design',
+          school: 'Awesome School',
+          location: 'Location',
+          degree: 'Degree',
           gpa: '3.5',
           start: 'JAN 2020',
           end: 'APR 2022',
