@@ -28,22 +28,24 @@ class Title extends Component {
         <button className='editBtn' onClick={this.toggleEditor}>
           Edit
         </button>
-        <div id='title' className='alignLeft'>{this.state.title}</div>
+        <div id='title' className='alignLeft'>
+          {this.state.title}
+        </div>
         {/* form */}
         {this.state.editorToggle && (
-          <form className='form' onSubmit={this.toggleEditor}>
+          <form className='formPosition2' onSubmit={this.toggleEditor}>
             <label className='inputFieldLabel' htmlFor='nameInput'>
-              Title
+              Your Title
             </label>
-            <input
+            <textarea
               id='nameInput'
               name='title'
-              type='text'
-              maxLength='100'
+              rows='3'
+              maxLength='50'
               value={this.state.title}
               onChange={this.onChange}
               autoFocus
-            />
+            ></textarea>
             <input type='submit' value='Done' className='formBtn' />
           </form>
         )}

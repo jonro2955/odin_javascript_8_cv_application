@@ -27,7 +27,7 @@ body {
   /* height: 1200px; */
   max-height: 1400px;
   margin: auto;
-  /* overflow: hidden; */
+  overflow: hidden;
   background-color: white;
   background-color: rgba(255, 255, 255, 0.85);
 }
@@ -66,6 +66,17 @@ body {
   font-size: 30px;
   margin: 25px 0 0 25px;
 }
+#photoForm {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 200%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 500px;
+}
 #ContactComponent {
   position: relative;
   margin: auto 0;
@@ -84,19 +95,18 @@ body {
   display: block;
 }
 #contactCenterBox {
-  /* position: absolute; */
   padding: 100px 15px;
 }
-#contactHeading {
+.contactHeading {
   font-weight: bold;
-  margin: 15px 0 10px 0;
+  margin: 15px 0 5px 0;
 }
 .contactForm {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 100%;
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
   z-index: 1;
@@ -123,19 +133,14 @@ body {
   padding: 100px 15px;
 }
 #skillsHeading {
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   margin: 15px 0;
-  /* font-weight: bold; */
-  font-size: 25px;
-  font-family: 'Times New Roman', Times, serif;
 }
 .skillsForm {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 100%;
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
   z-index: 1;
@@ -150,7 +155,8 @@ body {
 }
 #name {
   font-size: 40px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Playfair Display', serif;
+  color: rgb(27, 124, 70);
 }
 #NameComponent:hover {
   position: relative;
@@ -186,6 +192,7 @@ body {
 }
 #title {
   font-size: 20px;
+  font-family: 'Playfair Display', serif;
 }
 #ProfileComponent {
   position: relative;
@@ -206,16 +213,12 @@ body {
   display: block;
 }
 #profileHeading {
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   margin: 15px 0;
-  font-size: 25px;
-  font-family: 'Times New Roman', Times, serif;
 }
 #EducationComponent {
   position: relative;
   padding: 15px;
-  min-height: 200px;
+  min-height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -235,11 +238,6 @@ body {
   display: block;
 }
 #EducationHeading {
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  margin: 15px 0;
-  font-size: 25px;
-  font-family: 'Times New Roman', Times, serif;
   margin: 15px;
 }
 .schoolEntry {
@@ -278,12 +276,7 @@ body {
   display: block;
 }
 #ExperienceHeading {
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  margin: 15px 0;
-  font-size: 25px;
   margin: 15px;
-  font-family: 'Times New Roman', Times, serif;
 }
 .experienceEntry {
   position: relative;
@@ -318,7 +311,7 @@ body {
 .experienceEntry:hover .entryEditBtnsDiv {
   display: block;
 }
-.form {
+.formPosition1 {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -329,8 +322,32 @@ body {
   z-index: 1;
   width: 500px;
 }
+.formPosition2 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 500px;
+}
+.formPosition3 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 500px;
+}
+
 .inputFieldLabel {
   font-weight: bold;
+  font-size: 25px;
 }
 .borderBottom {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
@@ -357,6 +374,7 @@ body {
   font-size: 15px;
 }
 .editBtn {
+  margin-top: 5px;
   width: 150px;
   height: 50px;
   border: none;
@@ -368,15 +386,29 @@ body {
   font-size: 15px;
 }
 .formBtn {
-  margin-top: 15px;
-  font-weight: bold;
-  background-color: orange;
+  margin: 15px auto;
+  width: 150px;
+  height: 50px;
+  border: none;
+  background: #b8a2ec;
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 .boldHeading {
   font-weight: bold;
 }
 .alignLeft {
   text-align: left;
+}
+.borderedHeading {
+  color: rgb(27, 124, 70);
+  border-top: 1px solid rgba(27, 124, 70, 0.5);
+  border-bottom: 1px solid rgba(27, 124, 70, 0.5);
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
 }
 #PDFButtonComponent {
   margin-top: 15px;

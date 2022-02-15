@@ -8,10 +8,10 @@ class Contact extends Component {
     this.state = {
       formOn: false,
       address: '123 Town Street, City, State, ZIP',
-      phone: '555-555-5555',
+      phone: '123-456-7890',
       email: 'info@website.com',
       website: 'website.com',
-      linkedin: 'user-name',
+      linkedin: 'in/username',
     };
   }
 
@@ -65,23 +65,23 @@ class Contact extends Component {
             Edit
           </button>
           <div className='address'>
-            <div id='contactHeading'>Address</div>
+            <div className='contactHeading'>Address:</div>
             <div>{this.state.address}</div>
           </div>
           <div className='phone'>
-            <div className='contactHeading'>Phone</div>
+            <div className='contactHeading'>Phone:</div>
             <div>{this.state.phone}</div>
           </div>
           <div className='email'>
-            <div className='contactHeading'>Email</div>
+            <div className='contactHeading'>Email:</div>
             <div>{this.state.email}</div>
           </div>
           <div className='website'>
-            <div className='contactHeading'>Website</div>
+            <div className='contactHeading'>Website:</div>
             <div>{this.state.website}</div>
           </div>
           <div className='linkedin'>
-            <div className='contactHeading'>Linkedin</div>
+            <div className='contactHeading'>Linkedin:</div>
             <div>{this.state.linkedin}</div>
           </div>
           {/* Form */}

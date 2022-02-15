@@ -33,7 +33,9 @@ class Skills extends Component {
     return (
       <div id='SkillsComponent'>
         <div id='skillsCenterBox'>
-          <div id='skillsHeading'>Skills</div>
+          <div id='skillsHeading' className='borderedHeading'>
+            Skills
+          </div>
           <button className='editBtn' onClick={this.toggleEditor}>
             Edit
           </button>

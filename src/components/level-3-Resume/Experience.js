@@ -223,7 +223,9 @@ class Experience extends Component {
   render() {
     return (
       <div id='ExperienceComponent'>
-        <div id='ExperienceHeading' className='alignLeft'>Experience</div>
+        <div id='ExperienceHeading' className='borderedHeading alignLeft'>
+          Experience
+        </div>
         <button className='editBtn' onClick={this.toggleAdder}>
           Add
         </button>
@@ -235,7 +237,7 @@ class Experience extends Component {
         {/* Form */}
         {this.state.formOn && (
           <form
-            className='form'
+            className='formPosition3'
             onSubmit={
               this.state.formHeading === 'Edit Experience'
                 ? this.onSubmitEdit

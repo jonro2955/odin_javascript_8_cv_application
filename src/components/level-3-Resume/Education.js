@@ -174,7 +174,9 @@ class Education extends Component {
   render() {
     return (
       <div id='EducationComponent'>
-        <div id='EducationHeading' className='alignLeft'>Education</div>
+        <div id='EducationHeading' className='borderedHeading alignLeft'>
+          Education
+        </div>
         <button className='editBtn' onClick={this.toggleAdder}>
           Add
         </button>
@@ -186,7 +188,7 @@ class Education extends Component {
         {/* Form */}
         {this.state.formOn && (
           <form
-            className='form'
+            className='formPosition2'
             onSubmit={
               this.state.formHeading === 'Edit School'
                 ? this.onSubmitEdit

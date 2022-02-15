@@ -34,22 +34,24 @@ class Name extends Component {
         <button className='editBtn' onClick={this.toggleForm}>
           Edit
         </button>
-        <div id='name' className='alignLeft'>{this.state.name}</div>
+        <div id='name' className='alignLeft'>
+          {this.state.name}
+        </div>
         {/* form */}
         {this.state.formOn && (
-          <form className='form' onSubmit={this.toggleForm}>
+          <form className='formPosition2' onSubmit={this.toggleForm}>
             <label className='inputFieldLabel' htmlFor='nameEditForm'>
-              Name
+              Your Name
             </label>
-            <input
+            <textarea
               name='name'
-              type='text'
-              maxLength='100'
+              maxLength='50'
+              rows='3'
               id='nameEditForm'
               value={this.state.name}
               onChange={this.onChange}
               autoFocus
-            />
+            ></textarea>
             <input type='submit' value='Done' className='formBtn' />
           </form>
         )}

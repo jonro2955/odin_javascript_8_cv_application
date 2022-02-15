@@ -39,7 +39,7 @@ class Photo extends Component {
 
         {/* form */}
         {this.state.editorToggle && (
-          <form className='form photoForm' onSubmit={this.togglePhotoEditor}>
+          <form id='photoForm' onSubmit={this.togglePhotoEditor}>
             <label htmlFor='photoURLInput'>New Photo URL</label>
             <textarea
               id='photoURLInput'
