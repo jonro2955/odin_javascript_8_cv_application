@@ -33,7 +33,7 @@ class ExperienceList extends Component {
                 <li>{exp.description2}</li>
                 <li>{exp.description3}</li>
               </ul>
-              <div className='entryEditBtns'>
+              <div className='entryEditBtnsDiv'>
                 <button
                   className='entryEditBtn'
                   id={exp.id}

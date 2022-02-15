@@ -4,23 +4,29 @@
 }
 #ResumeComponent {
   width: 1100px;
-  max-width: 1100px;
-  height: 1400px;
-  max-height: 1400px;
+  /* max-width: 1100px; */
+  /* height: 1400px;
+  max-height: 1400px; */
   margin: auto;
   border: 1px black solid;
   /* overflow: hidden; */
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 75px;
 }
 #resumeInnerDiv {
   display: grid;
-  grid-template-columns: 225px 775px;
-  border: 1px orange solid;
-  width: 1000px;
-  max-width: 1000px;
-  height: 1300px;
-  max-height: 1300px;
-  margin: 50px auto;
+  grid-template-columns: 250px 850px;
+  /* width: 1000px; */
+  /* max-width: 1000px;  */
+  /* height: 1200px; */
+  max-height: 1400px;
+  margin: auto;
   /* overflow: hidden; */
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 #resume-left-column {
   display: grid;
@@ -29,26 +35,24 @@
 }
 #resume-right-column {
   overflow: visible;
-  /* border: green 1px solid; */
 }
 #PhotoComponent {
   position: relative;
 }
 #photo {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 250px;
-  width: 250px;
+  top: 0%;
+  left: 0%;
+  /* transform: translate(-50%, -50%); */
+  height: 300px;
+  width: 300px;
   background-size: cover;
   background-position: center;
   background-color: white;
-  /* z-index: 1; */
+  z-index: 1;
   border-radius: 50%;
-  border: blue 1px solid;
   font-size: 30px;
-  margin-left: 15px;
+  margin: 25px 0 0 25px;
 }
 #photo:hover:before {
   content: 'EDIT';
@@ -72,15 +76,14 @@
   margin: auto 0;
 }
 #contactCenterBox {
+  /* position: absolute; */
   padding: 100px 15px;
 }
 #ContactComponent .editBtn {
-  width: 150px;
-  height: 35px;
   display: none;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 10%;
   transform: translate(-50%, -50%);
 }
 #ContactComponent:hover {
@@ -99,20 +102,29 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   margin-top: 15px;
 }
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 300px;
+}
 #SkillsComponent {
   position: relative;
-  margin: auto 0;
+  margin: 100px 0;
 }
 #skillsCenterBox {
   padding: 100px 15px;
 }
 #SkillsComponent .editBtn {
-  width: 150px;
-  height: 35px;
   display: none;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 10%;
   transform: translate(-50%, -50%);
 }
 #SkillsComponent:hover {
@@ -121,29 +133,37 @@
 #SkillsComponent:hover .editBtn {
   display: block;
 }
-.skillHeading {
+.skillsHeading {
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   border-bottom: 3px solid rgba(0, 0, 0, 0.5);
   margin-bottom: 15px;
 }
+.skillsForm {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 300px;
+}
 #introGroup {
-  margin: 0 0 25px 50px;
+  margin: 50px 0 25px 100px;
 }
 #NameComponent {
   position: relative;
-  /* border: orange 1px solid; */
+  padding: 15px;
 }
 #name {
   font-size: 40px;
-  margin: 25px 0 15px 0;
 }
 #NameComponent:hover {
   position: relative;
   background-color: aquamarine;
 }
 #NameComponent .editBtn {
-  width: 150px;
-  height: 35px;
   display: none;
   position: absolute;
   left: 50%;
@@ -166,57 +186,54 @@
   background-color: aquamarine;
 }
 #TitleComponent .editBtn {
-  width: 150px;
-  height: 35px;
   display: none;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
 #TitleComponent:hover .editBtn {
   display: block;
 }
 #ProfileComponent {
   position: relative;
+  padding: 15px;
 }
 #ProfileComponent:hover {
   position: relative;
   background-color: aquamarine;
 }
 #ProfileComponent .editBtn {
-  width: 150px;
-  height: 35px;
   display: none;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-#profileHeading {
-  font-size: 20px;
   margin: 15px;
 }
 #ProfileComponent:hover .editBtn {
   display: block;
 }
+#profileHeading {
+  font-size: 20px;
+}
 #EducationComponent {
   position: relative;
-  padding: 25px;
-  /* border: blue 1px solid; */
+  padding: 15px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #EducationComponent:hover {
   position: relative;
   background-color: aquamarine;
 }
 #EducationComponent .editBtn {
-  width: 150px;
-  height: 35px;
   display: none;
   position: absolute;
   left: 50%;
-  top: 0%;
+  top: 10%;
   transform: translate(-50%, 10%);
 }
 #EducationComponent:hover .editBtn {
@@ -227,24 +244,24 @@
   margin: 15px;
 }
 .schoolEntry {
-  /* border: black 1px solid; */
   position: relative;
   margin: 0 25px;
   padding: 10px 0;
   display: grid;
   grid-template-columns: 200px auto 200px;
 }
-.schoolEntry .entryEditBtns {
+.schoolEntry .entryEditBtnsDiv {
   display: none;
 }
-.schoolEntry:hover .entryEditBtns {
+.schoolEntry:hover .entryEditBtnsDiv {
   display: block;
 }
 .schoolEntry:hover {
-  background-color: darkgoldenrod;
+  background-color: rgb(185, 247, 226);
 }
 #ExperienceComponent {
-  margin: 15px;
+  /* margin: 15px; */
+  padding: 15px;
   position: relative;
 }
 #ExperienceComponent:hover {
@@ -252,13 +269,11 @@
   background-color: aquamarine;
 }
 #ExperienceComponent .editBtn {
-  width: 150px;
-  height: 35px;
   display: none;
   position: absolute;
   left: 50%;
-  top: 0%;
-  transform: translate(-50%, 10%);
+  top: 5%;
+  transform: translate(-50%, -50%);
 }
 #ExperienceComponent:hover .editBtn {
   display: block;
@@ -279,7 +294,7 @@
     'expEntryDetail expEntryDetail';
 }
 .experienceEntry:hover {
-  background-color: darkgoldenrod;
+  background-color: rgb(185, 247, 226);
 }
 .expEntryInfo1 {
   grid-area: expEntryInfo1;
@@ -294,10 +309,10 @@
   margin-top: -5px;
   /* border: black 1px solid; */
 }
-.experienceEntry .entryEditBtns {
+.experienceEntry .entryEditBtnsDiv {
   display: none;
 }
-.experienceEntry:hover .entryEditBtns {
+.experienceEntry:hover .entryEditBtnsDiv {
   display: block;
 }
 .form {
@@ -325,7 +340,7 @@
 .adderFormHeading {
   font-size: 25px;
 }
-.entryEditBtns {
+.entryEditBtnsDiv {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -334,6 +349,25 @@
 .entryEditBtn {
   width: 100px;
   height: 30px;
+  margin: 0 1px;
+  border: none;
+  background: #b8a2ec;
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.editBtn {
+  width: 150px;
+  height: 35px;
+  border: none;
+  background: #b8a2ec;
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 .boldHeading {
   font-weight: bold;

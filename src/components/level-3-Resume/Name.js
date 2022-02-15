@@ -7,7 +7,7 @@ class Name extends Component {
     this.closeForm = this.closeForm.bind(this);
 
     this.state = {
-      name: 'John Webster',
+      name: 'Your Name',
       formOn: false,
     };
   }

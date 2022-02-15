@@ -30,7 +30,7 @@ class EducationList extends Component {
                 <div>{school.degree}</div>
                 <div>GPA: {school.gpa}</div>
               </div>
-              <div className='entryEditBtns'>
+              <div className='entryEditBtnsDiv'>
                 <button
                   className='entryEditBtn'
                   id={school.id}

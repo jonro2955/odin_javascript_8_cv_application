@@ -33,7 +33,7 @@ class Skills extends Component {
     return (
       <div id='SkillsComponent'>
         <div id='skillsCenterBox'>
-          <div className='skillHeading'>Skills</div>
+          <div className='skillsHeading'>Skills</div>
           <button className='editBtn' onClick={this.toggleEditor}>
             Edit
           </button>
@@ -47,7 +47,7 @@ class Skills extends Component {
           <div>{this.state.skill8}</div>
           {/* form */}
           {this.state.editorToggle && (
-            <form className='form' onSubmit={this.toggleEditor}>
+            <form className='skillsForm' onSubmit={this.toggleEditor}>
               <label className='inputFieldLabel' htmlFor='skill1Input'>
                 Skill 1
               </label>

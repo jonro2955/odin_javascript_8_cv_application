@@ -64,7 +64,6 @@ class Contact extends Component {
           <button className='editBtn' type='button' onClick={this.toggleForm}>
             Edit
           </button>
-
           <div className='address'>
             <div className='contactHeading'>Address</div>
             <div>{this.state.address}</div>
@@ -87,7 +86,7 @@ class Contact extends Component {
           </div>
           {/* Form */}
           {this.state.formOn && (
-            <form className='form' onSubmit={this.toggleForm}>
+            <form className='contactForm' onSubmit={this.toggleForm}>
               <div>Edit Contact Info</div>
               <label className='inputFieldLabel' htmlFor='addressInput'>
                 Address
