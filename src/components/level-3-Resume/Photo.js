@@ -31,8 +31,12 @@ class Photo extends Component {
 
     return (
       <div id='PhotoComponent'>
-        <div id='photo' style={photoStyle} onClick={this.togglePhotoEditor}>
+        <div id='photo' style={photoStyle}>
+          <button className='editBtn' onClick={this.togglePhotoEditor}>
+            Edit
+          </button>
         </div>
+
         {/* form */}
         {this.state.editorToggle && (
           <form className='form photoForm' onSubmit={this.togglePhotoEditor}>

@@ -1,3 +1,6 @@
+body {
+  font-family: priori-sans, sans-serif;
+}
 #AppComponent {
   text-align: center;
   margin: auto;
@@ -30,7 +33,7 @@
 }
 #resume-left-column {
   display: grid;
-  grid-template-rows: 300px 335px auto;
+  grid-template-rows: 325px 335px auto;
   overflow: visible;
 }
 #resume-right-column {
@@ -39,11 +42,20 @@
 #PhotoComponent {
   position: relative;
 }
+#PhotoComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#PhotoComponent:hover .editBtn {
+  display: block;
+}
 #photo {
   position: absolute;
   top: 0%;
   left: 0%;
-  /* transform: translate(-50%, -50%); */
   height: 300px;
   width: 300px;
   background-size: cover;
@@ -54,60 +66,37 @@
   font-size: 30px;
   margin: 25px 0 0 25px;
 }
-#photo:hover:before {
-  content: 'EDIT';
-  height: 100%;
-  width: 100%;
-  display: block;
-  background-color: rgba(255, 255, 255, 0.5);
-  text-align: center;
-  padding-top: 100px;
-  font-weight: bolder;
-}
-.photoEditBtn {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-}
 #ContactComponent {
   position: relative;
   margin: auto 0;
 }
-#contactCenterBox {
-  /* position: absolute; */
-  padding: 100px 15px;
+#ContactComponent:hover {
+  background-color: aquamarine;
 }
 #ContactComponent .editBtn {
   display: none;
   position: absolute;
   left: 50%;
-  top: 10%;
-  transform: translate(-50%, -50%);
-}
-#ContactComponent:hover {
-  background-color: aquamarine;
+  top: 0%;
+  transform: translate(-50%, 0%);
 }
 #ContactComponent:hover .editBtn {
   display: block;
 }
-.contactInfoLabel {
+#contactCenterBox {
+  /* position: absolute; */
+  padding: 100px 15px;
+}
+#contactHeading {
   font-weight: bold;
-}
-.contactInfo {
-  margin: 0 5px;
-}
-.contactHeading {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  margin-top: 15px;
+  margin: 15px 0 10px 0;
 }
 .contactForm {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 50%;
-  left: 100%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
   z-index: 1;
@@ -117,33 +106,36 @@
   position: relative;
   margin: 100px 0;
 }
-#skillsCenterBox {
-  padding: 100px 15px;
+#SkillsComponent:hover {
+  background-color: aquamarine;
 }
 #SkillsComponent .editBtn {
   display: none;
   position: absolute;
   left: 50%;
-  top: 10%;
-  transform: translate(-50%, -50%);
-}
-#SkillsComponent:hover {
-  background-color: aquamarine;
+  top: 0%;
+  transform: translate(-50%, 0%);
 }
 #SkillsComponent:hover .editBtn {
   display: block;
 }
-.skillsHeading {
+#skillsCenterBox {
+  padding: 100px 15px;
+}
+#skillsHeading {
   border-top: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
-  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 15px 0;
+  /* font-weight: bold; */
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
 }
 .skillsForm {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 50%;
-  left: 100%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
   z-index: 1;
@@ -158,6 +150,7 @@
 }
 #name {
   font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
 }
 #NameComponent:hover {
   position: relative;
@@ -167,19 +160,15 @@
   display: none;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0%;
+  transform: translate(-50%, 0%);
 }
 #NameComponent:hover .editBtn {
   display: block;
 }
 #TitleComponent {
   position: relative;
-  padding: 15px;
-  /* border: yellow 1px solid; */
-}
-#title {
-  font-size: 20px;
+  padding: 20px 15px;
 }
 #TitleComponent:hover {
   position: relative;
@@ -189,11 +178,14 @@
   display: none;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0%;
+  transform: translate(-50%, 0%);
 }
 #TitleComponent:hover .editBtn {
   display: block;
+}
+#title {
+  font-size: 20px;
 }
 #ProfileComponent {
   position: relative;
@@ -207,15 +199,18 @@
   display: none;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: 15px;
+  top: 0%;
+  transform: translate(-50%, 0%);
 }
 #ProfileComponent:hover .editBtn {
   display: block;
 }
 #profileHeading {
-  font-size: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 15px 0;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
 }
 #EducationComponent {
   position: relative;
@@ -233,14 +228,18 @@
   display: none;
   position: absolute;
   left: 50%;
-  top: 10%;
-  transform: translate(-50%, 10%);
+  top: 0%;
+  transform: translate(-50%, 0%);
 }
 #EducationComponent:hover .editBtn {
   display: block;
 }
 #EducationHeading {
-  font-size: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 15px 0;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
   margin: 15px;
 }
 .schoolEntry {
@@ -261,7 +260,7 @@
 }
 #ExperienceComponent {
   /* margin: 15px; */
-  padding: 15px;
+  padding: 20px;
   position: relative;
 }
 #ExperienceComponent:hover {
@@ -272,15 +271,19 @@
   display: none;
   position: absolute;
   left: 50%;
-  top: 5%;
-  transform: translate(-50%, -50%);
+  top: 0%;
+  transform: translate(-50%, 0%);
 }
 #ExperienceComponent:hover .editBtn {
   display: block;
 }
 #ExperienceHeading {
-  font-size: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 15px 0;
+  font-size: 25px;
   margin: 15px;
+  font-family: 'Times New Roman', Times, serif;
 }
 .experienceEntry {
   position: relative;
@@ -326,11 +329,6 @@
   z-index: 1;
   width: 500px;
 }
-.formBtn {
-  margin-top: 15px;
-  font-weight: bold;
-  background-color: orange;
-}
 .inputFieldLabel {
   font-weight: bold;
 }
@@ -360,7 +358,7 @@
 }
 .editBtn {
   width: 150px;
-  height: 35px;
+  height: 50px;
   border: none;
   background: #b8a2ec;
   color: #ffffff;
@@ -368,6 +366,11 @@
   font-weight: 700;
   text-transform: uppercase;
   font-size: 15px;
+}
+.formBtn {
+  margin-top: 15px;
+  font-weight: bold;
+  background-color: orange;
 }
 .boldHeading {
   font-weight: bold;

@@ -65,7 +65,7 @@ class Contact extends Component {
             Edit
           </button>
           <div className='address'>
-            <div className='contactHeading'>Address</div>
+            <div id='contactHeading'>Address</div>
             <div>{this.state.address}</div>
           </div>
           <div className='phone'>

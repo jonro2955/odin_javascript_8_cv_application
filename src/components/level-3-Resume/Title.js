@@ -5,7 +5,7 @@ class Title extends Component {
     super(props);
     this.toggleEditor = this.toggleEditor.bind(this);
     this.state = {
-      title: 'Web Developer',
+      title: 'Your Title',
       editorToggle: false,
     };
   }

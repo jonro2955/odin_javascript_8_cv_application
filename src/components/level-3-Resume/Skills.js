@@ -33,7 +33,7 @@ class Skills extends Component {
     return (
       <div id='SkillsComponent'>
         <div id='skillsCenterBox'>
-          <div className='skillsHeading'>Skills</div>
+          <div id='skillsHeading'>Skills</div>
           <button className='editBtn' onClick={this.toggleEditor}>
             Edit
           </button>
