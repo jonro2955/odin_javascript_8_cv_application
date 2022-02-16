@@ -13,7 +13,7 @@ class Skills extends Component {
       skill5: 'Team Management',
       skill6: 'Creative Problem Solving',
       skill7: 'Adaptability',
-      skill8: 'Marketing Sense',
+      skill8: 'Social Media',
     };
   }
 
@@ -33,7 +33,7 @@ class Skills extends Component {
     return (
       <div id='SkillsComponent'>
         <div id='skillsCenterBox'>
-          <div id='skillsHeading' className='borderedHeading'>
+          <div id='skillsHeading'>
             Skills
           </div>
           <button className='editBtn' onClick={this.toggleEditor}>
@@ -80,7 +80,6 @@ class Skills extends Component {
               </label>
               <input
                 id='skill3Input'
-                className='inputFieldLabel'
                 name='skill3'
                 type='text'
                 maxLength='100'

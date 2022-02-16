@@ -19,19 +19,19 @@ class ExperienceList extends Component {
           return (
             <div key={exp.id} className='experienceEntry'>
               <div className='expEntryInfo1 experienceEntryColumn'>
-                <div>
+                <div className='dates'>
                   {exp.start} - {exp.end}
                 </div>
-                <div>{exp.title}</div>
+                <div className='expTitle'>{exp.title}</div>
               </div>
               <div className='expEntryInfo2 experienceEntryColumn'>
-                <div>{exp.organization}</div>
-                <div>{exp.location}</div>
+                <div className='expOrgName'>{exp.organization}</div>
+                <div className='expLocation'>{exp.location}</div>
               </div>
-              <ul className='expEntryDetail'>
-                <li>{exp.description1}</li>
-                <li>{exp.description2}</li>
-                <li>{exp.description3}</li>
+              <ul className='expEntryList'>
+                <div className='fontSize15 expDesc'>{exp.description1}</div>
+                <div className='fontSize15 expDesc'>{exp.description2}</div>
+                <div className='fontSize15 expDesc'>{exp.description3}</div>
               </ul>
               <div className='entryEditBtnsDiv'>
                 <button

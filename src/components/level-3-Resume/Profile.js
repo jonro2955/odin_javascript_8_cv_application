@@ -31,7 +31,7 @@ class Profile extends Component {
         <button className='editBtn' onClick={this.toggleEditor}>
           Edit
         </button>
-        <div className='alignLeft'>{this.state.profile}</div>
+        <div className='alignLeft fontSize15'>{this.state.profile}</div>
         {this.state.editorToggle && (
           <form className='formPosition2' onSubmit={this.toggleEditor}>
             <label className='inputFieldLabel' htmlFor='profileInput'>

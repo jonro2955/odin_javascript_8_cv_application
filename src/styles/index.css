@@ -13,7 +13,7 @@ body {
   margin: auto;
   border: 1px black solid;
   /* overflow: hidden; */
-  background-image: url('../images/background.jpg');
+  background-image: url('../images/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,22 +22,20 @@ body {
 #resumeInnerDiv {
   display: grid;
   grid-template-columns: 250px 850px;
-  /* width: 1000px; */
-  /* max-width: 1000px;  */
-  /* height: 1200px; */
   max-height: 1400px;
   margin: auto;
   overflow: hidden;
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.85);
 }
 #resume-left-column {
   display: grid;
   grid-template-rows: 325px 335px auto;
   overflow: visible;
+  background-color: rgba(11, 100, 81, 0.85);
+  color: #ffffff;
 }
 #resume-right-column {
   overflow: visible;
+  background-color: rgba(235, 233, 217, 0.85);
 }
 #PhotoComponent {
   position: relative;
@@ -82,7 +80,7 @@ body {
   margin: auto 0;
 }
 #ContactComponent:hover {
-  background-color: aquamarine;
+  background-color: rgb(78, 165, 136);
 }
 #ContactComponent .editBtn {
   display: none;
@@ -99,6 +97,7 @@ body {
 }
 .contactHeading {
   font-weight: bold;
+  font-size: larger;
   margin: 15px 0 5px 0;
 }
 .contactForm {
@@ -117,7 +116,7 @@ body {
   margin: 100px 0;
 }
 #SkillsComponent:hover {
-  background-color: aquamarine;
+  background-color: rgb(78, 165, 136);
 }
 #SkillsComponent .editBtn {
   display: none;
@@ -131,9 +130,16 @@ body {
 }
 #skillsCenterBox {
   padding: 100px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 #skillsHeading {
   margin: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
 }
 .skillsForm {
   display: flex;
@@ -147,16 +153,17 @@ body {
   width: 300px;
 }
 #introGroup {
-  margin: 50px 0 25px 100px;
+  margin: 25px 0 25px 100px;
 }
 #NameComponent {
   position: relative;
   padding: 15px;
+  margin-bottom: -25px;
 }
 #name {
   font-size: 40px;
   font-family: 'Playfair Display', serif;
-  color: rgb(27, 124, 70);
+  color: rgb(11, 100, 81);
 }
 #NameComponent:hover {
   position: relative;
@@ -217,7 +224,7 @@ body {
 }
 #EducationComponent {
   position: relative;
-  padding: 15px;
+  padding: 15px 15px 0 15px;
   min-height: 180px;
   display: flex;
   flex-direction: column;
@@ -258,7 +265,7 @@ body {
 }
 #ExperienceComponent {
   /* margin: 15px; */
-  padding: 20px;
+  padding: 15px 15px 0 15px;
   position: relative;
 }
 #ExperienceComponent:hover {
@@ -287,7 +294,7 @@ body {
   grid-template-rows: 50px auto;
   grid-template-areas:
     'expEntryInfo1 expEntryInfo2'
-    'expEntryDetail expEntryDetail';
+    'expEntryList expEntryList';
 }
 .experienceEntry:hover {
   background-color: rgb(185, 247, 226);
@@ -300,8 +307,8 @@ body {
   grid-area: expEntryInfo2;
   /* border: black 1px solid; */
 }
-.expEntryDetail {
-  grid-area: expEntryDetail;
+.expEntryList {
+  grid-area: expEntryList;
   margin-top: -5px;
   /* border: black 1px solid; */
 }
@@ -404,11 +411,16 @@ body {
   text-align: left;
 }
 .borderedHeading {
-  color: rgb(27, 124, 70);
-  border-top: 1px solid rgba(27, 124, 70, 0.5);
-  border-bottom: 1px solid rgba(27, 124, 70, 0.5);
+  color: rgb(11, 100, 81);
+  border-top: 1px solid rgba(11, 100, 81, 0.5);
+  border-bottom: 1px solid rgba(11, 100, 81, 0.5);
+  /* rgba(11, 100, 81, 0.85) */
   font-size: 25px;
   font-family: 'Times New Roman', Times, serif;
+}
+.fontSize15 {
+  font-size: 15px;
+  margin-bottom: 5px;
 }
 #PDFButtonComponent {
   margin-top: 15px;
@@ -417,4 +429,35 @@ body {
   background-color: yellow;
   width: 1000px;
   border-radius: 10px;
+}
+.dates {
+  margin: auto;
+}
+.schoolName {
+  font-size: 18px;
+  color: rgb(11, 100, 81);
+  font-family: 'Prosto One', cursive;
+}
+.schoolLocation {
+}
+.degree {
+  color: coral;
+  font-weight: bold;
+  font-family: 'Prosto One', cursive;
+}
+.gpa {
+}
+.expTitle {
+  color: coral;
+  font-weight: bold;
+  font-family: 'Prosto One', cursive;
+}
+.expOrgName {
+  font-family: 'Prosto One', cursive;
+  color: rgb(11, 100, 81);
+  font-size: 18px;
+}
+.expLocation {
+}
+.expDesc {
 }

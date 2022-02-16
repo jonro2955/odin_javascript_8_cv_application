@@ -19,16 +19,16 @@ class EducationList extends Component {
         {this.props.state.schoolsList.map((school) => {
           return (
             <div key={school.id} className='schoolEntry'>
-              <div className='schoolEntryColumn'>
+              <div className='dates'>
                 {school.start} - {school.end}
               </div>
               <div className='schoolEntryColumn'>
-                <div>{school.school}</div>
-                <div>{school.location}</div>
+                <div className='schoolName'>{school.school}</div>
+                <div className='schoolLocation'>{school.location}</div>
               </div>
               <div className='schoolEntryColumn'>
-                <div>{school.degree}</div>
-                <div>GPA: {school.gpa}</div>
+                <div className='degree'>{school.degree}</div>
+                <div className='gpa'>GPA: {school.gpa}</div>
               </div>
               <div className='entryEditBtnsDiv'>
                 <button
