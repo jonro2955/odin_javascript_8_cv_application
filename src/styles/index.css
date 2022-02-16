@@ -13,7 +13,7 @@ body {
   margin: auto;
   border: 1px black solid;
   /* overflow: hidden; */
-  background-image: url('../images/bg.jpg');
+  background-image: url('../images/bg2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -438,24 +438,20 @@ body {
   color: rgb(11, 100, 81);
   font-family: 'Prosto One', cursive;
 }
-.schoolLocation {
-}
-.degree {
-  color: coral;
-  font-weight: bold;
-  font-family: 'Prosto One', cursive;
-}
-.gpa {
-}
 .expTitle {
-  color: coral;
-  font-weight: bold;
   font-family: 'Prosto One', cursive;
 }
 .expOrgName {
   font-family: 'Prosto One', cursive;
   color: rgb(11, 100, 81);
   font-size: 18px;
+}
+.degree {
+  font-family: 'Prosto One', cursive;
+}
+.schoolLocation {
+}
+.gpa {
 }
 .expLocation {
 }
