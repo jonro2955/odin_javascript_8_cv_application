@@ -158,8 +158,8 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 50%;
-  left: 100%;
+  top: 30%;
+  left: 150%;
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
   z-index: 1;
@@ -393,12 +393,14 @@ body {
 .inputFieldLabel {
   font-weight: bold;
   font-size: 25px;
+  color: black;
 }
 .borderBottom {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 .adderFormHeading {
-  font-size: 25px;
+  font-size: 40px;
+  font-weight: bold;
 }
 .entryEditBtnsDiv {
   position: absolute;
