@@ -9,10 +9,6 @@ class EducationList extends Component {
     };
   }
 
-  toggleHover = () => {
-    this.setState(() => ({ hover: !this.state.hover }));
-  };
-
   render() {
     return (
       <div>

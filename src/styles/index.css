@@ -5,14 +5,16 @@ body {
   text-align: center;
   margin: auto;
 }
+#PDFButtonComponent {
+  margin: 50px;
+  padding: 20px;
+  font-size: large;
+}
+
 #ResumeComponent {
-  width: 1100px;
-  /* max-width: 1100px; */
-  /* height: 1400px;
-  max-height: 1400px; */
+  width: 1000px;
   margin: auto;
   border: 1px black solid;
-  /* overflow: hidden; */
   background-image: url('../images/bg2.jpg');
   background-size: cover;
   background-position: center;
@@ -21,8 +23,8 @@ body {
 }
 #resumeInnerDiv {
   display: grid;
-  grid-template-columns: 250px 850px;
-  max-height: 1400px;
+  grid-template-columns: 200px 800px;
+  max-height: 1300px;
   margin: auto;
   overflow: hidden;
 }
@@ -47,7 +49,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  
+
   height: 50px;
   border: none;
   background: #b8a2ec;
@@ -56,7 +58,6 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 15px;
-
 }
 #PhotoComponent:hover .photoChooseFileBtn {
   display: block;
@@ -165,7 +166,7 @@ body {
   width: 300px;
 }
 #introGroup {
-  margin: 25px 0 25px 100px;
+  margin: 25px 0 25px 130px;
 }
 #NameComponent {
   position: relative;
@@ -237,7 +238,7 @@ body {
 }
 #EducationComponent {
   position: relative;
-  padding: 15px 15px 0 15px;
+  padding: 0 15px 0 15px;
   min-height: 180px;
   display: flex;
   flex-direction: column;
@@ -287,7 +288,7 @@ body {
   font-size: 18px;
 }
 #ExperienceComponent {
-  padding: 15px 15px 0 15px;
+  padding: 0 15px 0 15px;
   position: relative;
 }
 #ExperienceComponent:hover {
@@ -410,7 +411,7 @@ body {
   height: 30px;
   margin: 0 1px;
   border: none;
-  background: #b8a2ec;
+  background: rgb(101, 66, 184);
   color: #ffffff;
   font-family: priori-sans, sans-serif;
   font-weight: 700;
@@ -422,7 +423,7 @@ body {
   width: 150px;
   height: 50px;
   border: none;
-  background: #b8a2ec;
+  background: rgb(101, 66, 184);
   color: #ffffff;
   font-family: priori-sans, sans-serif;
   font-weight: 700;
@@ -434,7 +435,7 @@ body {
   width: 150px;
   height: 50px;
   border: none;
-  background: #b8a2ec;
+  background: rgb(101, 66, 184);
   color: #ffffff;
   font-family: priori-sans, sans-serif;
   font-weight: 700;
@@ -460,14 +461,18 @@ body {
   font-size: 15px;
   margin-bottom: 5px;
 }
-#PDFButtonComponent {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px 0px;
-  background-color: yellow;
-  width: 1000px;
-  border-radius: 10px;
-}
 .dates {
   margin: auto;
+}
+#printBtn {
+  margin-top: 5px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  background: rgb(101, 66, 184);
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
 }
