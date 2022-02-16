@@ -84,10 +84,10 @@ class Contact extends Component {
             <div className='contactHeading'>Linkedin:</div>
             <div>{this.state.linkedin}</div>
           </div>
+
           {/* Form */}
           {this.state.formOn && (
             <form className='contactForm' onSubmit={this.toggleForm}>
-              <div>Edit Contact Info</div>
               <label className='inputFieldLabel' htmlFor='addressInput'>
                 Address
               </label>

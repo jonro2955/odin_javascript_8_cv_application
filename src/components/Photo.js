@@ -47,21 +47,32 @@ class Photo extends Component {
     return (
       <div id='PhotoComponent'>
         <div id='photo' style={photoStyle}>
-          {/* <button className='editBtn' onClick={this.togglePhotoEditor}>
-            Edit
-          </button> */}
-          <input
+          <button
+            className='photoChooseFileBtn'
+            onClick={this.togglePhotoEditor}
+          >
+            Change Photo URL
+          </button>
+          {/* <input
             id='imageFileInput'
             className='photoChooseFileBtn'
             type='file'
             onClick={this.changePhotoToFile}
-          ></input>
+          ></input> */}
         </div>
 
         {/* form */}
         {this.state.editorToggle && (
           <form id='photoForm' onSubmit={this.togglePhotoEditor}>
-            <label htmlFor='photoURLInput'>New Photo URL</label>
+            <label className='adderFormHeading' htmlFor='photoURLInput'>
+              New Photo URL
+            </label>
+            <p>
+              Please enter a URL address of a photo that has been
+              uploaded to an image hosting site such as
+              imgur.com. It should end with an image file extention such as .jpg or .png. For example:
+              https://hips.hearstapps.com/ghk.h-cdn.co/assets/15/33/1439490128-plants.jpg{' '}
+            </p>
             <textarea
               id='photoURLInput'
               name='photoURL'

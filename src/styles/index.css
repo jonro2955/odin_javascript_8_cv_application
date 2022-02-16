@@ -80,12 +80,13 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 200%;
   transform: translate(-50%, -50%);
   background-color: cornflowerblue;
   z-index: 1;
   width: 500px;
+  color: black;
 }
 #ContactComponent {
   position: relative;
@@ -401,6 +402,7 @@ body {
 .adderFormHeading {
   font-size: 40px;
   font-weight: bold;
+  color: black;
 }
 .entryEditBtnsDiv {
   position: absolute;
