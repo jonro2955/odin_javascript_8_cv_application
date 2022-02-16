@@ -7,7 +7,7 @@ class Contact extends Component {
     this.changeContact = this.changeContact.bind(this);
     this.state = {
       formOn: false,
-      address: '123 Town Street, City, State, ZIP',
+      address: '123 Center Street, City, State, ZIP',
       phone: '123-456-7890',
       email: 'info@website.com',
       website: 'website.com',

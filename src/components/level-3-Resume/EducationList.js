@@ -27,7 +27,7 @@ class EducationList extends Component {
                 <div className='schoolLocation'>{school.location}</div>
               </div>
               <div className='schoolEntryColumn'>
-                <div className='degree'>{school.degree}</div>
+                <div className='schoolDegree'>{school.degree}</div>
                 <div className='gpa'>GPA: {school.gpa}</div>
               </div>
               <div className='entryEditBtnsDiv'>
