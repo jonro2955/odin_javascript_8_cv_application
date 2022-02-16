@@ -14,7 +14,7 @@ class ExperienceList extends Component {
 
   render() {
     return (
-      <div>
+      <div id='experienceList'>
         {this.props.state.experienceList.map((exp) => {
           return (
             <div key={exp.id} className='experienceEntry'>
@@ -29,9 +29,9 @@ class ExperienceList extends Component {
                 <div className='expLocation'>{exp.location}</div>
               </div>
               <ul className='expEntryList'>
-                <div className='fontSize15 expDesc'>{exp.description1}</div>
-                <div className='fontSize15 expDesc'>{exp.description2}</div>
-                <div className='fontSize15 expDesc'>{exp.description3}</div>
+                <li className='fontSize15 expDesc'>{exp.description1}</li>
+                <li className='fontSize15 expDesc'>{exp.description2}</li>
+                <li className='fontSize15 expDesc'>{exp.description3}</li>
               </ul>
               <div className='entryEditBtnsDiv'>
                 <button
