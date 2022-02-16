@@ -40,14 +40,25 @@ body {
 #PhotoComponent {
   position: relative;
 }
-#PhotoComponent .editBtn {
+
+#PhotoComponent .photoChooseFileBtn {
   display: none;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  
+  height: 50px;
+  border: none;
+  background: #b8a2ec;
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+
 }
-#PhotoComponent:hover .editBtn {
+#PhotoComponent:hover .photoChooseFileBtn {
   display: block;
 }
 #photo {

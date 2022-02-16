@@ -7,8 +7,7 @@ class Photo extends Component {
     this.state = {
       editorToggle: false,
       photoURL:
-        'https://moderndogmagazine.com/sites/default/files/images/articles/top_images/husky2.jpg',
-      //https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg
+        'https://hips.hearstapps.com/ghk.h-cdn.co/assets/15/33/1439490128-plants.jpg',
     };
   }
 
@@ -19,9 +18,25 @@ class Photo extends Component {
     }));
   };
 
-  onChange = (e) => {
+  onPhotoURLChange = (e) => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  changePhotoToFile = () => {
+    let input = document.getElementById('imageFileInput');
+    input.addEventListener('change', function () {
+      let file = input.files[0];
+      if (!file) {
+        return;
+      }
+      let reader = new FileReader();
+      reader.addEventListener('load', () => {
+        document.getElementById('photo').style.backgroundImage =
+          'url(' + reader.result + ')';
+      });
+      reader.readAsDataURL(file);
+    });
   };
 
   render() {
@@ -32,9 +47,15 @@ class Photo extends Component {
     return (
       <div id='PhotoComponent'>
         <div id='photo' style={photoStyle}>
-          <button className='editBtn' onClick={this.togglePhotoEditor}>
+          {/* <button className='editBtn' onClick={this.togglePhotoEditor}>
             Edit
-          </button>
+          </button> */}
+          <input
+            id='imageFileInput'
+            className='photoChooseFileBtn'
+            type='file'
+            onClick={this.changePhotoToFile}
+          ></input>
         </div>
 
         {/* form */}
@@ -47,7 +68,7 @@ class Photo extends Component {
               rows='9'
               wrap='soft'
               value={this.state.photoURL}
-              onChange={this.onChange}
+              onChange={this.onPhotoURLChange}
               autoFocus
             ></textarea>
             <input type='submit' value='Done' className='formBtn' />
