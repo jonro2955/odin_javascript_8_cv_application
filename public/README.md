@@ -1,7 +1,3 @@
-[CV Application (under construction)
-](https://jonro2955.github.io/odin_javascript_8_cv_application/)
-
-
 # CV Application
 A resume creator built using React. The app provides a visually appealing resume design template on which users can create their resume. Each part can be edited and then the entire document can be printed to PDF.
 

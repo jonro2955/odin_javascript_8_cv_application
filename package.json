@@ -17,10 +17,10 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "git": "git add . && git commit -m",
-    "postgit": "git push --all",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "git": "npm run deploy && git add . && git commit -m",
+    "postgit": "git push --all",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
