@@ -10,13 +10,13 @@ class App extends Component {
   render() {
     return (
       <div id='AppComponent'>
-        <Resume ref={(el) => (this.componentRef = el)} />
         <ReactToPrint
           trigger={() => {
             return <button id='printBtn'>PRINT TO PDF</button>;
           }}
           content={() => this.componentRef}
         />
+        <Resume ref={(el) => (this.componentRef = el)} />
       </div>
     );
   }
