@@ -16,7 +16,6 @@ class Skills extends Component {
       skill8: 'Social Media',
       skill9: '',
       skill10: '',
-      skill11: '',
     };
   }
 
@@ -50,7 +49,6 @@ class Skills extends Component {
           <div>{this.state.skill8}</div>
           <div>{this.state.skill9}</div>
           <div>{this.state.skill10}</div>
-          <div>{this.state.skill11}</div>
 
           {/* form */}
           {this.state.editorToggle && (
@@ -175,18 +173,6 @@ class Skills extends Component {
                 maxLength='100'
                 htmlFor='skillsEditForm'
                 value={this.state.skill10}
-                onChange={this.onChange}
-              />
-              <label className='inputFieldLabel' htmlFor='skill11Input'>
-                Skill 11
-              </label>
-              <input
-                id='skill11Input'
-                name='skill11'
-                type='text'
-                maxLength='100'
-                htmlFor='skillsEditForm'
-                value={this.state.skill11}
                 onChange={this.onChange}
               />
               <input type='submit' value='Done' className='formBtn' />
