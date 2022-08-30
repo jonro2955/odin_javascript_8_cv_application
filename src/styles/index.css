@@ -1,0 +1,484 @@
+
+body {
+  font-family: priori-sans, sans-serif;
+  /* margin 0 removes the top and left margins from printed page */
+  margin: 0mm;
+}
+#AppComponent {
+  text-align: center;
+  margin: auto;
+}
+#PDFButtonComponent {
+  margin: 50px;
+  padding: 20px;
+  font-size: large;
+}
+
+#ResumeComponent {
+  width: 1000px;
+  margin: 5px auto;
+  padding: 75px;
+  background-image: url('bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#resumeInnerDiv {
+  display: grid;
+  grid-template-columns: 200px 800px;
+  /* max-height controls the height of the outer ResumeComponent  */
+  max-height: 1328px;
+  margin: auto;
+  overflow: hidden;
+}
+#resume-left-column {
+  display: grid;
+  grid-template-rows: 325px 335px auto;
+  overflow: visible;
+  background-color: rgba(11, 100, 81, 0.85);
+  color: #ffffff;
+}
+#resume-right-column {
+  overflow: visible;
+  background-color: rgba(235, 233, 217, 0.85);
+}
+#PhotoComponent {
+  position: relative;
+}
+
+#PhotoComponent .photoChooseFileBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  background: rgb(101, 66, 184);
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+#PhotoComponent:hover .photoChooseFileBtn {
+  display: block;
+}
+#photo {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  z-index: 1;
+  border-radius: 50%;
+  font-size: 30px;
+  margin: 25px 0 0 25px;
+}
+#photoForm {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 200%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 500px;
+  color: black;
+}
+#ContactComponent {
+  position: relative;
+  margin: auto 0;
+}
+#ContactComponent:hover {
+  background-color: rgb(78, 165, 136);
+}
+#ContactComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+#ContactComponent:hover .editBtn {
+  display: block;
+}
+#contactCenterBox {
+  padding: 100px 15px;
+}
+.contactHeading {
+  font-weight: bold;
+  font-size: larger;
+  margin: 15px 0 5px 0;
+}
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 300px;
+}
+#SkillsComponent {
+  position: relative;
+  margin: 100px 0;
+}
+#SkillsComponent:hover {
+  background-color: rgb(78, 165, 136);
+}
+#SkillsComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+#SkillsComponent:hover .editBtn {
+  display: block;
+}
+#skillsCenterBox {
+  padding: 100px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#skillsHeading {
+  margin: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.skillsForm {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30%;
+  left: 150%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 300px;
+}
+#introGroup {
+  margin: 25px 0 25px 130px;
+}
+#NameComponent {
+  position: relative;
+  padding: 15px;
+  margin-bottom: -25px;
+}
+#name {
+  font-size: 40px;
+  font-family: 'Playfair Display', serif;
+  color: rgb(11, 100, 81);
+}
+#NameComponent:hover {
+  position: relative;
+  background-color: aquamarine;
+}
+#NameComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+#NameComponent:hover .editBtn {
+  display: block;
+}
+#TitleComponent {
+  position: relative;
+  padding: 20px 15px;
+}
+#TitleComponent:hover {
+  position: relative;
+  background-color: aquamarine;
+}
+#TitleComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+#TitleComponent:hover .editBtn {
+  display: block;
+}
+#title {
+  font-family: 'Prosto One', cursive;
+  color: rgb(238, 121, 54);
+  font-size: 18px;
+}
+#ProfileComponent {
+  position: relative;
+  padding: 15px;
+}
+#ProfileComponent:hover {
+  position: relative;
+  background-color: aquamarine;
+}
+#ProfileComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+#ProfileComponent:hover .editBtn {
+  display: block;
+}
+#profileHeading {
+  margin: 15px 0;
+}
+#EducationComponent {
+  position: relative;
+  padding: 0 15px 0 15px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#EducationComponent:hover {
+  position: relative;
+  background-color: aquamarine;
+}
+#EducationComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+#EducationComponent:hover .editBtn {
+  display: block;
+}
+#EducationHeading {
+  margin: 15px;
+}
+.schoolEntry {
+  position: relative;
+  margin: 0 25px;
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+}
+.schoolEntry .entryEditBtnsDiv {
+  display: none;
+}
+.schoolEntry:hover .entryEditBtnsDiv {
+  display: block;
+}
+.schoolEntry:hover {
+  background-color: rgb(185, 247, 226);
+}
+.schoolName {
+  font-size: 18px;
+  color: rgb(11, 100, 81);
+  font-family: 'Prosto One', cursive;
+}
+.schoolDegree {
+  font-family: 'Prosto One', cursive;
+  color: rgb(238, 121, 54);
+  font-size: 18px;
+}
+#ExperienceComponent {
+  padding: 0 15px 0 15px;
+  position: relative;
+  min-height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#ExperienceComponent:hover {
+  position: relative;
+  background-color: aquamarine;
+}
+#ExperienceComponent .editBtn {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+}
+#ExperienceComponent:hover .editBtn {
+  display: block;
+}
+#ExperienceHeading {
+  margin: 15px;
+}
+.experienceEntry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: 50px auto;
+  grid-template-areas:
+    'expEntryInfo1 expEntryInfo2'
+    'expEntryList expEntryList';
+  margin: 25px;
+}
+.experienceEntry:hover {
+  background-color: rgb(185, 247, 226);
+}
+.expEntryInfo1 {
+  grid-area: expEntryInfo1;
+  /* border: black 1px solid; */
+}
+.expEntryInfo2 {
+  grid-area: expEntryInfo2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* border: black 1px solid; */
+}
+.expEntryList {
+  grid-area: expEntryList;
+  margin-top: -5px;
+  /* border: black 1px solid; */
+}
+.experienceEntry .entryEditBtnsDiv {
+  display: none;
+}
+.experienceEntry:hover .entryEditBtnsDiv {
+  display: block;
+}
+.expTitle {
+  font-family: 'Prosto One', cursive;
+  color: rgb(238, 121, 54);
+  font-size: 18px;
+}
+.expOrgName {
+  font-family: 'Prosto One', cursive;
+  color: rgb(11, 100, 81);
+  font-size: 18px;
+}
+.expDesc {
+  /* margin-bottom: 50px; */
+  text-align: left;
+}
+.formPosition1 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 500px;
+}
+.formPosition2 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 500px;
+}
+.formPosition3 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: cornflowerblue;
+  z-index: 1;
+  width: 500px;
+}
+
+.inputFieldLabel {
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
+}
+.borderBottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.adderFormHeading {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+}
+.entryEditBtnsDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.entryEditBtn {
+  width: 100px;
+  height: 30px;
+  margin: 0 1px;
+  background: rgb(101, 66, 184);
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.editBtn {
+  margin-top: 5px;
+  width: 150px;
+  height: 50px;
+  background: rgb(101, 66, 184);
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.formBtn {
+  margin: 15px auto;
+  width: 150px;
+  height: 50px;
+  background: rgb(101, 66, 184);
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.boldHeading {
+  font-weight: bold;
+}
+.alignLeft {
+  text-align: left;
+}
+.borderedHeading {
+  color: rgb(11, 100, 81);
+  border-top: 1px solid rgba(11, 100, 81, 0.5);
+  border-bottom: 1px solid rgba(11, 100, 81, 0.5);
+  /* rgba(11, 100, 81, 0.85) */
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.fontSize15 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.dates {
+  margin: auto;
+}
+#printBtn {
+  margin-top: 5px;
+  width: 150px;
+  height: 50px;
+  background: rgb(101, 66, 184);
+  color: #ffffff;
+  font-family: priori-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+}
